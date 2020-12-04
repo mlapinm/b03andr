@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivTl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -19,13 +19,14 @@
         android:src="@drawable/semafor_grey" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/ibStartStop"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:backgroundTint="@android:color/transparent"
+        android:onClick="onClickStartStop"
         android:scaleType="fitCenter"
+        android:src="@drawable/button_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:src="@drawable/button_start" />
+        app:layout_constraintTop_toBottomOf="@+id/ivTl" />
 </androidx.constraintlayout.widget.ConstraintLayout>
