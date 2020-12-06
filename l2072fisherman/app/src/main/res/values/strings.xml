@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">l2072fisherman</string>
+    <string name="fish">Рыба</string>
+    <string name="na">Наживка</string>
+    <string name="sna">Снасти</string>
+    <string name="history">Истории</string>
 </resources>
