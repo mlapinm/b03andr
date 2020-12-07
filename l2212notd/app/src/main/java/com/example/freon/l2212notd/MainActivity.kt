@@ -1,11 +1,11 @@
-package com.example.l2182nota
+package com.example.freon.l2212notd
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.example.l2182nota.db.MyDbManager
+import com.example.freon.l2212notd.db.MyDbManager
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

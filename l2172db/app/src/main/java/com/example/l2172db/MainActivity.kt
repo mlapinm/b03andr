@@ -2,6 +2,7 @@ package com.example.l2172db
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             tvTest?.append(item)
             tvTest?.append("\n")
         }
+        Log.i("info", "This is info.")
     }
 
     fun onClickSave(view: View) {
