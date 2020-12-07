@@ -22,8 +22,13 @@ class MainActivity : AppCompatActivity() {
         edTitle = findViewById(R.id.edTitle)
         edContent = findViewById(R.id.edContent)
         tvTest = findViewById(R.id.tvTest)
-
-
+        tvTest?.text = ""
+        myDbManager.openDb()
+        val dataList = myDbManager.readDbData()
+        for( item in dataList){
+            tvTest?.append(item)
+            tvTest?.append("\n")
+        }
     }
 
     fun onClickSave(view: View) {
