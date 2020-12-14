@@ -293,7 +293,7 @@ function name(str){
 						if(num < 0&& number+num>=0){
 						
 							number+=num;
-							document.getElementById('images').src = imageArray[number];
+							document.getElementById('images').src = "./" + imageArray[number];
 							var str = imageArray[number];
 							var str1 = str.replace(/(?:images\/)/,"");
 							var str2 = str1.replace(/(?:.jpg)/,"");
@@ -301,7 +301,7 @@ function name(str){
 							document.getElementById('num_img').innerHTML= number + 1 + '/' + imageCount + " " +
 							str3;
 							var ha = document.getElementById("homeaudio");
-							ha.src = "media/201/" + name(str) + ".mp3";
+							ha.src = "./media/201/" + name(str) + ".mp3";
 						}
 					}
 				}
