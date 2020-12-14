@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<base target="_blank"/>
+	<style>
+		.past {
+			background-color: gainsboro;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+	</style>
+</head>
+<body>
+<ol>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Подготовка рабочего пространства. Урок 1</p>
+			<p><a href="https://www.apachefriends.org/ru/index.html">XAMPP Apache + MariaDB + PHP + Perl</a></p>
+			<p><a href="https://www.apachefriends.org/download.html">More download..sourceforge</a></p>
+			<p><a href="https://xampp.ru.uptodown.com/windows/download">Apache, PHP и MySQL</a></p>
+			<p>D:\programs\OSPanel\domains\localhost\blog01</p>
+			<p>file.txt / Hello World!</p>
+			<p><a href="http://localhost/blog01/file.txt">http://localhost/blog01/file.txt</a></p>
+			<p><a href="https://www.sublimetext.com/3">sublimetext</a>
+			npp
+			<u>brackets</u>
+			<a href="http://brackets.io/">brackets.io</a></p>
+			
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Основы HTML. Урок 2</p>
+			<p>Brackets
+			file open folder D:\programs\OSPanel\domains\localhost\blog01</p>
+			<p>index.html</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>style.css</p>
+			<p>footer{text-align: center;}</p>
+			<p>PHP. Быстрый старт. Основы CSS. Урок 3 </p>
+			<p>style.css</p>
+			<p><a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/">getbootstrap getting-started - cdn </a></p>
+			<p>.articles{margin-top: 30px;}</p>
+			<p>class="container"</p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p><a href="http://localhost/blog01/?a=3&b=5">?a=3&b=5</a></p>
+			<p>PHP. Быстрый старт. Основы PHP. Урок 4 </p>
+			<p>index.php</p>
+			<p>$a = $_GET['a'];</p>
+			<p>$b = $_GET['b'];</p>
+			<p>echo "a+b=".($a+$b);</p>
+			<p>http://localhost/blog01/?a=3&b=5</p>
+<pre>
+	function add($param1, $param2){
+	return $param1 + $param2;
+}
+	echo "a+b=".add($a,$b);
+
+</pre>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Проектирование. Урок 5 </p>
+			<p><a href="http://localhost/blog01/admin/">admin</a></p>
+			<p><a href="http://localhost/blog01/models/articles.php/">http://localhost/blog01/models/articles.php/</a></p>
+			<pre>
+
+function articles_all(){
+	
+}
+
+function articles_get($id){
+	
+}
+
+function articles_new($title, $date, $content){
+	
+}
+
+function articles_delete($id){
+	
+}
+			
+			</pre>
+			<p><a href="http://localhost/blog01/article.php">http://localhost/blog01/article.php</a></p>
+
+			<pecho "Article";</p>
+			<p>database.php</p>
+			<p>index.php</p>s
+			<p>require_once("database.php");</p>
+			<p>require_once("models/articles.php");</p>
+			<p>$articles = articles_all();</p>
+			<p>views</p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Шаблонизация. Урок 6 </p>
+			<p>index.php</p>	
+			<ol>
+				<li>информация о базе</li>
+				<li>набор функций</li>
+				<li>вызываем функцию</li>
+				<li>отображаем</li>
+			</ol>
+			<ol>
+				<li>require_once("database.php");</li>
+				<li>require_once("models/articles.php");</li>
+				<li>$articles = articles_all();</li>
+				<li>include("views/articles.php");</li>
+			</ol>	
+			<p></p>	
+			<p></p>	
+			<p></p>	
+			<p><a href="http://localhost/blog01/models/articles.php">http://localhost/blog01/models/articles.php</a></p>
+			<pre>
+function articles_all(){
+	$art1 = ["id"=>1, "title"=>"Title1", "date"=>"2015-01-01", "content"=>"Content1"];
+	$art2 = ["id"=>2, "title"=>"Title2", "date"=>"2015-01-01", "content"=>"Content2"];
+	$arr[0] = $art1;
+	$arr[1] = $art2;
+	
+	return $arr;
+}
+
+function articles_get($id){
+	return ["id"=>1, "title"=>"Это простой заголовок", "date"=>"2015-01-01", "content"=>"Здесь будет статья"];
+}
+			</pre>
+			<p>index.php</p>
+			<pre>
+	require_once("database.php");
+	require_once("models/articles.php");
+
+	$articles = articles_all();
+
+	include("views/articles.php");
+			</pre>
+			<p></p>
+			<p>article.php</p>
+			<pre>
+	require_once("database.php");
+	require_once("models/articles.php");
+
+	$articles = articles_get($_GET['id']);
+
+	include("views/article.php");
+			</pre>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. MySQL, создание базы данных. Урок 7</p>
+			<p>phpmyadmin</p>
+			<p><a href="http://127.0.0.1/openserver/phpmyadmin/index.php">http://127.0.0.1/openserver/phpmyadmin/index.php</a></p>
+			<p>root</p>
+			<p>Создать БД</p>
+			<p>blog01</p>
+			<p>utf8_general_ci</p>
+			<p>[создать]</p>
+			<p>Создать таблицу</p>
+			<p>articles</p>
+			<ol>
+				<li>
+					<p>phpmyadmin</p>
+					<p>root</p>
+				</li>
+				<li>
+			<p>Создать БД</p>
+			<p>blog01</p>
+			<p>utf8_general_ci</p>
+			<p>[создать]</p>
+				</li>
+				<li>
+			<p>Создать таблицу</p>
+			<p>articles</p>
+			<p>id, title, date, content</p>
+			<table>
+				<tr>
+					<td>Имя</td>
+					<td>Тип</td>
+					<td>Длина</td>
+					<td>Сравнение</td>
+					<td>Null</td>
+					<td>Индекс</td>
+					<td>A_I</td>
+					<td>Комментарий</td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td>INT</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>PRIMARY</td>
+					<td>V</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>VARCHAR</td>
+					<td>255</td>
+					<td>utf8_general_ci</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>content</td>
+					<td>TEXT</td>
+					<td></td>
+					<td>utf8_general_ci</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>date</td>
+					<td>DATE</td>
+					<td></td>
+					<td>utf8_general_ci</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>Комментарии к таблице:</td>
+					<td>Сравнение:</td>
+					<td>Тип таблиц:</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>utf8_general_ci</td>
+					<td>InnoDB</td>
+				</tr>
+			</table>
+			<p>[Сохранить]</p>
+			<p>Обзор</p>
+			<p>Вставить</p>
+			<table>
+				<tr>
+					<td>Столбец</td>
+					<td>Тип</td>
+					<td>Функция</td>
+					<td>Значение</td>
+				</tr>
+				<tr>
+					<td>id</td>
+					<td>INT</td>
+					<td></td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>title</td>
+					<td>VARCHAR	255</td>
+					<td></td>
+					<td>Заголовок</td>
+				</tr>
+				<tr>
+					<td>content</td>
+					<td>TEXT</td>
+					<td></td>
+					<td>Текст</td>
+				</tr>
+				<tr>
+					<td>date</td>
+					<td>DATE</td>
+					<td></td>
+					<td>2019-05-01</td>
+				</tr>
+			</table>
+			<p>[Вперед]</p>
+			<p>INSERT INTO `articles` (`id`, `title`, `content`, `date`) VALUES ('1', 'Заголовок', 'Текст', '2019-05-01');</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+				</li>
+				<li>
+					
+				</li>
+			</ol>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Взаимодействие PHP и MySQL. Урок 8</p>
+			<p>database.php</p>
+			<p><pre>
+define('MYSQL_SERVER', 'localhost');
+define('MYSQL_USER', 'root');
+define('MYSQL_PASSWORD', '');
+define('MYSQL_DB', 'blog01');
+
+function db_connect(){
+	$link = mysqli_connect(MYSQL_SERVER, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB)
+		or die("Error: ".mysqli_error($link));
+	if(!mysqli_set_charset($link, "utf8")){
+		printf("Error: ".mysqli_error($link));
+	}
+	
+	return $link;
+}
+				
+			</pre></p>
+			<p>index.php</p>
+			<p>	$link = db_connect();</p>
+			<p>$articles = articles_all($link);</p>
+			<p>models/articles.php</p>
+			<pre>
+function articles_all($link){
+	$query = "SELECT * FROM articles ORDER BY id DESC";
+	$result = mysqli_query($link, $query);
+	
+	if(!$result){
+		die(mysqli_error($link));
+	}
+	//Извлечение из БД
+	$n = mysqli_num_rows($result);
+	$articles = array();
+	
+	for($i = 0; $i < $n; $i++)
+	{
+		$row = mysqli_fetch_assoc($result);
+		$articles[] = $row;
+	}
+	
+	return $articles;
+}
+
+function articles_get($id, $id_article){
+	$query = sprintf("SELECT * FROM articles WHERE id=%d",(int)$id_article);
+	$result = mysqli_query($link, $query);
+	
+	if(!$result){
+		die(mysqli_error($link));
+	}
+	$article = mysqli_fetch_assoc($result);
+	return $article;
+}</pre>
+			<p>article.php</p>
+			<p>	$link = db_connect();</p>
+			<p>$article = articles_get($link, $_GET['id']);</p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Админ панель, авторизация. Урок 9</p>
+			<p> .htaccess </p>
+			<p>AuthType Basic</p>
+			<p>AuthName "Admin Panel"</p>
+			<p>AuthUserFile D:\programs\OSPanel\domains\localhost\blog01\admin\.htpasswd</p>
+			<p>Require valid-user</p>			<p></p>
+			<p>cmd</p>
+			<p>d:</p>
+			<p>cd D:\programs\OSPanel\modules\http\Apache-2.4\bin</p>
+			<p>htpasswd.exe -c .htpasswd admin</p>
+			<p></p>
+			<p>http://localhost/blog01/admin/.htpasswd</p>
+			<p>admin:$apr1$Yt.OF1Jn$bbUEPRkX/590QLtvHB0Yq0</p>
+			<p>admin/<u>index.php</u></p>
+	<p>require_once("../database.php");</p>
+			<p>require_once("../models/articles.php");</p>
+			<p>$link = db_connect();</p>
+			<p>$articles = articles_all($link);</p>
+			<p>include(../views/articles_admin.php);</p>			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Админ панель, вывод статей. Урок 10</p>
+			<p>views/<u>articles_admin.php</u></p>
+			<p>from veiws articles</p>
+<p>&lt;? foreach($articles as $a): ?&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td&gt;&lt;?=$a['date'] ?&gt;&lt;/td&gt;</p>
+<p>&lt;td&gt;&lt;?=$a['title'] ?&gt;&lt;/td&gt;</p>
+<p>&lt;td&gt;&lt;a href="index.php?action=edit&id=&lt;?=$a['id'] ?&gt;"&gt;Редактировать&lt;/a&gt; &lt;/td&gt;</p>
+<p>&lt;td&gt;&lt;a href="index.php?action=delete&id=&lt;?=$a['id'] ?&gt;"&gt;Удалить&lt;/a&gt; &lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;? endforeach ?&gt;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Админ панель, добавление статей. Урок 11</p>
+			<p>views/add.html</p>
+			<pre>
+	&lt;form method="post" action="index.php"&gt;
+		&lt;label&gt;
+			Название
+			&lt;input type="text" name="title" value="" class="form-item" autofocus required&gt;
+		&lt;/label&gt;
+		&lt;label&gt;
+			Дата
+			&lt;input type="date" name="date" value="" class="form-item" required&gt;
+		&lt;/label&gt;
+		&lt;label&gt;
+			Содержимое
+			&lt;textarea name="content" class="form-item" id="" cols="30" rows="10"&gt;&lt;/textarea&gt;
+		&lt;/label&gt;
+		&lt;input type="submit" value="Сохранить" class="btn"&gt;
+
+	&lt;/form&gt;
+				
+			</pre>
+			<pre>
+	<form method="post" action="index.php">
+		<label>
+			Название
+			<input type="text" name="title" value="" class="form-item"  required>
+		</label>
+		<label>
+			Дата
+			<input type="date" name="date" value="" class="form-item" required>
+		</label>
+		<label>
+			Содержимое
+			<textarea name="content" class="form-item" id="" cols="30" rows="10"></textarea>
+		</label>
+		<input type="submit" value="Сохранить" class="btn">
+
+	</form>
+				
+			</pre>
+			<p>admin/index.php</p>
+			<pre>	
+	require_once("../database.php");
+	require_once("../models/articles.php");
+
+	$link = db_connect();
+	
+	if(isset($_GET['action']))
+		$action = $_GET['action'];
+	else
+		$action = "";
+
+	if($action=="add"){
+		include("../views/article_admin.php");
+	}else{
+		$articles = articles_all($link);
+		include("../views/articles_admin.php");
+	}
+
+			</pre>
+
+			<p>mysqli_real_escape_string</p>
+			<p>- экранирует строку, обезопасить от SQL-инъекций</p>
+			<p></p>
+			<p>article_admin.php</p>
+			<p>form method="post" action="index.php?action=add"</p>
+			<p>admin/<u>index.php</u></p>
+			<pre>	
+function articles_new($link, $title, $date, $content){
+	//Подготовка
+	$title = trim($title);
+	$content = trim($content);
+	//Проверка
+	if($title == '')
+		return false;
+	//Запрос
+	$t = "INSERT INTO articles (title, date, content) VALUES ('%s', '%s', '%s')";
+	$query = sprintf($t,
+mysqli_real_escape_string($link, $title),
+					 mysqli_real_escape_string($link, $date),
+					 mysqli_real_escape_string($link, $content));
+	//echo $query;
+	$result = mysqli_query($link, $query);
+	
+	if(!$result)
+		die(mysqli_error($link));
+	
+	return true;
+}
+
+			</pre>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Админ панель, редактирование статей. Урок 12</p>
+			<ol>
+				<li>admin/index.php</li>
+				<li>views/article_admin.php</li>
+				<li>models/articles.php</li>
+			</ol>
+			<p>admin/index.php</p>
+			<pre>else if($action=="edit"){
+		if(!isset($_GET['id']))
+			header("Location: index.php");
+		$id = (int)$_GET['id'];
+		
+		if(!empty($_POST && $id>0)){
+			articles_edit($link, $id, $_POST['title'], $_POST['date'], $_POST['content']);
+			header("Location: index.php");
+		}
+		$article = articles_get($link, $id);
+		include("../views/article_admin.php");
+	}else</pre>
+			<p>views/article_admin.php</p>
+			<p>&lt;form method="post" action="index.php?action=add"&gt;</p>
+			<p>&lt;form method="post" action="index.php?action=&lt;?=_GET['action'] ?&gt;"&gt;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Админ панель, удаление статей. Урок 13</p>
+			<p><u>admin/index.php</u></p>
+<p>else if($action=="delete"){</p>
+			<p>$id = (int)$_GET['id'];</p>
+			<p>$article = articles_delete($link, $id);</p>
+			<p>header("Location: index.php");</p>
+			<p>}else</p>			
+			<p><u>models/articles</u></p>
+			<p>function articles_delete($link, $id){</p>
+			<p>$id = (int)$id;</p>
+			<p>//Проверка</p>
+			<p>if($id==0)</p>
+			<p>return false;</p>
+			<p>//Запрос</p>
+			<p>$query = sprintf("DELETE FROM articles WHERE id='%d'", $id);</p>
+			<p>$result = mysqli_query($link, $query);</p>
+			<p>if(!$result)</p>
+			<p>die(mysqli_error($link));</p>
+			<p>return mysqli_affected_rows($link);</p>
+			<p>}</p>			<p></p>
+			<p>обрезка текста</p>
+			<p><u>models/articles.php</u></p>
+			<p>function articles_intro($text, $len = 500){</p>
+			<p>return mb_substr($text, 0, $len);</p>
+			<p>}</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p><u>views/articles.php</u></p>
+			<p>?=$a['content'] ?</p>
+			<p>?=articles_intro($a['content']) ?</p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Загрузка файлов на сервер. Урок 14</p>
+			<p>Download FileZilla Client for Windows (64bit)</p>
+			<p><a href="https://filezilla-project.org/">https://filezilla-project.org/</a></p>
+	<table>
+		<tr>
+			<td>Хост</td>
+			<td>Имя пользователя</td>
+			<td>пароль</td>
+			<td>порт</td>
+		</tr>
+		<tr>
+			<td>141.8.192.151</td>
+			<td>f0301120</td>
+			<td>2</td>
+			<td>21</td>
+		</tr>
+	</table>
+	<button>Быстрое соединение</button>
+	<p>Выгрузка database</p>
+			<p><a href="http://127.0.0.1/openserver/phpmyadmin/index.php">http://127.0.0.1/openserver/phpmyadmin/index.php</a></p>
+			<p>blog01/Экспорт/SQL [Вперед]</p>
+			<p>быстрый</p>
+			<p><a href="https://cp.sprinthost.ru/customer/databases/list">Создать базу данных</a></p>
+			<table>	
+				<tr>
+					<td>Имя базы данных:</td>
+					<td>f0301120_blog01</td>
+				</tr>
+				<tr>
+					<td>Имя пользователя:</td>
+					<td>f0301120_root</td>
+				</tr>
+				<tr>
+					<td>Пароль пользователя:</td>
+					<td>2</td>
+				</tr>
+			</table>
+			<button>Создать базу данных</button>
+			<p>Имя базы данных: 	f0301120_blog01</p>
+			<p>Адрес хоста: 	localhost</p>
+			<p>Пользователь: 	f0301120_root</p>			<p>	</p>
+			<p>	</p>
+<p>define('MYSQL_SERVER', 'localhost');</p>
+<p>define('MYSQL_USER', 'root');</p>
+<p>define('MYSQL_PASSWORD', '');</p>
+<p>define('MYSQL_DB', 'blog01');</p>
+
+<p>define('MYSQL_SERVER', 'localhost');</p>
+<p>define('MYSQL_USER', 'f0301120_root');</p>
+<p>define('MYSQL_PASSWORD', '20304050');</p>
+<p>define('MYSQL_DB', 'f0301120_blog01');</p>
+<p>/home/f0301120/</p>
+<p>/home/f0301120/domains/f0301120.xsph.ru/public_html/admin/.htpasswd</p>
+<p>AuthUserFile /home/f0301120/domains/f0301120.xsph.ru/public_html/admin/.htpasswd</p>
+<p>AuthUserFile D:\programs\OSPanel\domains\localhost\blog01\admin\.htpasswd</p>
+<p></p>
+<p></p>
+
+
+			<p><a href="https://pma.sprinthost.ru/index.php?server=1">phpmyadmin</a></p>
+			<p></p>
+		</div>
+	</li>
+	<li>
+		<div>
+			<p>PHP. Быстрый старт. Итоги. Урок 15</p>
+			<p></p>
+			<p></p>
+		</div>
+	</li>
+</ol>	
+	<br>
+	<a href="https://www.youtube.com/watch?v=TgZl3tEZgEE&list=PLmRNNqEA7JoM_Xp2EI24lVXt8MyXu0r16">Курс "PHP. Быстрый старт"</a>
+<p><a href="http://f0301120.xsph.ru/">http://f0301120.xsph.ru/</a></p>
+<p><a href="http://f0301120.xsph.ru/admin/pg02_admin.php">http://f0301120.xsph.ru/admin/pg02_admin.php</a></p>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Video</title>
+</head>
+<script>
+	var videoPlayer;
+	var video_count = 1;
+	var count = 2;
+	var string_01;
+	var list;
+	var files = [
+		"",
+		"001.mp3",
+		"002.mp3",
+	];
+	console.log(files.length);
+	window.onload = function(){
+		var k=0;
+		for(var i in files){
+			var li = document.getElementById(''+k);
+			console.log(''+k);
+			li.innerText = files[i];
+			k++;
+		}
+		videoPlayer = document.getElementById("homevideo");
+		string_01 = document.getElementById("p_01");
+		string_01.innerText = video_count+" : " +  "month41.mp4";
+		//
+		var paragraphs = [];
+		for(var i=1;i<=count;i++){
+			var paragraph = document.getElementById(i);
+			paragraphs.push(paragraph);
+		}	
+		paragraphs.forEach(function(pp){
+			pp.onclick = function(){
+				console.log(pp.innerText);
+				string_01.innerText= '' + pp.id + " : " + pp.innerText;
+				videoPlayer.src=""+pp.innerText;
+				for(var i=1;i<=count;i++){
+					document.getElementById(i).style.color="black";
+				}
+				pp.style.color="blue";
+				video_count = 0 + pp.id;
+			}
+		});
+		videoPlayer.addEventListener("play", function(){
+			console.log("Hello start");
+		}, false);
+		videoPlayer.addEventListener("ended", function(){
+			console.log("Hello ended");
+			video_count++;
+			if(video_count==count+1)video_count=1;
+			var nextVideo = ""+files[video_count];
+			videoPlayer.src = nextVideo;
+			for(var i=1;i<=count;i++){
+				document.getElementById(i).style.color="black";
+			}
+			document.getElementById(video_count).style.color="blue";
+			string_01.innerText = video_count+" : "+ nextVideo;
+		}, false);
+	}
+</script>
+<body>
+<p id = "p_01" style="font: 20px; font-family: Arial">
+	1_6_1zmeyka_vpered.mp4
+</p>
+
+<div style="float: left; width: 300px;background: #eee; margin: 0px;">
+<ul style="list-style-type: decimal;margin: 0px;">
+	<li id="0" style="display: none;"></li>
+	<li id="1">001.mp4</li>
+	<li id="2">002.mp4</li>
+	<li id="3"></li>
+	<li id="4"></li>
+</ul>
+</div>
+<audio controls autoplay volume = "2%" id = "homevideo" src="001.mp3" >123</embed>
+
+</body>
+</html>

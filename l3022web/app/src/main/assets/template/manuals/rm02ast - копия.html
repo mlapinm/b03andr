@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<base target="_blank">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+		p {
+			margin: 0px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<ol>
+		<li>
+			<p><a href="https://www.youtube.com/watch?v=VJQ5_MjLGVw">Asterisk 1 6 Как работает Dial plan</a></p>
+			<p>LearningIT
+			</p>
+			<p><a href="https://www.youtube.com/watch?v=yD8BUdM5Kc0&list=PL1LeoQF_fJbw3C-mSvbLkGYwdvSCWf0Pa">Cisco ICND1</a></p>
+			<p><a href=""></a></p>
+			<p><a href=""></a></p>
+			<p>*IMPORTANT: This is a softphone application and not a VoIP service. A SIP server or subscription with a SIP-based VoIP provider is required to make calls.*</p>
+			<p></p>
+			<p><a href="http://www.sip-line.ru/connection/x-lite">http://www.sip-line.ru/connection/x-lite</a></p>
+			<p>Поддержка одного SIP аккаунта</p>
+			<p>Отсутствие (в бесплатной версии) кодека G.729</p>
+			<p>Отсутствие (в бесплатной версии) шифрования (TLS/SRTP)</p>
+			<p>Для этого достаточно установить на компьютер один из стандартных программных телефонов или купить любой SIP телефон (или VoIP шлюз для обычного телефона) и общаться через Интернет без компьютера. Для организации распределенных сетей или корпоративной связи, а также при необходимости интеграции общения через Интернет в существующую офисную связь, можно приобрести виртуальную IP-АТС.</p>
+			<p><a href="https://www.counterpath.com/x-lite/">x-lite</a></p>
+			<p>GNU nano 2.0.9</p>
+			<p>File: /etc/asterisk/extensions.conf</p>
+			<p>[outcoling]</p>
+			<p>exten -> _XXXX,1,Dial(SIP/${EXTEN},,m)</p>
+			<ol>
+				<li>_XXXX <p>если в x-lite набрали 4 цифры</p>
+				</li>
+				<li>
+					<p>Dial(</p>
+					<p>совершит звонок</p>
+					<p></p>
+				</li>
+				<li>
+					<p>(SIP/</p>
+					<p>по протоколу</p>
+					<p></p>
+				</li>
+				<li>
+					<p>/${EXTEN}</p>
+					<p>по номеру, который мы набрали</p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+			</ol>
+			<p></p>
+			<pre>/etc/asterisk/sip.conf
+[1001]
+type=friend
+regexten=101
+secret=1234
+context=outcoling
+host=dynamic
+callerid="1001" 
+disallow=all
+allow=alaw
+allow=ulaw
+language=ru
+callgroup=1
+pickupgroup=1
+qualify=yes
+canreinvite=yes
+call-limit=4
+nat=no</pre>
+	<p><a href="https://www.youtube.com/watch?v=6HRpYcUqyJg">Asterisk 1 5 Настройка Extensions conf и демонстрация работы телефонов</a></p>
+	<p>putty,ssh,root,he</p>
+	<p>nano /etc/asterisk/extensions.conf</p>
+	<p><a href="https://www.youtube.com/watch?v=HB7wLDeXX8w">FreePBX 13 настройка c нуля</a></p>
+	<p><a href="https://www.youtube.com/watch?v=RBakVVnDZt8">FreePBX. Первые шаги: Настройка SIP и создание внутреннего номера</a></p>
+	<p><a href="http://192.168.0.115/admin/config.php?display=advancedsettings">http://192.168.0.115/admin/config.php?display=advancedsettings</a></p>
+	<table>
+		<tr>
+			<td>FreePBX Advanced Settings</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Show Language setting </td>
+			<td>Да</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>SIP Channel Driver</td>
+			<td>chan_sip</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>		<p>Настройки/Установки Asterisk для SIP</p>
+</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Разрешить входящие анонимные SIP звонки</td>
+			<td>Нет</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Настройки NAT</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Внешний адрес</td>
+			<td>78.41.102.78</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Локальные сети </td>
+			<td>192.168.10.0/24</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Разрешить SIP вызовы без аутентификации</td>
+			<td>Нет</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Установки канала SIP</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Порт </td>
+			<td>5060 (5160)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Приложения</td>
+			<td>Внутренние номера</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Добавить SIP внутренний номер</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Внутренний номер пользователя </td>
+			<td>101</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Отображаемое имя </td>
+			<td>Tester</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Голосовая почта</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Включено</td>
+			<td>Нет</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Расширенный</td>
+			<td>Добавить внутренний номер</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Разрешить </td>
+			<td>192.168.1.0/255.255.255.0</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Ожидание звонка </td>
+			<td>Выключить</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Контроль внешних входящих соединений</td>
+			<td>Да</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Контроль внешних исходящих соединений</td>
+			<td>Да</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Контроль внутренних входящих соединений </td>
+			<td>Да</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Контроль внутренних исходящих соединений</td>
+			<td>Да</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Запись разговоров </td>
+			<td>Включить</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>12b5b52a8f25f18db43c3a26f39056cf</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>104</td>
+			<td>5a1cbf8aedf41f08f7443fe9575e83de</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>House</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>101</td>
+			<td>033d19cf7a9f9071d2c326aa3d0011a4</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>102</td>
+			<td>3773c4e2b013fc2782fcb57a433b7bc2</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>103</td>
+			<td>af69e60f95bb75a06ae4e1a2a98f374f</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<p># /etc/init.d/asterisk restart</p>
+	<p>User Manager users '101,102,103,104' have the ability to receive faxes but have no email address defined so they will not be able to receive faxes over email,</p>
+	<p>Администратор/User Managment/ред../Факс</p>
+	<p>http://192.168.1.106/admin/config.php?display=userman&amp;action=showuser&amp;user=1&amp;directory=1</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p>zoiper</p>
+	<p><a href="https://www.zoiper.com/en/voip-softphone/download/current">https://www.zoiper.com/en/voip-softphone/download/current</a></p>
+	<p>C:\Program Files (x86)\Zoiper5</p>
+	<p>Zoiper5</p>
+	<p>
+		Create Account
+	</p>
+	<p>101</p>
+	<p>101@192.168.1.106:5060</p>
+	<img src="image/img01zoiper.png" alt="">
+	<img src="image/img02zoiper.png" alt="">
+	<p></p>
+	<p></p>
+	<p>*43</p>
+	<p></p>
+	<p>Sipnetic IPTON</p>
+	<p>несколько учетных записей</p>
+	<p>Которые активны все время</p>
+	<p>Ввести адрес сервера вручную</p>
+	<p>192.168.1.106</p>
+	<p>Проверка конфигурации</p>
+	<p>Параметры учетной записи</p>
+	<p>106</p>
+	<p>20..</p>
+	<p></p>
+	<p></p>
+	<p>chan_sip - old</p>
+	<p>chan_pjsip - new</p>
+	<p></p>
+	<p>x-lite</p>
+	<p>#1\a\a.T;match=1;prestrip=2;</p>
+	<p>2007. Gizmo Call - VoIP клиент в браузере</p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+		</li>
+		<li>
+			<p>Максим Неустроев</p>
+			<p><a href="https://www.youtube.com/watch?v=DAXAlDclnKc&list=PLo7-fD_f9vvH1SEG0klKpBiEcOJCapayL">Asterisk | Часть 1 - 1. Краткие теоретические сведения</a></p>
+			<p>машина с линукс</p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>w10 hyper</p>
+			<p>docs.microsoft.com</p>
+			<p><a href="https://docs.microsoft.com/ru-ru/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Установка Hyper-V вWindows10</a></p>
+			<ol>
+				<li>
+					<p>Пуск/rb</p>
+					<p>Windows PowerShell (администаратор)</p>
+					<p>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All</p>
+				</li>
+				<li>
+					<p>Панель управления\Программы\Программы и компоненты</p>
+					<p>Включение или отключение компонеттов Windows</p>
+					<p></p>
+				</li>
+				<li>
+				<div>
+					Hyper-V
+						<ul>
+							<li>Платформа Hyper-V
+								<ul>
+									<li>Низкоуровневая оболочка Hyper-V</li>
+									<li>Службы Hyper-V</li>
+								</ul>
+							</li>
+							<li>Средства управления Hyper-V
+								<ul>
+									<li>Модуль Hyper-V  для Windows PowerShell</li>
+									<li>Средства управления Hyper-V с графическим интерфейсом </li>
+								</ul>
+							</li>
+						</ul>
+				</div>
+				
+					
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p><a href="https://docs.microsoft.com/ru-ru/virtualization/hyper-v-on-windows/quick-start/quick-create-virtual-machine">Создание первой виртуальной машины</a></p>
+					<p>Пуск/поиск/H</p>
+					<p>Быстрое создание Hyper-V</p>
+					<p>Ubuntu 19.04</p>
+					<p>Средства администирования</p>
+					<p>Диспетчер Hyper-V</p>
+					<p>Средства администирования</p>
+					<ul>
+						<li>Диспетчер Hyper-V</li>
+					</ul>
+					<p>Окно - Диспетчер Hyper-V </p>
+					<p>Действия - Диспетчер Hyper-V</p>
+					<p>Подключиться к серв...</p>
+					<p>Выбор компьютера</p>
+					<p>Локальный компьютер</p>
+					<p>Дейсвия </p>
+					<p>Быстро создать...</p>
+					<p>Создать</p>
+					<p>Виртуальная машина</p>
+					<p>Приступая к работе/Далее</p>
+					<p>Новая виртуальная машина</p>
+					<p>Укажите местонахождение</p>
+					<p>Укажите поколение</p>
+					<p>Выделите память</p>
+					<p>Настройка сети</p>
+					<p>Подключите виртуальный жесткий диск</p>
+					<p>Параметры установки</p>
+					<p>Сводка</p>
+					<p>Переход с Windows 10 Home Edition на Windows 10 Pro путем открытия обновления параметров > и активации системы безопасности > ****.</p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+				<li>
+					<p></p>
+					<p></p>
+					<p></p>
+				</li>
+			</ol>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href="https://windowstune.ru/win7/hyper-v-windows-7.html">Секреты установки и базовой настройки HYPER-V SERVER и HYPER-V MANAGER на ПК с Windows 7</a></p>
+			<p><a href="https://www.youtube.com/watch?v=7ngZVvtxkNU&list=PLnclBQ7uk6AdKm4DMs7H_FVKljMWmHQ7B">Asterisk 1 1 Настройка виртуальной машины и установка CentOS</a></p>
+			<p>Константин Шульженко
+			</p>
+			<p>vm:</p>
+			<p>Вариант № 1: Установка и отладка HYPER-V сервер</p>
+			<p>Ни для кого не секрет, что сегодня система HYPER V SERVER от Microsoft представлена в нескольких сборках, у каждой из которой есть свои преимущества и недостатки. В частности, не так давно пользователям сети интернет стал доступен выпуск windows server 2012 r2 hyper v. Однако самым популярным вариантом все также остается версия Microsoft HVS 2008 R2 с настройкой Core.</p>
+			<p><a href="https://owin7.neocities.org/Virtualizacija/vir10.htm">10. Установка Windows 7 в виртуальную машину VMware Workstation.</a></p>
+			<p>Панель управления\Все элементы панели управления\Программы и компоненты</p>
+			<p>Включение и отключение компонентов Windows</p>
+			<p>win8</p>
+			<p><a href="https://www.microsoft.com/ru-ru/download/details.aspx?id=3512">Microsoft® Hyper-V™ Server 2008 R2</a></p>
+			<p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=7887">Remote Server Administration Tools for Windows 7 with Service Pack 1 (SP1)</a></p>
+			<p>Windows6.1-KB958830-x64-RefreshPkg.msu</p>
+			<p>230 M</p>
+			<p>\\NAS-9C-1A-64\MLAPINPC-ReadyCloud0\01freon\avi\tmp\04install</p>
+			<p><a href="https://www.youtube.com/watch?v=Mn5wDnknxho&t=325s">Installing Hyper V (Virtualization Manager) on win 7</a></p>
+			<p>Средства удаленного администрирования сервера</p>
+			<p>Диспетчер сервера</p>
+			<p>Средства администрирования ролей</p>
+			<p>Средства Hyper-V</p>
+			<p>Средства служб удаленных рабочих столов</p>
+			<p>Unde Remote Server Administration Tools - Role Administration Tools,</p>
+			<p>find th options for Hyper-V Tools,</p>
+			<p>check th checkbox and click OK.</p>
+			<p>You con now type Hyper-V Manager at the Start Menu</p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href="https://helloasterisk.ru/forum/index.php?topic=60.0">HELLOASTERISK - ПРОГРАММА ДЛЯ АВТОМАТИЗАЦИИ КОЛЛ ЦЕНТРА</a></p>
+			<p>Сеть:</p>
+			<p>most</p>
+			<p>тот же адаптер</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p>ifconfig</p>
+			<p>http://192.168.0.114/admin/config.php#</p>
+			<p>активировать FreePBX</p>
+			<p><a href="https://portal.sangoma.com/">https://portal.sangoma.com/</a></p>
+			<p>1q-</p>
+			<p>Admin/System Admin </p>
+			<p>Activation</p>
+			<p>Activate</p>
+			<p>Activate</p>
+			<p>mlapin@rambler.ru</p>
+			<p>Location Name: argon</p>
+			<p>Activation Status:
+				Activated with Deployment ID 44297950. Now installing...</p>
+			<p>Get a Hosted System Up in Minutes with PBXact Cloud</p>
+			<p>Looking for IP Phones?
+				Sangoma Phones Are Designed Exclusively for FreePBX</p>
+			<p>This machine has been activated.</p>
+			<p>Deployment ID 44297950</p>
+			<p>Activation Expiry29-May-2030</p>
+			<p>This machine will automatically re-activate before this date.</p>
+			<p>Location Name: freon</p>
+			<p> Deployment ID 69484935</p>
+			<p>Activation Expiry31-May-2030</p>
+			<p></p>
+			<p><a href="https://www.youtube.com/watch?v=3h-04e8Ascw&list=PLllvgKENadkPrrX5pLHu1DIbgqdL5UH1R">FreePBX запись телефонных разговоров</a></p>
+			<p><a href="http://192.168.0.114/admin/config.php?display=extensions">Applications/ Extentions</a></p>
+			<p>Extension - phone number</p>
+			<p><a href="https://vk.com/bolsheats">vk.com/bolsheats</a></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p><a href="https://www.youtube.com/watch?v=yyzGPpAFiSs&list=PLvJZW25Pxe0SUBcfkpSzdoTnQefthlKTC">asterisk Александр Linux 1 видео из 17</a></p>
+			<p># nano /etc/php5/apache2/php.ini</p>
+			<p>Find - 128</p>
+			<p>memory_limit = 256M</p>
+			<p># service apache2 restart</p>
+			<p>Collecting Anonymous Browser Stats</p>
+			<p>Браузер снимает статистику - можно отключить x</p>
+			<p>Default bing port for CHAN_PJSIP is: 5060, CHAN_SIP is: 5160</p>
+			<p>нужно будет поменять</p>
+			<p>Apply config</p>
+			<p>Панель состояния - Dashboard</p>
+			<p>при нажатии обновляется состояние</p>
+			<p>Астерикс был х , стал v</p>
+			<p>Firewall Configuration</p>
+			<p>Общие настройки</p>
+			<p>Дополнительные настройки</p>
+			<p>Country Indication tones - Russian Federation</p>
+			<p>Значение Ditech VQA для входящих вызовов 7</p>
+			<p>Значение Ditech VQA для исходящих вызовов 7</p>
+			<p>Лимит одновременных вызовов для внутренних номеров 3</p>
+			<p>SIP Channel Driver both chan_sip</p>
+			<p>Формат времени говорящих часов 24</p>
+			<p>System Identity</p>
+			<p>VoIP Server gp20</p>
+			<p>Сохранить / Применить изменения</p>
+			<hr>
+			<p>Администратор/Управление модулями</p>
+			<p>Standard/Проверить online</p>
+			<p>Основа FreePBX - обновлять отдельно</p>
+			<p>Скачать и обновить до 14.0.11</p>
+			<p>Запустить процесс</p>
+			<p># top</p>
+			<p>База</p>
+			<p> Digium Phones Config, isymphony, dahdi config - нет действий</p>
+			<p>Системная панель форсировать</p>
+			<p>Unsupported</p>
+			<p>phpagi - нет действий</p>
+			<p>SIPStation Free Trial - Not Now</p>
+			<p></p>
+			<p>Firewall</p>
+			<p>The client machine you are using to manage this server (192.168.0.113/32) is not a member of the Trusted zone. It is highly recommended to add this client to your Trusted Zone to avoid accidental lockouts.</p>
+			<p>You can add the host automatically here.</p>
+			<p>
+			<td>IP Address:</td>
+			<td>192.168.1.106/24</td>
+			</p>
+			<p>You can enter a shot descriptionb for this interface here.</p>
+			<p>frpbx</p>
+			<p>Sheduler and Alerts</p>
+			<p>
+				<tr>
+					<td>email:</td>
+					<td>mlapin@rambler.ru</td>
+				</tr>
+				<tr>
+					<td>System Identifier:</td>
+					<td>VoIPfreon</td>
+				</tr>
+			</p>
+			<p>Putty</p>
+			<p>192.168.1.106:22,SSH</p>
+			<p>OK</p>
+			<p>Putty</p>
+			<p>192.168.1.105:22,SSH</p>
+			<p>Bad(ubuntu-server)</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>Ubuntu 14.04 + FreePBX 13 установка с нуля</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>Ubuntu SSH</p>
+			<p><a href="https://losst.ru/ustanovka-ssh-ubuntu-16-04">https://losst.ru/ustanovka-ssh-ubuntu-16-04</a></p>
+			<p>$ sudo apt install openssh-server</p>
+			<p>sudo systemctl enable sshd</p>
+			<p>ru.archive.ubuntu.com</p>
+			<p>Временная ошибка при разрешении "ru.archive.ubuntu.com"</p>
+			<p>Помогла перезагрузка</p>
+			<p>sudo apt-get update</p>
+			<p>sudo apt install mc</p>
+			<p>mc</p>
+			<p>exit</p>
+			<p><a href="https://losst.ru/ustanovka-asterisk-13-na-ubuntu-16-04">https://losst.ru/ustanovka-asterisk-13-na-ubuntu-16-04</a></p>
+			<p>sudo -i</p>
+			<p>root@frubuntu:~#</p>
+			<p>apt-get install build-essential wget libssl-dev libncurses5-dev libnewt-dev libxml2-dev linux-headers-$(uname -r) libsqlite3-dev uuid-dev git subversion</p>
+			<p>cd /usr/src</p>
+			<p>wget downloads.asterisk.org/pub/telephony/asterisk/asterisk-13-current.tar.gz</p>
+			<p>tar zxvf asterisk-13-current.tar.gz</p>
+			<p>cd asterisk-13*</p>
+			<p>cd asterisk-13.26.0</p>
+			<p>git clone git://github.com/asterisk/pjproject pjproject</p>
+			<p>cd pjproject</p>
+			<p>./configure --prefix=/usr --enable-shared --disable-sound --disable-resample --disable-video --disable-opencore-amr CFLAGS='-O2 -DNDEBUG'</p>
+			<p>make dep make &amp;&amp; make install</p>
+			<p>ldconfig</p>
+			<p>ldconfig -p|grep pj</p>
+			<p>cd .. contrib/scripts/get_mp3_source.sh</p>
+			<p>cd .. contrib/scripts/get_mp3_source.sh</p>
+			<p>cd ..</p>
+			<p>cd contrib/scripts/get_mp3_source.sh</p>
+			<p>./configure &amp;&amp; make menuselect &amp;&amp; make &amp;&amp; make install</p>
+		</li>cd pjproject
+		<li>
+			<p>make samples</p>
+			<p>make config ldconfig</p>
+			<p>не прошло</p>
+			<p>make dep</p>
+			<p>make</p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href="http://lumpics.ru/how-install-ubuntu-on-virtualbox-virtual-machine/">how-install-ubuntu-on-virtualbox-virtual-machine</a></p>
+<table>
+	<tr>
+		<td>Имя:</td>
+		<td>LinuxUbuntu</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Папка машины:</td>
+		<td>D:\programs\VMs\</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Тип:</td>
+		<td>Linux</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Версия:</td>
+		<td>Ubuntu (64-bit)</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Создать новый виртуальный жесткий диск</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>VDI</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Фиксированный</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>mashine</td>
+		<td>frubuntu</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>user</td>
+		<td>mlapin</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>psw</td>
+		<td>20</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+		
+			<p>Авто - использовать весь диск и настроить LVM</p>
+			<p>Авто - использовать весь диск</p>
+			<p>Разметка диска</p>
+			<p>раздел #1 на устройстве  SCSI3(0,0,0)(sda) как  ext4</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href="https://www.dmosk.ru/miniinstruktions.php?mini=asterisk-ubuntu#install">Установка и базовая настройка сервера Asterisk на Ubuntu</a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+			<p><a href=""></a></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+	<table>
+		<tr>
+			<td>You should now enter a location name for this machine, This will be displayed on the FreePBX Dashboard, as well as in the Portal, to help identify this machine.</td>
+			<td>Теперь вы должны ввести имя местоположения для этой машины, это будет отображаться на панели мониторинга FreePBX, а также на портале, чтобы помочь идентифицировать эту машину.</td>
+		</tr>
+		<tr>
+			<td>If you do not enter a name, one will be automatically generated.</td>
+			<td>Если вы не введете имя, оно будет сгенерировано автоматически.</td>
+		</tr>
+		<tr>
+			<td>You may be eligible for further offers after activation.</td>
+			<td>Вы можете иметь право на дополнительные предложения после активации.</td>
+		</tr>
+		<tr>
+			<td>If there are any futher offers, they will be displayed after you click 'Activate'.</td>
+			<td>Если есть какие-либо дополнительные предложения, они будут отображаться после нажатия кнопки "активировать".</td>
+		</tr>
+		<tr>
+			<td>Your machine must be activated to install Commercial Modules. Note that some Free modules are classified as Commercial and require your machine to be activated.</td>
+			<td>Ваша машина должна быть активирована для установки коммерческих модулей. Обратите внимание, что некоторые бесплатные модули классифицируются как коммерческие и требуют активации вашей машины.</td>
+		</tr>
+		<tr>
+			<td>This machine is eligble for 1 offer!</td>
+			<td>Эта машина имеет право на 1 предложение!</td>
+		</tr>
+		<tr>
+			<td>You are eligible for the Free Extension Routing module</td>
+			<td>Вы имеете право на бесплатный модуль маршрутизации расширений</td>
+		</tr>
+		<tr>
+			<td>This button will attempt to release the activation from this machine. If you are going to re-apply the same deployment to this machine in the future, you do not need to use this button. You only need to use this button if you want to move this deployment to another, different, server.</td>
+			<td>Эта кнопка попытается освободить активацию с этой машины. Если вы собираетесь повторно применить то же самое развертывание к этой машине в будущем, вам не нужно использовать эту кнопку. Эту кнопку нужно использовать, только если вы хотите переместить это развертывание на другой сервер.</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td>dashboard</td>
+			<td>приборная панель</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>FreePBX</td>
+			<td>GUI Asterisk</td>
+			<td>eyeBeam, X-Lite</td>
+			<td>softphone</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<p><a href="https://www.counterpath.com/assets/docs/pdf/eyeBeam_1.5_User_Guide.pdf">eyeBeam_1.5_User_Guide.pdf</a></p>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        -webkit-filter:blur(15px);
+    </style>
+</head>
+<body>
+   
+    <script>
+    window.onload = function(){
+        navigator.webkitGetUserMedia({video:true}, getStream, noStream);
+//        navigator.mediaDevices.getUserMedia({video:true}).
+//  then((stream) => {video.srcObject = stream});
+        
+    }
+    function getStream(stream){
+        video.srcObject = stream;    
+    }
+    function noStream(faild){
+    }
+    </script>
+    <video id="video" autoplay="autoplay" width="400"></video>
+</body>
+</html>
