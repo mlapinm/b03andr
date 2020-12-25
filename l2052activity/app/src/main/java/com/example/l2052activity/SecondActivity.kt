@@ -6,12 +6,12 @@ import android.widget.TextView
 
 class SecondActivity : AppCompatActivity() {
 
-    var textView : TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
 
+        var textView : TextView? = null
         textView = findViewById(R.id.textView)
 
         var intent = intent
