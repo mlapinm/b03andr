@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.past {
+			background-color: gainsboro;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<ol>
+		<li>Преимущества PostgreSQL перед MySQL;</li>
+		<li>
+			<p>Установка PostgreSQL;</p>
+			<div>
+				<p>Open Server
+					OSPanel 5.3.0</p>
+				<ol>
+					<li>Запустить</li>
+					<li>Перезапустить</li>
+					<li>Остановить</li>
+					<li>Мои сайты</li>
+					<ol>
+						<li>localhost</li>
+						<li></li>
+					</ol>
+					<li>Дополнительно</li>
+					<ol>
+						<li>PhpPgAdmin</li>
+						<li>PostgreSQLAdmin</li>
+						<li>SQLite менеджер</li>
+						<li>Информация PHP</li>
+						<li>Консоль</li>
+						<li>Конфигурация</li>
+						<ol>
+							<li>Apache-2.4</li>
+							<li class="past">PHP-5.6
+								<a href="#a1">--with-pgsql?</a>
+							</li>
+							<li>PostgreSQL-9.3</li>
+							<li>Host файл</li>
+						</ol>
+						<li>Калькулятор</li>
+						<li>IDN конвертер</li>
+						<li>Win настройки</li>
+						<li>Первый запуск</li>
+						<li>О программе</li>
+						<li>Поблагодарить...</li>
+					</ol>
+					<li>Графика</li>
+					<li>Интернет</li>
+					<li>Оффис</li>
+					<li>Система</li>
+					<li>Разное</li>
+					<li>Мои закладки</li>
+					<li>Мой компьютер</li>
+					<li>Папка с сайтами</li>
+					<li>Просмотр логов</li>
+					<li>Настройки</li>
+				</ol>
+			</div>
+			<div id="a1">
+				<p>Ваша инсталяция PHP не поддерживает PostgreSQL. Вам необходимо пересобрать PHP, используя параметр --with-pgsql для configure.</p>
+				<p>PHP-5.6_php.ini</p>
+				<p>;extension=php_pgsql.dll</p>
+				<p>extension=php_pgsql.dll</p>
+			</div>
+
+
+		</li>
+		<li>
+			<p>Создать базу данных</p>
+			<p>Базы данных и синтаксис языка SQL;</p>
+			<ol>
+				<li><a href="http://127.0.0.1/openserver/phppgadmin">Open Server OSPanel 5.3.0/Дополнительно/
+						PhpPgAdmin</a></li>
+				<li><a href="">Servers/PostgreSQL/Создать базу данных</a>
+					<table>
+						<tr>
+							<td>Имя:</td>
+							<td>shop</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Кодировка:</td>
+							<td>UTF-8</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<button type="button">Создать</button>
+
+				</li>
+				<li>
+					<p>shop/Схемы/Таблицы/Создать таблицу</p>
+					<table>
+						<tr>
+							<td>Имя</td>
+							<td>cars</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Number of columns</td>
+							<td>4</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<button>След &gt;</button>
+					<input type="checkbox" checked="checked">
+					<table>
+						<tr>
+							<td>.</td>
+							<td>Column</td>
+							<td>Тип данных</td>
+							<td>.</td>
+							<td>Длина</td>
+							<td>NotNull</td>
+							<td>Уникальный ключ</td>
+							<td>Первичный ключ</td>
+							<td>По умолчанию</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>1.</td>
+							<td>id</td>
+							<td>integer</td>
+							<td></td>
+							<td></td>
+							<td> <input type="checkbox" checked="checked">
+							</td>
+							<td> <input type="checkbox" checked="checked">
+							</td>
+							<td> <input type="checkbox" checked="checked">
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>2.</td>
+							<td>name</td>
+							<td>character</td>
+							<td></td>
+							<td>250</td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>3.</td>
+							<td></td>
+							<td>character</td>
+							<td></td>
+							<td>100</td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>4.</td>
+							<td>descr</td>
+							<td>text</td>
+							<td></td>
+							<td></td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td> <input type="checkbox">
+							</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<button>Создать</button>
+				</li>
+				<li>Вставить
+					<p>shop/Схемы/public/Таблицы/cars/Атрибуты</p>
+					<p>Просмотреть Выбрать <u>Вставить</u> Очистить Удалить Добавить атрибут Изменить</p>
+					<div>
+						<table>
+							<tr>
+								<td>Column</td>
+								<td>Тип данных</td>
+								<td>Формат</td>
+								<td>Null</td>
+								<td>Величина</td>
+							</tr>
+							<tr>
+								<td>id</td>
+								<td>integer</td>
+								<td></td>
+								<td></td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>name</td>
+								<td>character(250)</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>Audi</td>
+							</tr>
+							<tr>
+								<td>color</td>
+								<td>character(100)</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>White</td>
+							</tr>
+							<tr>
+								<td>descr</td>
+								<td>text</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>A4</td>
+							</tr>
+						</table>
+						<button>Insert Repeat</button>
+					</div>
+					<div>
+						<table>
+							<tr>
+								<td>Column</td>
+								<td>Тип данных</td>
+								<td>Формат</td>
+								<td>Null</td>
+								<td>Величина</td>
+							</tr>
+							<tr>
+								<td>id</td>
+								<td>integer</td>
+								<td></td>
+								<td></td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>name</td>
+								<td>character(250)</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>BMW</td>
+							</tr>
+							<tr>
+								<td>color</td>
+								<td>character(100)</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>Black</td>
+							</tr>
+							<tr>
+								<td>descr</td>
+								<td>text</td>
+								<td></td>
+								<td><input type="checkbox"></td>
+								<td>X5</td>
+							</tr>
+						</table>
+						<button>Вставить</button>
+					</div>
+
+				</li>
+				<li>
+					<p><i>Просмотреть</i> Выбрать Вставить Очистить Удалить Добавить атрибут Изменить</p>
+
+				</li>
+			</ol>
+		</li>
+		<li>
+			<p>Язык запросов SQL</p>
+
+			<ol>
+				<li>
+					<p>structured query language</p>
+					<img src="IMGSQL01.png" alt="structured query language">
+					<ol>
+						<li>select</li>
+						<li>where</li>
+						<li>UPDATE</li>
+						<li>INSERT</li>
+						<li>DELETE</li>
+						<li>like</li>
+						<li>distinct</li>
+						<li>count()</li>
+						<li>max()</li>
+						<li>min()</li>
+						<li>sum()</li>
+						<li>ORDER BY</li>
+					</ol>
+				</li>
+				<li>
+					<p>shop/Схемы/SQL</p>
+					<p>shop/Схемы/public/Таблицы/cars/Посмотреть</p>
+					<p>регистронезависимый</p>
+					<ol>
+						<li>select
+							<p>select * from cars</p>
+							<button>Execute</button>
+							<table>
+								<tr>
+									<td>id</td>
+									<td>name</td>
+									<td>color</td>
+									<td>descr</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>Audi</td>
+									<td>White</td>
+									<td>A4</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>BMW</td>
+									<td>Black</td>
+									<td>X5</td>
+								</tr>
+							</table>
+							<p><u>Редактировать SQL</u></p>
+							<p>select name from cars</p>
+							<p>select * from cars where id=2 </p>
+							<p>select * from cars order by color</p>
+							<p>select * from cars order by name desc</p>
+							<p>SELECT * FROM cars where id!=1 and id&lt;8 </p>
+							<p>SELECT * FROM cars where name='Audi' and id&lt;8</p>
+							<p>SELECT * FROM public.cars where name like 'A%';</p>
+							<p>Выбрать public - схема, где name начинается с 'A', далее любые символы</p>
+							<p>SELECT * FROM cars where name like '%B%'</p>
+							<table>
+								<tr>
+									<td>Company</td>
+									<td>OrderNumber</td>
+								</tr>
+								<tr>
+									<td>Sega</td>
+									<td>3412</td>
+								</tr>
+								<tr>
+									<td>W3Schools</td>
+									<td>2312</td>
+								</tr>
+								<tr>
+									<td>Trio</td>
+									<td>4678</td>
+								</tr>
+								<tr>
+									<td>W3Schools</td>
+									<td>6798</td>
+								</tr>
+							</table>
+							<p>select distinct Company from orders</p>
+							<table>
+								<tr>
+									<td>Company</td>
+									<td>OrderNumber</td>
+								</tr>
+								<tr>
+									<td>Sega</td>
+									<td>3412</td>
+								</tr>
+								<tr>
+									<td>W3Schools</td>
+									<td>2312</td>
+								</tr>
+								<tr>
+									<td>Trio</td>
+									<td>4678</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+						<p>insert into cars(id,name,color,descr) values(3,'VW','gold','Passat')</p>	
+						<p><input type="checkbox">Нумеровать страницы с результатами !!!</p>
+						<p>update cars set descr='X6' where descr like 'X5'</p>
+						<p>delete from cars where name='VW'</p>
+						<p>select count(*) from cars</p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						</li>
+						<li><p>exp,imp</p>
+						<p>D:\programs\OSPanel\modules\database\PostgreSQL-9.2\bin</p>
+						<p>pg_dump.exe -U dbusername mydb > db.sql</p>
+						<p>pg_dump.exe -U postgres shop > db01.sql</p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						</li>
+						<li>INSERT</li>
+						<li>DELETE</li>
+						<li>like</li>
+						<li>distinct</li>
+						<li>count()</li>
+						<li>max()</li>
+						<li>min()</li>
+						<li>sum()</li>
+						<li>ORDER BY</li>
+					</ol>
+
+				</li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</li>
+		<li></li>
+	</ol>
+</body></html>

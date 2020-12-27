@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" media="all" type="text/css" href="03cat01.css" />
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+<input type="checkbox" id="offcanvas__control" class="offcanvas__control">
+<div class="offcanvas">
+<label for="offcanvas__control" class="offcanvas__button"></label>
+    <ul class="offcanvas__menu">       <li class="offcanvas_item"><a href="" class="offcanvas_link">1</a></li>
+    <li class="offcanvas_item"><a href="" class="offcanvas_link">2</a></li>
+    <li class="offcanvas_item"><a href="" class="offcanvas_link">3</a></li>
+    <li class="offcanvas_item"><a href="" class="offcanvas_link">4</a></li>
+    </ul>
+    <div>
+    <input type="checkbox" id="checkbox_01" />
+    1
+	</div>
+	<div>
+    <input type="checkbox" id="checkbox_02" />
+    2
+	</div>
+</div>
+
+<div class="content">
+   	<details id="details_1">
+    	<summary>
+			last 
+		</summary>
+			<details class="details_2">
+				<summary>
+					mlapinsomeecom 
+				</summary>
+				D:\mailCloud\prjother\085web\jweb\mlapinsomeecom\0site\template   
+			</details>
+		   <details class="details_2">
+				<summary>
+					c88 
+				</summary>
+					D:\mailCloud\prjother\017python\pyweb_1\c88    
+			</details>
+		   <details class="details_2">
+				<summary>
+					022Actuator 
+				</summary>
+					D:\mailCloud\prjother\022Actuator\prjsard\gen01\0depository    
+			</details>
+			<details class="details_2">
+				<summary>
+					Контекстное меню 
+				</summary>
+				<p><a href="12menu.html">menu</a></p>
+                                D:\mailCloud\prjother\017python\pyweb_1\cssgeek\test165    
+			</details>
+	   		<details class="details_2">
+				<summary>
+					kinoPeHu 
+				</summary>
+				<p><a href="11kinopehu.html">11kinopehu</a></p>
+				<p>D:\mailCloud\prjother\012Hostinger</p>
+			</details>
+			<details class="details_2">
+				<summary>
+					corob.SLDPRT 
+				</summary>
+				D:\mailCloud\prjother\0solid\040cube4x4    
+			</details>
+			<details class="details_2">
+				<summary>
+					ЧАТ 
+				</summary>
+				D:\mailCloud\prjother\017python\pyweb_1\mysite01   
+			</details>
+			<details class="details_2">
+				<summary>
+					Веб-программирование 
+				</summary>
+				4 Веб-разработка на Java 
+intellige idea
+tomcat - server
+D:\mailCloud\prjother\017python\pyweb_1\cssgeek\test004\depository
+    
+			</details>
+			<details class="details_2">
+				<summary>
+					11 
+				</summary>
+				22    
+			</details>
+			<details class="details_2">
+				<summary>
+					11 
+				</summary>
+				22    
+			</details>
+		 
+	</details>
+    <details id="details_2">
+    	<summary>
+			11 
+		</summary>
+		22    
+	</details>
+</div>
+
+<script type="text/javascript">
+function depository(){	
+	element= document.getElementById("details_1");
+//	element.open = true;
+	console.log("123456");
+	var elements =document.getElementsByTagName("details");
+	console.log(elements.length);			  
+	for(k in elements){
+		console.log(elements[k]);
+		console.log(elements[k].style);
+		elements[k].open = true;
+		//elements[k].open = false;
+	}
+}
+
+function setClick(){
+	var element = document.getElementById("checkbox_01");
+	element.onclick = function(){
+		//console.log(123, element.checked);
+		var check = element.checked;
+		var elements =document.getElementsByTagName("details");
+		//console.log(elements.length);			  
+		for(k in elements){
+			//console.log(elements[k]);
+			//console.log(elements[k].style);
+			elements[k].open = check;
+			//elements[k].open = false;
+		}
+	}
+	var element2 = document.getElementById("checkbox_02");
+	element2.onclick = function(){
+		//console.log(123, element.checked);
+		var check = element2.checked;
+		var elements =document.getElementsByClassName("details_2");
+		//console.log(elements);			  
+		for(k in elements){
+			//console.log(elements[k]);
+			//console.log(elements[k].style);
+			elements[k].open = check;
+			//elements[k].open = false;
+		}
+	}
+}
+
+setClick();	
+	
+</script>	
+</body>
+</html>

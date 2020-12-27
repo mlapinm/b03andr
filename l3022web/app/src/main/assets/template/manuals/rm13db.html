@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.past {
+			background-color: gainsboro;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<p>Основы SQL - #2 – Нормализация[loftblog]</p>
+	<ol>
+		<li>Реляционный - отношение, зависимость, связь</li>
+		<li>Реляционная база данных - база данных, основанная на реляционной модели данных.</li>
+		<li>Нормализация - это разбиение таблицы на две и более, обладающих лучшими свойствами при ввключении, изменении и удалении данных.</li>
+	</ol>
+	<p>mysql</p>
+	<ol>
+		<li>mysql -u root
+			<p>use new_database;</p>
+			<p>show tables;</p>
+		</li>
+		<li>mysql01.sql
+			<pre>
+DROP TABLE IF EXISTS regions;
+CREATE TABLE regions(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	active BOOLEAN NOT NULL DEFAULT TRUE
+) ENGINE InnoDB;
+DROP TABLE IF EXISTS cities;
+CREATE TABLE cities(
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	regions_id INTEGER NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
+	FOREIGN KEY (regions_id) REFERENCES regions(id)
+) ENGINE InnoDB;	
+</pre>
+		</li>
+		<li>
+			<p>exit</p>
+			<p>mysql -u root -p new_database &lt; mysql01.sql</p>
+			<p>mysql -u root -p new_database</p>
+			<p>show tables;</p>
+		</li>
+		<li>
+			<p>insert into cities(name,regions_id) values('Maykop',1);</p>
+			<p>ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`new_database`.`cities`, CONSTRAINT `cities_ibfk_1` FOREIGN KEY (`regions_id`) REFERENCES `regions` (`id`))</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li><u>export</u>
+			<p>mysqldump -u root -p new_database&gt;mysql_dump.sql</p>
+			<p><a href="./mysql_dump.sql">mysql_dump.sql</a></p>
+			<p>mysqldump --help</p>
+			<p>-d, --no-data No row information.</p>
+			<p>mysqldump -u root -p new_database -d&gt;mysql_schema.sql</p>
+			<p><a href="./mysql_schema.sql">mysql_schema.sql</a></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>insert into regions(name) values('Republic of Adygheya');</p>
+			<p>insert into regions(name) values('Krasnodar region');</p>
+			<p>insert into cities (name, regions_id) values ('Maykop',1);</p>
+			<p>insert into cities (name, regions_id) values ('Apsheronsk',2);</p>
+		</li>
+		<li>
+			<p>select * from cities left join regions on (regions.id = cities.regions_id);</p>
+			<p>1|Maycop|1|1|1|Adygheya|1</p>
+			<p>select cities.name, regions.name from cities left join regions on (regions.id = cities.regions_id);</p>
+			<p>Maycop|Adygheya</p>
+			<p>select cities.id as id, cities.name as city, regions.name as region from cities left join regions on (regions.id = cities.regions_id) order by cities.id;</p>
+			<p>1|Maycop|Adygheya</p>
+			<pre>
+Connection id:    19
+Current database: new_database
+
++----+------------+----------------------+
+| id | city       | region               |
++----+------------+----------------------+
+|  2 | Maykop     | Republic of Adygheya |
+|  3 | Apsheronsk | Krasnodar region     |
++----+------------+----------------------+
+2 rows in set (0.04 sec)
+				</pre>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li></li>
+		<li></li>
+	</ol>
+	<hr>
+	<p>postgre</p>
+	<ol>
+		<li>
+			<p>psql -U posgres</p>
+			<p>\connect new_database</p>
+			<p>\! chcp 1251</p>
+			<p>\d</p>
+		</li>
+		<li>
+			<p>postgre01.sql</p>
+			<pre>
+DROP TABLE regions;
+CREATE TABLE regions(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	active BOOLEAN NOT NULL DEFAULT TRUE
+);
+DROP TABLE cities;
+CREATE TABLE cities(
+	id SERIAL PRIMARY KEY ,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	regions_id INTEGER NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
+	FOREIGN KEY (regions_id) REFERENCES regions(id)
+);</pre>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>\q</p>
+			<p>D:\mailCloud\prjother\017python\cssgeek\039sql\postgresql>psql -U postgres -d new_database -f postgre01.sql</p>
+			<p>psql -U posgres</p>
+			<p>\connect new_database</p>
+			<p>\d</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>insert into cities(name,regions_id) values('Maykop',1);</p>
+			<p>ERROR: insert or update on table "cities" violates foreign key constraint "cities_regions_id_fkey" ПОДРОБНОСТИ: Key (regions_id)=(1) is not present in table "regions".</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li><u>export</u>
+			<p>pg_dump -U postgres new_database&gt;psql_dump.sql</p>
+			<p><a href="./psql_dump.html">psql_dump.html</a></p>
+			<p> -s, --schema-only выгрузить только схему, без данных</p>
+			<p>pg_dump -U postgres -s new_database>psql_schema.sql</p>
+			<p><a href="./psql_schema.html">psql_schema.htm</a></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+	<hr>
+	<ol>sqlite3
+		<li>
+			<p>sqlite3</p>
+			<p>.open new_database.db</p>
+			<p>.tables</p>
+			<p></p>
+		</li>
+		<li>
+			<p>sqlite01.sql</p>
+			<p>CREATE TABLE cities(
+				id INTEGER PRIMARY KEY AUTOINCREMENT,
+				name VARCHAR(255) NOT NULL UNIQUE,
+				active BOOLEAN NOT NULL DEFAULT TRUE
+				);</p>
+			<p></p>
+		</li>
+		<li>.read sqlite01.sql
+			<p>.schema</p>
+		</li>
+		<li>
+			<p>sqlite01.sql</p>
+			<pre>
+DROP TABLE regions;
+CREATE TABLE regions(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	active BOOLEAN NOT NULL DEFAULT TRUE
+);
+DROP TABLE cities;
+CREATE TABLE cities(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(255) NOT NULL UNIQUE,
+	regions_id INTEGER NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT TRUE,
+	FOREIGN KEY (regions_id) REFERENCES regions(id)
+);
+			</pre>
+		</li>
+		<li>insert into cities (name, regions_id) values ('Maykop',1);
+			<p>Error: FOREIGN KEY constraint failed</p>
+		</li>
+		<li>PRAGMA FOREIGN_KEY = ON;</li>
+		<li>
+			<p>insert into regions(name) values('Republic of Adygheya');</p>
+			<p>insert into regions(name) values('Krasnodar region');</p>
+			<p>insert into cities (name, regions_id) values ('Maykop',1);</p>
+			<p>insert into cities (name, regions_id) values ('Apsheronsk',2);</p>
+
+			<p>insert into cities (name, regions_id) values ('Belorechensk',2);</p>
+			<p>insert into cities (name, regions_id) values ('Krasnodar',2);</p>
+			<p>insert into cities (name, regions_id) values ('Sochi',2);</p>
+		
+						
+		<li>
+			<p>sqlite> update cities set regions_id=2 where id=1;</p>
+			<p>Error: FOREIGN KEY constraint failed</p>
+			<p>sqlite> delete from regions;</p>
+			<p>Error: FOREIGN KEY constraint failed</p>
+		</li>
+		<li>
+			<p><u>export</u></p>
+			<p>sqlite3 new_database.db .dump &gt; sqlite_dump.sql</p>
+			<p>sqlite3 new_database.db .schema &gt; sqlite_schema.sql</p>
+			<p>PRAGMA foreign_keys=OFF;</p>
+			<p>BEGIN TRANSACTION;</p>
+			<p>CREATE TABLE citys(id INT NOT NULL, name VARCHAR(255));</p>
+			<p>INSERT INTO citys VALUES(1,'Maykop');</p>
+			<p>INSERT INTO citys VALUES(2,'Krasnodar');</p>
+			<p>INSERT INTO citys VALUES(3,'Belorechensk');</p>
+			<p>INSERT INTO citys VALUES(4,'Apsheronsk');</p>
+			<p>INSERT INTO citys VALUES(5,'Sochi');</p>
+			<p>CREATE TABLE regions(</p>
+			<p>id INTEGER PRIMARY KEY AUTOINCREMENT,</p>
+			<p>name VARCHAR(255) NOT NULL UNIQUE,</p>
+			<p>active BOOLEAN NOT NULL DEFAULT TRUE</p>
+			<p>);</p>
+			<p>INSERT INTO regions VALUES(1,'Adygheya',1);</p>
+			<p>CREATE TABLE cities(</p>
+			<p>id INTEGER PRIMARY KEY AUTOINCREMENT,</p>
+			<p>name VARCHAR(255) NOT NULL UNIQUE,</p>
+			<p>regions_id INTEGER NOT NULL,</p>
+			<p>active BOOLEAN NOT NULL DEFAULT TRUE,</p>
+			<p>FOREIGN KEY (regions_id) REFERENCES regions(id)</p>
+			<p>);</p>
+			<p>INSERT INTO cities VALUES(1,'Maycop',1,1);</p>
+			<p>DELETE FROM sqlite_sequence;</p>
+			<p>INSERT INTO sqlite_sequence VALUES('regions',1);</p>
+			<p>INSERT INTO sqlite_sequence VALUES('cities',1);</p>
+			<p>COMMIT;</p>
+			<p>--------------------------</p>
+			<p>CREATE TABLE citys(id INT NOT NULL, name VARCHAR(255));</p>
+			<p>CREATE TABLE sqlite_sequence(name,seq);</p>
+			<p>CREATE TABLE regions(</p>
+			<p>id INTEGER PRIMARY KEY AUTOINCREMENT,</p>
+			<p>name VARCHAR(255) NOT NULL UNIQUE,</p>
+			<p>active BOOLEAN NOT NULL DEFAULT TRUE</p>
+			<p>);</p>
+			<p>CREATE TABLE cities(</p>
+			<p>id INTEGER PRIMARY KEY AUTOINCREMENT,</p>
+			<p>name VARCHAR(255) NOT NULL UNIQUE,</p>
+			<p>regions_id INTEGER NOT NULL,</p>
+			<p>active BOOLEAN NOT NULL DEFAULT TRUE,</p>
+			<p>FOREIGN KEY (regions_id) REFERENCES regions(id)</p>
+			<p>);</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>select * from cities left join regions on (regions.id = cities.regions_id);</p>
+			<p>1|Maycop|1|1|1|Adygheya|1</p>
+			<p>select cities.name, regions.name from cities left join regions on (regions.id = cities.regions_id);</p>
+			<p>Maycop|Adygheya</p>
+			<p>select cities.id as id, cities.name as city, regions.name as region from cities left join regions on (regions.id = cities.regions_id);</p>
+			<p>1|Maycop|Adygheya</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+	<p><a href="./rm12.html">previous</a>
+	<a href="./rm14.html">next</a></p>
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat officiis dolorum neque, aspernatur molestiae, eius veniam? Autem id laborum earum architecto. Quas nemo laudantium cum rerum vero nesciunt, iusto error.</div>
+	<div>Dolorum vel esse distinctio ad, inventore odit repellendus mollitia, suscipit illo culpa labore adipisci. Blanditiis expedita sint corrupti, vero neque sequi id veniam at praesentium minus, saepe ullam non aperiam.</div>
+	<div>Animi aliquid tempore nisi, voluptatum fugit numquam dolore hic repellendus, cupiditate velit molestiae ad nemo quibusdam suscipit earum alias nesciunt expedita. Ipsum natus, provident architecto officia labore quasi iste minima.</div>
+</body></html>

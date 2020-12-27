@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			font-family: Arial;
+		}
+		td{
+			width:30px;
+			border: 1px dotted;
+		}
+		.div_01{
+			border:dotted 1px;
+			float:left;
+		}
+		.div_02{
+			border:dotted 1px;
+			float:left;
+		}
+	</style>
+</head>
+<body>
+<div><div class="div_01"><table>
+				<tr>
+					<td style="width: 45px;">Esc</td>
+					<td>F1</td>
+					<td>F2</td>
+					<td>F3</td>
+					<td>F4</td>
+					<td>F5</td>
+					<td>F6</td>
+					<td>F7</td>
+					<td>F8</td>
+					<td>F9</td>
+					<td>F10</td>
+					<td>F11</td>
+					<td>F12</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>~</td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td>0</td>
+					<td>-</td>
+					<td>=</td>
+					<td>\</td>
+					<td>BkSp</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td style="width: 45px;">Tab</td>
+					<td>Q</td>
+					<td>W</td>
+					<td>E</td>
+					<td>R</td>
+					<td>T</td>
+					<td>Y</td>
+					<td>U</td>
+					<td>I</td>
+					<td>O</td>
+					<td>P</td>
+					<td>[</td>
+					<td>]</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>Cap</td>
+					<td>A</td>
+					<td>S</td>
+					<td>D</td>
+					<td>F</td>
+					<td>G</td>
+					<td>H</td>
+					<td>J</td>
+					<td>K</td>
+					<td>L</td>
+					<td>;</td>
+					<td>'</td>
+					<td>Entr</td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td style="width: 45px;">Shift</td>
+					<td>Z</td>
+					<td>X</td>
+					<td>C</td>
+					<td>V</td>
+					<td>B</td>
+					<td>N</td>
+					<td>M</td>
+					<td>,</td>
+					<td>.</td>
+					<td>/</td>
+					<td>Shift</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td>Ctrl</td>
+					<td>Win</td>
+					<td>Alt</td>
+					<td style="width: 295px;">Space</td>
+					<td>Alt</td>
+					<td>win</td>
+					<td></td>
+					<td>Ctrl</td>
+				</tr>
+			</table>
+			</div>
+		<div class="div_02">
+		<table>
+			<tr>
+				<td>prt</td>
+				<td>sll</td>
+				<td>ps</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>Ins</td>
+				<td>Hm</td>
+				<td>Pp</td>
+				<td>NL</td>
+				<td>/</td>
+				<td>*</td>
+				<td>-</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>Del</td>
+				<td>End</td>
+				<td>Dn</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>+</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td></td>
+				<td>^</td>
+				<td></td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td>lf</td>
+				<td>v</td>
+				<td>rt</td>
+				<td>0</td>
+				<td></td>
+				<td>.</td>
+				<td>Ent</td>
+			</tr>
+		</table>
+		</div>
+		<div id='div_out01'>
+			
+		</div>		
+	</div>
+	
+	<script>
+//рекция на левую кнопку мыши
+function getKeyList(){
+	var list=[];
+	var keys_all=[];
+	keys_all= document.getElementsByTagName('td');
+	for(i=0;i<keys_all.length;i++){
+		var k1;
+		k1=keys_all[i];
+		list.push(k1);
+	}
+	return list;
+	
+}		
+
+function appKey(key){
+	var strIn = key.innerText;
+	var divOut = document.getElementById('div_out01');
+	var strOut = divOut.innerText;
+	if(strOut == strIn){
+		key.style.background='#fff';
+		strOut ='';
+		divOut.innerText = strOut;
+	}else{
+		key.style.background='#ddf';
+		divOut.innerText = strIn;
+	}
+	
+	
+	
+	
+}		
+		
+function setClick(){
+	var key_list=[];
+	key_list = getKeyList();
+	key_list.forEach(function(key){
+		key.onclick=function(){
+			appKey(key);
+		}
+	});
+}
+setClick();	
+	</script>
+</body>
+</html>

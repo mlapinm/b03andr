@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var webView = findViewById<WebView>(R.id.webView)
+        webView.settings.javaScriptEnabled = true
 
         webView.loadUrl("file:///android_asset/item_3.html")
     }

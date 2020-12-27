@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> toch001 </head>
+<style>
+	body{
+		font-family: Arial;
+		font-size: 18px;
+	}
+	div{
+		font-size: 48px;
+	}
+	
+</style>
+
+<body>
+
+<h3>Touch Events</h3>
+
+<p>This is a paragraph with some text. It is waiting to be touched. It can only be touched on a touch capable device like a mobile phone or tablet. Clicking it with a mouse will not accomplish anything.</p>
+<div id="div_001">
+	x:
+</div>
+<script>
+
+//touch events - touchstart, touchend, touchmove, touchcancel //work on devices that are touch capable	т
+
+//No error on other devices because 'touchstart* is just a name like winlottery 
+//The event will probably just never happen on my laptop 
+	
+document.querySelector('p').addEventListener('touchstart', f);
+document.querySelector('p').addEventListener('touchend', f);
+document.querySelector('p').addEventListener('touchmove', f);
+document.querySelector('p').addEventListener('touchcancel', f);
+
+function f(ev){
+	var x=0;
+if(ev.touches.length>0){
+	x = ev.touches[0].screenX;
+}
+//console.log( ev.touches, ev.type, x);
+var div_001 = document.getElementById("div_001");
+var str01 = '';
+str01 = ''+ ev.type+' x: ' + x;
+div_001.innerText = str01;	
+}
+
+</script>
+
+</body>
+
+</html>

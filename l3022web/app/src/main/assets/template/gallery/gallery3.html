@@ -1,0 +1,2075 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN' 'http://www.w3.org/TR/html4/loose.dtd'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf8'>
+<link rel="stylesheet" href="gallery.css" type="text/css" />
+<META name='description' CONTENT='Мини галлерея на javascript'>
+<META name='keywords' CONTENT=''>
+<title>Мини галлерея </title>
+<style type="text/css">
+
+	.wrapper{
+		width: 640px;
+		height: 480px;
+		margin: 10px auto;
+	}
+	
+	.left_right{
+		position: absolute;
+		display: none;
+		cursor: pointer;
+		margin: -288px 0 0 10px;
+	}
+	p{
+		margin: 0px;
+	}
+
+</style>
+</head>
+<body>
+<div>
+	<div onMouseOver="btn_show()" onMouseOut="btn_noshow()" class="wrapper">
+	
+			<script type="text/javascript">  
+			
+						//Массив, в котором содержатся ссылки на изображения
+				var imageArray = [
+					"images/001 Tvoj den' - Vlyublennyj maj.jpg",		
+					"images/002 Evils toy - Strange modern art.jpg",		
+					"images/003 S. Rotaru - Lavanda.jpg",		
+					"images/004 Secret service - Ten oclock postman.jpg",
+					"images/005 A. Varum - Lya-lya-fa.jpg",
+					"images/006 DJ Bobo - Somebody dance with me.jpg",
+					"images/007 A. Dobrynin - Rozovye rozy.jpg",
+					"images/008 Chris Norman - Hunters of the night.jpg",
+					"images/009 Ajvazov - Lilii.jpg",
+					"images/010 Capella - U got 2 let the music.jpg",
+					"images/011 Bad Boys Blue - Pretty young girl.jpg",
+					"images/012 N. Gul'kina - Kitaj.jpg",
+					"images/013 Ace of base - All that she wants.jpg",
+					"images/014 T. Bulanova - YAsnyj moj svet.jpg",
+					"images/015 Joy - Touch by touch.jpg",
+					"images/016 ZH. Belousov - Devochka moya sineglazaya.jpg",
+					"images/017 E-Type - Russian lullaby.jpg",
+					"images/018 I. Nikolaev - Pozdravlyayu.jpg",
+					"images/019 Yaki-da - I saw you dancing.jpg",
+					"images/020 Fristajl - ZHeltye rozy.jpg",
+
+					"images/021 Fancy - Flames of love.jpg",
+					"images/022 Kaj Metov - Position 2.jpg",
+					"images/023 Status Quo - In the army now.jpg",
+					"images/024 Feya - Vypal sneg.jpg",
+					"images/025 Technotronic - This beat is Technotronic.jpg",
+					"images/026 A. Apina - Ksyusha.jpg",
+					"images/027 Pet shop boys - Its a sin.jpg",
+					"images/028 Levostoronnee dvizhenie - CHao, bambino.jpg",
+					"images/029 Boney M - Daddy cool.jpg",
+					"images/030 R. ZHukov - YA lyublyu vas devochki.jpg",
+					"images/031 Sabrina - Boys.jpg",
+					"images/032 Bozh'ya korovka - Teplohod.jpg",
+					"images/033 Fun factory - Doh Wah Diddy.jpg",
+					"images/034 Anons - Olya i Spid.jpg",
+					"images/035 Edelweiss - To the mountain top.jpg",
+					"images/036 Veselye rebyata - Ne volnujtes' tetya.jpg",
+					"images/037 Radiorama - Desire.jpg",
+					"images/038 Kar-Mehn - Parizh.jpg",
+					"images/039 Silent circle - Touch in the night.jpg",
+					"images/040 N. Vetlickaya - Playboy.jpg",
+"images/041 Haddaway - What is love.jpg",
+"images/042 S. Razina - Ty budesh' moj.jpg",
+"images/043 Desireless - Voyage voyage.jpg",
+"images/044 Tekhnologiya - Nazhmi na knopku.jpg",
+"images/045 E-Type - Set the world on fire.jpg",
+"images/046 SHaherezada - Samuraj.jpg",
+"images/047 Mr. President - Coco Jambo.jpg",
+"images/048 M. Boyarskij - Zelenoglazoe taksi.jpg",
+"images/049 Corona - Baby baby.jpg",
+"images/050 SHokolad - Kak mne zhal'.jpg",
+"images/051 Captain Jack - Dream a dream.jpg",
+"images/052 NeIgrushki - Sto dnej do prikaza.jpg",
+"images/053 Real McCoy - A noter night.jpg",
+"images/054 SHerif - Teplyj dozhd'.jpg",
+"images/055 Vanessa Paradise - Joe le taxi.jpg",
+"images/056 Karolina - Diskobar.jpg",
+"images/057 Ice MC - Its a rainy day.jpg",
+"images/058 Zemlyane - Trava u doma.jpg",
+"images/059 Modo - 1,2,polizei.jpg",
+"images/060 Forum - Belaya noch'.jpg",
+"images/061 Baccara - Yes Sir I can Boogie.jpg",
+"images/062 Laskovyj byk - Pacany.jpg",
+"images/063 Danny Keith - Keep on music.jpg",
+"images/064 Displej - SHepot zvezd.jpg",
+"images/065 Opus - Life is life.jpg",
+"images/066 A. Barykin - Buket.jpg",
+"images/067 Roger Meno - What my heart wanna say.jpg",
+"images/068 Nika - Karie glaza.jpg",
+"images/069 Video Kids - Do the rap.jpg",
+"images/070 S. Razina - Babochka-noch'.jpg",
+"images/071 La bouche - Be my lover.jpg",
+"images/072 Malen'kij princ - My vstretimsya snova.jpg",
+"images/073 Bad boys blue - Youre a woman.jpg",
+"images/074 I. Kornelyuk - Dozhdi.jpg",
+"images/075 Ken Lazlo - 1,2,3,4,5,6,7.jpg",
+"images/076 Adrenalin - Kovylyaj potihonechku.jpg",
+"images/077 Masterboy - Generation of love.jpg",
+"images/078 EHlektronnyj mal'chik - Devushka s Urala.jpg",
+"images/079 Solid Bace - This is how we do it.jpg",
+"images/080 YU. Antonov - Ot pechali do radosti.jpg",
+"images/081 Fun fun - Happy station.jpg",
+"images/082 Kolledzh - Moj milyj angel.jpg",
+"images/083 Radiorama - Yeti.jpg",
+"images/084 Professor Lebedinskij - Begut goda.jpg",
+"images/085 Fun factory - Dont go away.jpg",
+"images/086 Zvezdy - Diskoteka.jpg",
+"images/087 Eiffel 65 - Blue (Da Ba Dee).jpg",
+"images/088 V. Markin - Kolokola.jpg",
+"images/089 Bam Bee - Bam Bam Bam.jpg",
+"images/090 M. Nasyrov - Mal'chik hochet v Tambov.jpg",
+"images/091 2 unlimited - No limits.jpg",
+"images/092 Lada Dehns - ZHit' nuzhno v kajf.jpg",
+"images/093 Vanilla Ice - Ice ice baby.jpg",
+"images/094 Aramis - Devochka zhdet, mal'chik ne idet.jpg",
+"images/095 Saphir - Storm of love.jpg",
+"images/096 A. Gubin - Liza.jpg",
+"images/097 2 brothers on the 4th floor - Living in Cyberspace.jpg",
+"images/098 Nehnsi - Dym sigaret s mentolom.jpg",
+"images/099 Moon Ray - Comanchero.jpg",
+"images/100 S. Vladimirskaya - Mal'chik moj.jpg",
+"images/101 Secret Service - Flash in the night.jpg",
+"images/102 Mirazh - YA ne hochu.jpg",
+"images/103 Jessica Jay - Casablanca.jpg",
+"images/104 R. ZHukov - Mlechnyj put'.jpg",
+"images/105 Blue system - My bed is too big.jpg",
+"images/106 Feya - Moj veter.jpg",
+"images/107 Paradiso - Bailando.jpg",
+"images/108 YU. Loza - Plot.jpg",
+"images/109 Toto Cutugno - LItaliano.jpg",
+"images/110 Metropol' - YUzhnyj gorod.jpg",
+"images/111 Linda Jo Rizzo - Heartflash.jpg",
+"images/112 Kristina - Kristina.jpg",
+"images/113 E-Rotic - Dr. Love.jpg",
+"images/114 I. Allegrova - Fotografiya.jpg",
+"images/115 Culture beat - Crying in the rain.jpg",
+"images/116 Kar-Mehn - Chao bambina.jpg",
+"images/117 Scotch - Disco band.jpg",
+"images/118 A. Glyzin - Zimnij sad.jpg",
+"images/119 Masterboy - Feel of the night.jpg",
+"images/120 Na-na - Faina.jpg",
+"images/121 Silicon dream - Corleone speaking.jpg",
+"images/122 Ledi - Na diskoteke.jpg",
+"images/123 Aqua - Barbie girl.jpg",
+"images/124 Russkij razmer - YUayu.jpg",
+"images/125 GiGi DAgostino - The riddie.jpg",
+"images/126 M. ZHuravleva - Belaya cheremuha.jpg",
+"images/127 MC Hammer - U cant touch this.jpg",
+"images/128 Zabytyj razgovor - Arabskoe zoloto.jpg",
+"images/129 No mercy - Please dont go.jpg",
+"images/130 M. Muromov - YAbloki na snegu.jpg",
+"images/131 Digital emotion - Go go yellow screen.jpg",
+"images/132 A. Apina - Lekha.jpg",
+"images/133 KLF - Last train to trancentral.jpg",
+"images/134 SHokolad - Ulybnis'.jpg",
+"images/135 Teach in - Ding dong.jpg",
+"images/136 Anons - Huligan.jpg",
+"images/137 Gazebo - I like Chopin.jpg",
+"images/138 Natali - Schitalochka.jpg",
+"images/139 Ice MC - Think about the way.jpg",
+"images/140 Karolina - Zvezdnyj vecher.jpg",
+"images/141 Dr. Alban - Its my life.jpg",
+"images/142 Bozh'ya korovka - Granitnyj kamushek.jpg",
+"images/143 Real McCoy - Love & Devotion.jpg",
+"images/144 N. Vetlickaya - Posmotri v glaza.jpg",
+"images/145 Imperio - Cyberdream.jpg",
+"images/146 SHaherezada - Komandir polka.jpg",
+"images/147 Kaoma - Lambada.jpg",
+"images/148 T. Bulanova - Ne plach'.jpg",
+"images/149 Maxx - No more.jpg",
+"images/150 N. Gul'kina - Ajvengo.jpg",
+"images/151 Fun factory - Take your chance.jpg",
+"images/152 V. Dobrynin - Ne syp' mne sol' na ranu.jpg",
+"images/153 Boney M - Ma Baker.jpg",
+"images/154 Laskovyj maj - Vecher holodnoj zimy.jpg",
+"images/155 Silent circle - 2 night.jpg",
+"images/156 A.Pugacheva - Nado ZHe.jpg",
+"images/157 Danuta - Touch my heart.jpg",
+"images/158 Levostoronnee dvizhenie - Ne nado slez.jpg",
+"images/159 Pet shop boys - New York city boy.jpg",
+"images/160 ZH. Belousov - Devchonka-devchonochka.jpg",
+"images/161 Alphaville - Big in Japan.jpg",
+"images/162 I. Nikolaev - Mel'nica.jpg",
+"images/163 Masterboy - Give me your love.jpg",
+"images/164 Kaj Metov - Ty prosnesh'sya bez menya.jpg",
+"images/165 Mr. President - Happy people.jpg",
+"images/166 Kombinaciya - Vstrecha na Manezhnoj.jpg",
+"images/167 La Bouche - SOS.jpg",
+"images/168 S. Vasyuta i gr. Sladkij son - Bosonogaya devchonka.jpg",
+"images/169 Blue system - Romeo & Juliet.jpg",
+"images/170 Tekhnologiya - Strannye tancy.jpg",
+"images/171 Vengaboys - Sha la la la la.jpg",
+"images/172 Fristajl - Ah kakaya zhenshchina.jpg",
+"images/173 Gina T - Tokyo by night.jpg",
+"images/174 SHerif - Ne uhodi.jpg",
+"images/175 Boytronic - I will survive.jpg",
+"images/176 R. ZHukov - Devchonki moi devchonki.jpg",
+"images/177 Sandra - In the heat of the night.jpg",
+"images/178 Ivanushki Int - Topolinyj puh.jpg",
+"images/179 Shaft - Mambo italiano.jpg",
+"images/180 V. Stashevskij - Pozovi menya v nochi.jpg",
+"images/181 Digital emotion - Get up action.jpg",
+"images/182 Samocvety - Vse chto v zhizni est' u menya.jpg",
+"images/183 Mike Mareen - Agent of liberty.jpg",
+"images/184 Mirazh - Zvezdy nas zhdut.jpg",
+"images/185 Captain Hollywood - More and more.jpg",
+"images/186 I. Sklyar - Komarovo.jpg",
+"images/187 Heath hunter - Revolution in paradise.jpg",
+"images/188 T. Ovsienko - Kapitan.jpg",
+"images/189 L. A. Style - Got to move.jpg",
+"images/190 Feya - Princessa mechty.jpg",
+"images/191 Modern Talking - Brother Louie.jpg",
+"images/192 S. Vasyuta i gr. Sladkij son - Na belom pokryvale yanvarya.jpg",
+"images/193 Magic affair - Energy of light.jpg",
+"images/194 Natali - Veter s morya dul.jpg",
+"images/195 Savage - Only you.jpg",
+"images/196 Kombinaciya - Dva kusocheka kolbaski.jpg",
+"images/197 Ice MC - Give me the light.jpg",
+"images/198 Mirazh - Muzyka nas svyazala.jpg",
+"images/199 C.C.Catch - Strangers by night.jpg",
+"images/200 Laskovyj maj - Belye rozy.jpg",
+"images/201 Lirika (feat. Masha).jpg",
+					
+					];
+				
+				window.number = 0;
+
+							//Привязываем количество картинок к размеру массива
+				var imageCount = imageArray.length;
+function name(str){
+	var namestr ='';
+	namestr = str.replace(/(images\/)/,"");
+	namestr = namestr.replace(/(.jpg)/,"");
+	return namestr;
+}								
+				function image(num){
+				
+						//Если выбрана следующая картинка
+					num = Number(num);
+					if(true){
+					
+							//Если это последняя картинка, то не увеличиваем счетчик number
+						number = number+num;
+						if(number >= imageCount){
+							number -=imageCount;
+						}else{
+							if(number<0){
+								number+=imageCount;
+							}
+						}
+						if(true){
+						
+							document.getElementById('images').src = imageArray[number];
+							var str = imageArray[number];
+							var str1 = str.replace(/(?:images\/)/,"");
+							var str2 = str1.replace(/(?:.jpg)/,"");
+							var str3 = str2.replace(/(?:[0-9]{3,})/, "");
+							document.getElementById('num_img').innerHTML= number + 1 + '/' + imageCount + " " +
+							str3;
+							var ha = document.getElementById("homeaudio");
+							ha.src = "media/201/" + name(str) + ".mp3";
+							var y = window.pageYOffset;							if(number<10)
+							document.location.href="#ref_00"+(number+1);else
+							if(number<100)
+							document.location.href="#ref_0"+(number+1);else
+							document.location.href="#ref_"+(number+1);
+							//window.location.hash = 'top';
+							//window.pageYOffset=y;
+							window.scrollTo(0, y);
+						}
+					}					 
+					else{  //Если выбрана предыдущая картинка
+					
+								//Если это первая картинка, то не уменьшаем счетчик number
+						if(num < 0&& number+num>=0){
+						
+							number+=num;
+							document.getElementById('images').src = imageArray[number];
+							var str = imageArray[number];
+							var str1 = str.replace(/(?:images\/)/,"");
+							var str2 = str1.replace(/(?:.jpg)/,"");
+							var str3 = str2.replace(/(?:[0-9]{3,})/, "");
+							document.getElementById('num_img').innerHTML= number + 1 + '/' + imageCount + " " +
+							str3;
+							var ha = document.getElementById("homeaudio");
+							ha.src = "media/201/" + name(str) + ".mp3";
+						}
+					}
+				}
+				
+						//Функция для показа стрелочек
+				function btn_show(){
+
+					if(number != 0) document.getElementById('left').style.display='block';
+					if(number != imageCount - 1) document.getElementById('right').style.display='block';
+				}
+				
+						//Функция, которая прекращает показ стрелочек
+				function btn_noshow(){
+
+					document.getElementById('left').style.display='none';
+					document.getElementById('right').style.display='none';
+				}
+					
+					//Выводим картинки
+				document.write('<img id="images" src="' + imageArray[0] + '"width = "700px" height = "500px"'+ '>');
+
+			</script>
+
+						<!-- Стрелочка влево -->
+		<div id="left" onclick="image(-1)" class="left_right"><img src="left.png"></div>
+					
+						<!-- Стрелочка вправо -->
+		<div id="right" onclick="image(1)" class="left_right" style="margin-left: 534px; position: absolute; display: none;"><img src="right.png"></div>
+			
+	</div>
+
+	<center><p style="font-size: 25px;color: #333;font-weight: bold;margin:16px 5px 1px 5px" id="num_img">1/201</p></center>
+	
+	<center>
+	<span class="myButton" onclick="image(-10)">Back10
+	</span> 
+	<span class="myButton" onclick="image(-1)">Back
+	</span> 
+	<span class="myButton"  onclick="image(1)">Next</span>
+	<span class="myButton"  onclick="image(10)">Next10</span>
+	</center>
+	
+	<a href="#" style="margin-left: 50px;" class="myButton">Вернуться к статье</a>  
+	
+	<a style="float: right; margin-right: 50px;" class="myButton"  href="#"></a>
+</div>
+	<center>
+		<audio controls autoplay id = "homeaudio" src="media/201/001 Tvoj den' - Vlyublennyj maj.mp3" style="display: yes">123</audio>
+	</center>
+
+<div style="width: 100%;height: 600px;overflow-y: scroll; font-family: Arial;font-size: 25px;">
+<div id = "ref_001">ref_001</div>
+<div>
+<p>Твой день - Влюбленный май</p>
+<p>Ты вспомнишь,</p>
+<p>Может быть, вспомнишь</p>
+<p>Обо мне.</p>
+<p>Ты вспомнишь,</p>
+<p>Может быть, вспомнишь</p>
+<p>Обо мне.</p>
+<p>Когда придёт ненастный день,</p>
+<p>Ты вспомнишь тот далёкий день,</p>
+<p>Когда расстались мы с тобой.</p>
+<p>Растает снег,</p>
+<p>Ворвётся в дом</p>
+<p>Крик птичьих стай,</p>
+<p>Но не вернуть,</p>
+<p>Нам не вернуть</p>
+<p>Далёкий Май,</p>
+<p>Наш тёплый Май.</p>
+<p>Проходят дни,</p>
+<p>Придут дожди</p>
+<p>И где-то там</p>
+<p>Растают сны,</p>
+<p>Но иногда</p>
+<p>Ты вспоминай</p>
+<p>Мою мелодию любви.</p>
+<p>Ты не забывай,</p>
+<p>Ты не забывай,</p>
+<p>Ты не забывай,</p>
+<p>Влюблённый наш Май.</p>
+<p>Сердцем вспоминай,</p>
+<p>Сердцем вспоминай,</p>
+<p>Сердцем вспоминай</p>
+<p>Влюблённый наш Май.</p>
+<p>А годы, всё летят годы,</p>
+<p>Всё летят.</p>
+<p>Их трудно возвращать, годы</p>
+<p>Возвращать.</p>
+<p>И юности корабль любви</p>
+<p>Заброшен где-то на мели,</p>
+<p>Он где-то далеко вдали.</p></div>
+<div id = "ref_002">ref_002</div>
+<div style="background: #ddf;width:1000px;border: dotted blue 1px;">
+<div style="float: left;width:500px;height: 100%;background: #dfd;">
+<p>T.O.Y. - Strange Modern Art</p>
+<p>walls come tumbling down</p>
+<p>exposition of my soul</p>
+<p>drawn by yellow crayons</p>
+<p>framed by innocence</p>
+<p>no more words to say</p>
+<p>coloured stills of my live</p>
+<p>style of strange appearance</p>
+<p>drawn in my heart</p>
+<p>birds fly in the sky</p>
+<p>exposition of my mind</p>
+<p>filled with coloured oceans</p>
+<p>seen through my eyes</p>
+<p>no more time to waste</p>
+<p>desolation in my heart</p>
+<p>blue coloured pictures</p>
+<p>state of the art</p>
+<p>strange modern art</p>
+<p>my pictures of the past won't be the last</p>
+<p>strange modern life</p>
+<p>my gallery of love built from above</p>
+</div>
+<div style="width:600;height: 100%;background: #aaa">
+<p>Стены рушатся</p>
+<p>Изложение моей души</p>
+<p>Нарисованные желтыми карандашами</p>
+<p>Обрамленная невинностью</p>
+<p>Больше нет слов, чтобы сказать</p>
+<p>Цветные кадры моей жизни</p>
+<p>Стиль странного внешнего вида</p>
+<p>Нарисовано в моем сердце</p>
+<p>Птицы летят в небе</p>
+<p>Изложение моего разума</p>
+<p>Заполненные цветными океанами</p>
+<p>Сквозь глаза</p>
+<p>Нет больше времени тратить</p>
+<p>Запустение в моем сердце</p>
+<p>Синие картинки</p>
+<p>уровень развития</p>
+<p>Странное современное искусство</p>
+<p>Мои картины прошлого не будут последними</p>
+<p>Странная современная жизнь</p>
+<p>Моя галерея любви, построенная сверху</p>	
+</div>	
+</div>
+<div id = "ref_003">ref_003</div>
+<div>
+<p>Текст песни(слова) София Ротару и Яак Йоала - Лаванда</p>
+<p>О песне: Авторы музыки и слов: В. Матецкий и М. Шабров</p>
+<p>В нашей жизни все бывает.</p>
+<p>И под солнцем лед не тает,</p>
+<p>И теплом зима встречает –</p>
+<p>Дождь идет в декабре.</p>
+<p>Любим или нет – не знаем,</p>
+<p>Мы порой в любовь играем,</p>
+<p>А когда ее теряем,</p>
+<p>“Не судьба”, - говорим.</p>
+<p>Припев:</p>
+<p>Лаванда, горная лаванда –</p>
+<p>Наших встреч с тобой синие цветы.</p>
+<p>Лаванда, горная лаванда…</p>
+<p>Сколько лет прошло, но помним я и ты.</p>
+<p>Лето нам тепло дарило,</p>
+<p>Чайка над волной парила,</p>
+<p>Только нам луна светила</p>
+<p>Нам двоим на земле.</p>
+<p>Но куда ушло все это?</p>
+<p>Не было, и нет ответа.</p>
+<p>И теперь как две планеты</p>
+<p>Мы с тобой далеки.</p>
+<p>Припев:</p>
+<p>Лаванда, горная лаванда –</p>
+<p>Наших встреч с тобой синие цветы.</p>
+<p>Лаванда, горная лаванда…</p>
+<p>Сколько лет прошло, но помним я и ты.</p>
+<p>Лаванда, горная лаванда –</p>
+<p>Наших встреч с тобой синие цветы.</p>
+<p>Лаванда, горная лаванда…</p>
+<p>Сколько лет прошло, но помним я и ты.</p></div>
+<div id = "ref_004">ref_004</div>
+<div>
+	<table>
+		<tr>
+			<td>Remembering that she said for sure
+</td>
+			<td>Помню, как она пообещала:
+</td>
+		</tr>
+		<tr>
+			<td>I'll write you the minute I'll get off the plane</td>
+			<td>"Я напишу тебе как только выйду из самолёта"</td>
+		</tr>
+		<tr>
+			<td>Nothing</td>
+			<td>Но тишина -</td>
+		</tr>
+		<tr>
+			<td>not one single word</td>
+			<td>ни единого словечка.</td>
+		</tr>
+		<tr>
+			<td>It must come this morning or I'll go insane</td>
+			<td>Письмо придёт этим утром, иначе я сойду с ума,</td>
+		</tr>
+		<tr>
+			<td>I'll go insane</td>
+			<td>Сойду с ума.</td>
+		</tr>
+		<tr>
+			<td>Now it's been almost five days</td>
+			<td>Прошло уже почти пять дней,</td>
+		</tr>
+		<tr>
+			<td>Could she have sent it by air or by rail</td>
+			<td>Она отправила письмо по воздуху или на поезде?</td>
+		</tr>
+		<tr>
+			<td>I hear someone's comin' this way</td>
+			<td>Но вот я слышу шум за дверью,</td>
+		</tr>
+		<tr>
+			<td>This must be it yes it must be the mail</td>
+			<td>Это должен быть... О, да! Это точно почтальон!</td>
+		</tr>
+		<tr>
+			<td>Ten o'clock postman</td>
+			<td>Уважаемый почтальон,</td>
+		</tr>
+		<tr>
+			<td>Bring me your letter</td>
+			<td>Принесите мне её письмо,</td>
+		</tr>
+		<tr>
+			<td>Ten o'clock postman</td>
+			<td>Уважаемый почтальон,</td>
+		</tr>
+		<tr>
+			<td>Make me feel better</td>
+			<td>Доставьте мне такую радость,</td>
+		</tr>
+		<tr>
+			<td>Been so many days</td>
+			<td>Прошло так много дней,</td>
+		</tr>
+		<tr>
+			<td>Since that I've met her</td>
+			<td>С тех пор, как мы с ней расстались,</td>
+		</tr>
+		<tr>
+			<td>Ten o'clock postman</td>
+			<td>Уважаемый почтальон,</td>
+		</tr>
+		<tr>
+			<td>Bring me her letter</td>
+			<td>Принесите мне её письмо.</td>
+		</tr>
+	</table>
+</div>
+<div id = "ref_005">ref_005</div>
+<div>
+<p>Текст песни Анжелика Варум - Ля-Ля-Фа (Ля-ля-фа (1993'))</p>
+	<p>Целый город мокнет под дождём</p>
+	<p>Этой ночью и холодным днём,</p>
+	<p>Мы с тобою больше не вдвоём, а жаль.</p>
+	<p>И уже не важно, чья вина,</p>
+	<p>Я брожу по улицам одна,</p>
+	<p>Наших слов несказанных стена, печаль.</p>
+	<p>И не осталось ничего,</p>
+	<p>Весь мир стал словно чёрно-белое кино.</p>
+	<p>Знаю, что ещё меня ты ждешь,</p>
+	<p>А любовь уходит, не вернёшь,</p>
+	<p>Я не плачу, это просто дождь, прощай.</p>
+	<p>Ля-ля-фа эти ноты</p>
+	<p>Ля-ля-фа одиноки</p>
+	<p>Нам уже ничего не успеть.</p>
+	<p>Ля-ля-фа как печально</p>
+	<p>Ля-ля-фа на прощанье</p>
+	<p>Может быть, ты придёшь</p>
+	<p>Эту песню допеть.</p>
+	<p>На бульварах мокрые зонты,</p>
+	<p>Над рекою мокрые мосты,</p>
+	<p>Огонёк дрожит из темноты такси.</p>
+	<p>Знаю, что ещё меня ты ждёшь,</p>
+	<p>А любовь уходит, не вернёшь,</p>
+	<p>Я не плачу, это просто дождь, прости.</p>
+	<p>Тебя попробую забыть,</p>
+	<p>Ну что же делать, надо как-то дальше жить.</p>
+	<p>Источник teksty-pesenok.ru</p>
+	<p>И уже не важно, чья вина,</p>
+	<p>Я брожу по улицам одна,</p>
+	<p>Наших слов несказанных стена, прощай.</p>
+	<p>Ля-ля-фа эти ноты</p>
+	<p>Ля-ля-фа одиноки</p>
+	<p>Нам уже ничего не успеть.</p>
+	<p>Ля-ля-фа как печально</p>
+	<p>Ля-ля-фа на прощанье</p>
+	<p>Может быть, ты придёшь</p>
+	<p>Эту песню допеть.</p>
+	<p>Тебя попробую забыть,</p>
+	<p>Ну что же делать, надо как-то дальше жить.</p>
+	<p>И уже не важно, чья вина,</p>
+	<p>Я брожу по улицам одна,</p>
+	<p>Наших слов несказанных стена, печаль</p>
+	<p>Ля-ля-фа эти ноты</p>
+	<p>Ля-ля-фа одиноки</p>
+	<p>Нам уже ничего не успеть.</p>
+	<p>Ля-ля-фа как печально</p>
+	<p>Ля-ля-фа на прощанье</p>
+	<p>Может быть, ты придёшь</p>
+	<p>Эту песню допеть.</p>
+	<p>Может быть, ты придёшь</p>
+	<p>Эту песню допеть.</p>
+	<p>Может быть, ты придёшь</p>
+	<p>Эту песню допеть.</p></div>
+<div id = "ref_006">ref_006</div>
+<div>
+	<table>
+		<tr>
+			<td>Dance with Me (оригинал Dj Bobo)</td>
+			<td>Потанцуйте со мной! (перевод Ineya)</td>
+		</tr>
+		<tr>
+			<td>I'm back again on a higher stage.</td>
+			<td>Я снова на большой сцене.</td>
+		</tr>
+		<tr>
+			<td>Listen to my party beat and get in rage</td>
+			<td>Прислушайся к ритму моей вечеринки и войди в раж,</td>
+		</tr>
+		<tr>
+			<td>'Cause you know when I flow and I show you so</td>
+			<td>Ведь ты знаешь, когда я читаю рэп, я учу тебя,</td>
+		</tr>
+		<tr>
+			<td>Which way is better, which way you got to go</td>
+			<td>Как лучше, каким путем тебе пойти,</td>
+		</tr>
+		<tr>
+			<td>To make a fun house party or noddy,</td>
+			<td>Чтобы устроить самую веселую вечеринку,</td>
+		</tr>
+		<tr>
+			<td>You gotta check this out, yo-la-da-di!</td>
+			<td>Ты должен сам убедиться, йо-ла-да-ди!</td>
+		</tr>
+		<tr>
+			<td>There's a party over there with glamours and glare,</td>
+			<td>У нас вечеринка, гламурная и яркая,</td>
+		</tr>
+		<tr>
+			<td>So dance and move you - pump that body,</td>
+			<td>Так что танцуй, двигай телом,</td>
+		</tr>
+		<tr>
+			<td>Move your body up and down,</td>
+			<td>Подпрыгивай вверх, опускайся вниз,</td>
+		</tr>
+		<tr>
+			<td>Side to side, it is party time!</td>
+			<td>Качайся из стороны в сторону, время веселиться!</td>
+		</tr>
+		<tr>
+			<td>Yeah, that's right we're dancing tonight</td>
+			<td>Е, отлично, что мы танцуем сегодня ночью,</td>
+		</tr>
+		<tr>
+			<td>'Till the sun is coming and the sky is bright,</td>
+			<td>Пока не взойдет солнце и не станет светлым небо,</td>
+		</tr>
+		<tr>
+			<td>Then we are coming to an end like you understand.</td>
+			<td>Тогда мы остановимся, как ты понимаешь.</td>
+		</tr>
+		<tr>
+			<td>That I'm a party man did the best I can</td>
+			<td>Я король вечеринок и сделал все, что мог,</td>
+		</tr>
+		<tr>
+			<td>To make you laugh again,</td>
+			<td>Чтобы заставить тебя снова смеяться,</td>
+		</tr>
+		<tr>
+			<td>Now I'm out of the scene,</td>
+			<td>Ну а теперь я ухожу со сцены,</td>
+		</tr>
+		<tr>
+			<td>Ahahahah!</td>
+			<td>Ха-ха-ха!</td>
+		</tr>
+		<tr>
+			<td>Another time, another place,</td>
+			<td>Другое время, другое место,</td>
+		</tr>
+		<tr>
+			<td>Another rhyme done for every race.</td>
+			<td>Другой ритм задается для каждой гонки.</td>
+		</tr>
+		<tr>
+			<td>In your case we're getting rough,</td>
+			<td>В данном случае мы становимся жесткими,</td>
+		</tr>
+		<tr>
+			<td>I'm not going to stop until you get enough,</td>
+			<td>Я не остановлюсь, пока ты не насытишься,</td>
+		</tr>
+		<tr>
+			<td>'Cause you groove back and forth, forth and back.</td>
+			<td>Ведь ты зажигаешь вперед-назад, назад-вперед</td>
+		</tr>
+		<tr>
+			<td>Then you see it yourself it's like a heart attack,</td>
+			<td>Ты сам потом поймешь, это похоже на сердечный приступ,</td>
+		</tr>
+		<tr>
+			<td>My rhymes are a combination, infiltration,</td>
+			<td>Мои тексты – это комбинация, внедрение,</td>
+		</tr>
+		<tr>
+			<td>Situation all over the nation,</td>
+			<td>Состояние всей страны,</td>
+		</tr>
+		<tr>
+			<td>Like round and round, upside down!</td>
+			<td>Кругом, еще кругом, вверх дном!</td>
+		</tr>
+		<tr>
+			<td>Living my life 'till your feet are on the ground,</td>
+			<td>Я живу, пока ваши ноги на земле,</td>
+		</tr>
+		<tr>
+			<td>Then put your hands up in the air,</td>
+			<td>Теперь поднимите руки выше,</td>
+		</tr>
+		<tr>
+			<td>Wave them like you just don't care.</td>
+			<td>Помашите ими, как будто у вас нет проблем.</td>
+		</tr>
+		<tr>
+			<td>And if you are ready to rock, then rock with me!</td>
+			<td>И если вы готовы зажигать, то зажигайте со мной!</td>
+		</tr>
+		<tr>
+			<td>Somebody say oh yeah, oh yeah!</td>
+			<td>Кто-нибудь, скажите оу-е, оу-е!</td>
+		</tr>
+		<tr>
+			<td>Oh yeah, oh yeah!</td>
+			<td>Оу-е, оу-е!</td>
+		</tr>
+		<tr>
+			<td>Now it's just the time I think you are with it,</td>
+			<td>Настало время, я думаю, вы в теме,</td>
+		</tr>
+		<tr>
+			<td>So make some room and space just to hit it,</td>
+			<td>Так что потеснитесь и дайте место, чтобы зажечь,</td>
+		</tr>
+		<tr>
+			<td>Move, move that body!</td>
+			<td>Двигай, двигай телом!</td>
+		</tr>
+		<tr>
+			<td>Ba-didely didely di, yeah we make a party,</td>
+			<td>Ба-дидели-дидели-ди, е, у нас вечеринка,</td>
+		</tr>
+		<tr>
+			<td>To the B to the O to the B to the O!</td>
+			<td>Скажите "Б", скажите "О", еще раз "Б", еще раз "О"!</td>
+		</tr>
+		<tr>
+			<td>Wanna rock your body, wanna rock your soul,</td>
+			<td>Я хочу встряхнуть ваши тела, встряхнуть ваши души,</td>
+		</tr>
+		<tr>
+			<td>But I never ever said - I do it better,</td>
+			<td>Но я никогда не говорил – я делаю это лучше,</td>
+		</tr>
+		<tr>
+			<td>Just know the time - yes I'm clever.</td>
+			<td>Просто я в ногу со временем, да, я не глуп.</td>
+		</tr>
+		<tr>
+			<td>The way you had expected, your heading for the end.</td>
+			<td>Таким путем, как ты планировал, ты упрешься в тупик.</td>
+		</tr>
+		<tr>
+			<td>Right that was another story from the party man and his clan,</td>
+			<td>Это была еще одна история от короля вечеринок и его команды,</td>
+		</tr>
+		<tr>
+			<td>They will come again, show and improve you, it's not the end.</td>
+			<td>Они придут снова и докажут тебе, что это не конец.</td>
+		</tr>
+		<tr>
+			<td>It's a jam session, my confession,</td>
+			<td>Это джем-сейшн, моя религия,</td>
+		</tr>
+		<tr>
+			<td>And truly hard yeah one obsession.</td>
+			<td>И это правда трудно, это мания.</td>
+		</tr>
+		<tr>
+			<td>But the joke is over, you know what I mean,</td>
+			<td>Но шутки кончились, ты понимаешь, о чем я,</td>
+		</tr>
+		<tr>
+			<td>The party is gone, I'm out of the scene...</td>
+			<td>Вечеринка закончилась, я ухожу со сцены...</td>
+	</table>
+</div>
+<div id = "ref_007">ref_007</div>
+<div>
+<p>Текст песни Александр Добрынин - Розовые Розы</p>
+<p>1 куплет:</p>
+<p>У Светки Соколовой день рожденья,</p>
+<p>Ей сегодня тридцать лет.</p>
+<p>Я несу в подарок поздравленья</p>
+<p>И огромный розовый букет.</p>
+<p>Помнишь день рожденья</p>
+<p>В пятом классе,</p>
+<p>И тебе двенадцать лет.</p>
+<p>Вот тогда, на зависть всем ребятам,</p>
+<p>Я принёс свой розовый букет.</p>
+<p>Припев:</p>
+<p>Розовые розы</p>
+<p>Светке Соколовой,</p>
+<p>Светке Соколовой,</p>
+<p>Однокласснице моей.</p>
+<p>Розовые розы</p>
+<p>Я несу ей снова,</p>
+<p>В память наших школьных,</p>
+<p>В память наших школьных дней.</p>
+<p>2 куплет:</p>
+<p>Знаю, Светка, мы уже не дети,</p>
+<p>У тебя друзья свои,</p>
+<p>Только годы лучшие на свете</p>
+<p>Дарит память нам двоим.</p>
+<p>Источник teksty-pesenok.ru</p>
+<p>У Светки Соколовой день рожденья,</p>
+<p>Ей сегодня тридцать лет.</p>
+<p>Я несу в подарок поздравленья</p>
+<p>И огромный розовый букет.</p>
+<p>Припев:</p>
+<p>Розовые розы</p>
+<p>Светке Соколовой,</p>
+<p>Светке Соколовой,</p>
+<p>Однокласснице моей.</p>
+<p>Розовые розы</p>
+<p>Я несу ей снова,</p>
+<p>В память наших школьных,</p>
+<p>В память наших школьных дней.</p>
+<p>Розовые розы</p>
+<p>Светке Соколовой,</p>
+<p>Светке Соколовой,</p>
+<p>Однокласснице моей.</p>
+<p>Розовые розы</p>
+<p>Я несу ей снова,</p>
+<p>В память наших школьных,</p>
+<p>В память наших школьных дней.</p>
+<p>В память наших школьных,</p>
+<p>В память наших школьных дней.</p>
+<p>В память наших школьных,</p>
+<p>В память наших школьных дней.</p></div>
+<div id = "ref_008">ref_008</div>
+<div>
+<table>
+<tr>
+		<td>Hunters of the Night</td>
+		<td>Ночные охотники (перевод VeeWai)</td>
+	</tr>
+	<tr>
+		<td>[Verse 1:]</td>
+		<td>[Куплет 1:]</td>
+	</tr>
+	<tr>
+		<td>You know you touch my heart,</td>
+		<td>Ты знаешь, что задеваешь моё сердце,</td>
+	</tr>
+	<tr>
+		<td>You made me running hide,</td>
+		<td>Ты заставляешь меня спасаться бегством,</td>
+	</tr>
+	<tr>
+		<td>I wanna feel your body by my side.</td>
+		<td>Я хочу ощущать твоё тело рядом.</td>
+	</tr>
+	<tr>
+		<td>You walk the streets again,</td>
+		<td>Ты снова идёшь по улицам,</td>
+	</tr>
+	<tr>
+		<td>You need a love and friend</td>
+		<td>Тебе нужен любимый и друг,</td>
+	</tr>
+	<tr>
+		<td>To try to stop the burning</td>
+		<td>Чтобы попытаться унять пламя</td>
+	</tr>
+	<tr>
+		<td>Deep inside.</td>
+		<td>В душе.</td>
+	</tr>
+	<tr>
+		<td>Love comes, love grows,</td>
+		<td>Любовь приходит, любовь растёт,</td>
+	</tr>
+	<tr>
+		<td>But your heart knows...</td>
+		<td>Но твоё сердце понимает...</td>
+	</tr>
+	<tr>
+		<td>Touch you, you look at me,</td>
+		<td>Прикасаюсь к тебе, ты смотришь на меня,</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>And the hurt shows.</td>
+		<td>И боль становится видна.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>[Chorus:]</td>
+		<td>[Припев:]</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>The look on everyone's face I see</td>
+		<td>Выражения всех встреченных мною лиц</td>
+	</tr>
+	<tr>
+		<td>Leaving me cold again in my heart, my memories.</td>
+		<td>Снова заставляют мои сердце и воспоминания похолодеть.</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>Another time I feel the need in me,</td>
+		<td>И снова я ощущаю нужду,</td>
+	</tr>
+	<tr>
+		<td>Reaching for you again,</td>
+		<td>Снова тянусь к тебе,</td>
+	</tr>
+	<tr>
+		<td>Love is such a mystery.</td>
+		<td>Любовь — настоящая загадка.</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night!</td>
+		<td>Ночные охотники!</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>[Verse 2:]</td>
+		<td>[Куплет 2:]</td>
+	</tr>
+	<tr>
+		<td>Wanna hold you close</td>
+		<td>Хочу прижать тебя ближе,</td>
+	</tr>
+	<tr>
+		<td>But you just turn away,</td>
+		<td>Но ты лишь отворачиваешься,</td>
+	</tr>
+	<tr>
+		<td>Seems there's nothing left</td>
+		<td>Кажется, мне больше уже</td>
+	</tr>
+	<tr>
+		<td>That I can say.</td>
+		<td>Нечего сказать.</td>
+	</tr>
+	<tr>
+		<td>The kind of love you need</td>
+		<td>Любовь, которая тебе нужна,</td>
+	</tr>
+	<tr>
+		<td>Is just too hard to find,</td>
+		<td>Слишком сложно отыскать,</td>
+	</tr>
+	<tr>
+		<td>You know, you can deceive</td>
+		<td>Знаешь, ты можешь предавать,</td>
+	</tr>
+	<tr>
+		<td>When you made up lies.</td>
+		<td>Когда выдумываешь свою ложь.</td>
+	</tr>
+	<tr>
+		<td>Love comes, love grows,</td>
+		<td>Любовь приходит, любовь растёт,</td>
+	</tr>
+	<tr>
+		<td>But your heart knows...</td>
+		<td>Но твоё сердце понимает...</td>
+	</tr>
+	<tr>
+		<td>Touch you, you look at me,</td>
+		<td>Прикасаюсь к тебе, ты смотришь на меня,</td>
+	</tr>
+	<tr>
+		<td>And the hurt shows.</td>
+		<td>И боль становится видна.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>[Chorus:]</td>
+		<td>[Припев:]</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>The look on everyone's face I see</td>
+		<td>Выражения всех встреченных мною лиц</td>
+	</tr>
+	<tr>
+		<td>Leaving me cold again in my heart, my memories.</td>
+		<td>Снова заставляют мои сердце и воспоминания похолодеть.</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>Another time I feel the need in me,</td>
+		<td>И снова я ощущаю нужду,</td>
+	</tr>
+	<tr>
+		<td>Reaching for you again,</td>
+		<td>Снова тянусь к тебе,</td>
+	</tr>
+	<tr>
+		<td>Love is such a mystery.</td>
+		<td>Любовь — настоящая загадка!</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night,</td>
+		<td>Ночные охотники,</td>
+	</tr>
+	<tr>
+		<td>Hunters of the night!</td>
+		<td>Ночные охотники!</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>	
+</div>
+<div id = "ref_009">ref_009</div>
+<div>
+<p>Айвазов Александр</p>
+<p>Текст песни Лилии</p>
+<p>Дождем унылым небо плачет</p>
+<p>Замерзли лилии в пруду</p>
+<p>В безлюдный наш поселок дачный</p>
+<p>Я поздней осенью приду</p>
+<p>Куда где годы детства плыли</p>
+<p>Где я любил соседку Лилю</p>
+<p>А я в пруду для Лилии Лилии, Лилии</p>
+<p>Сорвал три белых лилии</p>
+<p>Три лилии сорвал</p>
+<p>А я в окошко Лилии Лилии, Лилии</p>
+<p>Бросал под вечер лилии</p>
+<p>Три лилии бросал</p>
+<p>Я знаю время лечит раны</p>
+<p>Приходит новая любовь</p>
+<p>Но вспоминаю как не странно</p>
+<p>Я ту девчонку вновь и вновь</p>
+<p>Как будто вырастают крылья</p>
+<p>Когда я слышу имя Лиля</p>
+<p>А я в пруду для Лилии Лилии, Лилии</p>
+<p>Сорвал три белых лилии</p>
+<p>Три лилии сорвал</p>
+<p>А я в окошко Лилии Лилии, Лилии</p>
+<p>Бросал под вечер лилии</p>
+<p>Три лилии бросал</p>
+<p>А я в пруду для Лилии Лилии, Лилии</p>
+<p>Сорвал три белых лилии</p>
+<p>Три лилии сорвал</p>
+<p>А я в окошко Лилии Лилии, Лилии</p>
+<p>Бросал под вечер лилии</p>
+<p>Три лилии бросал</p>
+<p>Дождем унылым небо плачет</p>
+<p>Замерзли лилии в пруду</p>
+<p>В безлюдный наш поселок дачный</p>
+<p>Я поздней осенью приду</p>
+<p>Куда где годы детства плыли</p>
+<p>Где я любил соседку Лилю</p>
+<p>А я в пруду для Лилии Лилии, Лилии</p>
+<p>Сорвал три белых лилии</p>
+<p>Три лилии сорвал</p>
+<p>А я в окошко Лилии Лилии, Лилии</p>
+<p>Бросал под вечер лилии</p>
+<p>Три лилии бросал</p></div>
+<div id = "ref_010">ref_010</div>
+<div>музыка</div>
+<div id = "ref_011">ref_011</div>
+<div>
+<tr>
+		<td>Pretty Young Girl</td>
+		<td>Милая девушка (перевод Lunar_spb)</td>
+	</tr>
+	<tr>
+		<td>I know life is different to you,</td>
+		<td>Я знаю, жизнь тебе видится другой,</td>
+	</tr>
+	<tr>
+		<td>First love can be frightening, that's true</td>
+		<td>Первая любовь может испугать, и это правда,</td>
+	</tr>
+	<tr>
+		<td>But take me as your brother and your friend</td>
+		<td>Но считай меня своим братом и другом,</td>
+	</tr>
+	<tr>
+		<td>And take me as your lover and your man</td>
+		<td>Считай своим возлюбленным, своим парнем</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>[Chorus:]</td>
+		<td>[Припев:]</td>
+	</tr>
+	<tr>
+		<td>Pretty young girl on my mind,</td>
+		<td>Милая девушка, что в моих мыслях,</td>
+	</tr>
+	<tr>
+		<td>How I wish you to be mine,</td>
+		<td>Как я хочу, чтобы ты стала моей,</td>
+	</tr>
+	<tr>
+		<td>Girl, you're no child anymore,</td>
+		<td>Девочка, ты уже не ребенок,</td>
+	</tr>
+	<tr>
+		<td>Pretty young girl on my mind,</td>
+		<td>Милая девушка, что в моих мыслях,</td>
+	</tr>
+	<tr>
+		<td>Don't you know, know I can't hide</td>
+		<td>Разве ты не знаешь, что я не могу скрывать,</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>Can't hide my feelings</td>
+		<td>Не могу скрывать своих чувств,</td>
+	</tr>
+	<tr>
+		<td>You're my girl and you're sixteen</td>
+		<td>Ты моя девушка и тебе шестнадцать</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Don't know is it wrong, is it right?</td>
+		<td>Не знаю, правильно это или нет?</td>
+	</tr>
+	<tr>
+		<td>Sweet girl, I want to love you tonight,</td>
+		<td>Сладкая девочка, я хочу любить тебя сегодня,</td>
+	</tr>
+	<tr>
+		<td>So take me as your brother and your friend,</td>
+		<td>Считай меня своим братом и другом,</td>
+	</tr>
+	<tr>
+		<td>But first of all I wanna be your man</td>
+		<td>Но, прежде всего, я хочу быть твоим парнем</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</div>
+<div id = "ref_012">ref_012</div>
+<div>
+<p>Китай</p>
+<p>Мы прилетели в Китай не случайно.</p>
+<p>В сказочный мир нас мечта позвала.</p>
+<p>Было вокруг все овеяно тайной.</p>
+<p>Это великая чудо-страна.</p>
+<p>Море цветов</p>
+<p>И экзотика - царица здесь.</p>
+<p>Храмы богов,</p>
+<p>Нищета и блеск, все есть</p>
+<p>Только тебя, Китай, я буду помнить.</p>
+<p>Ты мое сердце ранил навсегда.</p>
+<p>Окна огромных белых небоскребов</p>
+<p>И океана синяя вода.</p>
+<p>Солнца огонь и пальмы - лес зеленый...</p>
+<p>Это Китай!</p>
+<p>Утром и ночью гудит, словно улей,</p>
+<p>Эта большая живая страна.</p>
+<p>От магистралей до маленьких улиц</p>
+<p>Все нам покажет-расскажет она.</p>
+<p>Море цветов</p>
+<p>И экзотика - царица здесь.</p>
+<p>Храмы богов,</p>
+<p>Нищета и блеск, все есть</p>
+<p>Только тебя, Китай, я буду помнить.</p>
+<p>Ты мое сердце ранил навсегда.</p>
+<p>Окна огромных белых небоскребов</p>
+<p>И океана синяя вода.</p>
+<p>Солнца огонь и пальмы - лес зеленый...</p>
+<p>Это Китай!</p></div>
+<div id = "ref_013">ref_013</div>
+<div>
+<table>
+<tr>
+		<td>All That She Wants (оригинал Ace of Base)</td>
+		<td>Все, чего она хочет (перевод Lorely)</td>
+	</tr>
+	<tr>
+		<td>She leads a lonely life</td>
+		<td>Она ведет одинокую жизнь,</td>
+	</tr>
+	<tr>
+		<td>She leads a lonely life</td>
+		<td>Она ведет одинокую жизнь.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>When she woke up late in the morning</td>
+		<td>Когда она проснулась поздним утром,</td>
+	</tr>
+	<tr>
+		<td>Light and the day had just begun</td>
+		<td>Свет и день только начались.</td>
+	</tr>
+	<tr>
+		<td>She opened up her eyes and thought</td>
+		<td>Она открыла глаза и подумала:</td>
+	</tr>
+	<tr>
+		<td>O' what a morning</td>
+		<td>«О, что за утро!</td>
+	</tr>
+	<tr>
+		<td>It's not a day for work</td>
+		<td>Этот день не для работы,</td>
+	</tr>
+	<tr>
+		<td>It's a day for catching tan</td>
+		<td>Этот день для загорания –</td>
+	</tr>
+	<tr>
+		<td>Just laying on the beach and having fun</td>
+		<td>Просто валяться на пляже и веселиться»</td>
+	</tr>
+	<tr>
+		<td>She's going to get you</td>
+		<td>Она хотела получить тебя.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>All that she wants is another baby</td>
+		<td>Все, чего она хочет – очередной победы, малыш.</td>
+	</tr>
+	<tr>
+		<td>She's gone tomorrow boy</td>
+		<td>Она уйдет завтра.</td>
+	</tr>
+	<tr>
+		<td>All that she wants is another baby</td>
+		<td>Все, чего она хочет – очередной победы, малыш.</td>
+	</tr>
+	<tr>
+		<td>All that she wants is another baby</td>
+		<td>Все, чего она хочет – очередной победы, малыш.</td>
+	</tr>
+	<tr>
+		<td>She's gone tomorrow boy</td>
+		<td>Она уйдет завтра.</td>
+	</tr>
+	<tr>
+		<td>All that she wants is another baby</td>
+		<td>Все, чего она хочет – очередной победы, малыш.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>All that she wants - all that she wants</td>
+		<td>Все, чего она хочет – все, чего она хочет.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>So if you are in sight and the day is right</td>
+		<td>Так что если ты попался ей на глаза, и день удачный,</td>
+	</tr>
+	<tr>
+		<td>She's a hunter you're the fox</td>
+		<td>То она – охотница, а ты – лиса.</td>
+	</tr>
+	<tr>
+		<td>The gentle voice that talks to you</td>
+		<td>Нежный голос, который говорит с тобой,</td>
+	</tr>
+	<tr>
+		<td>Won't talk forever</td>
+		<td>Никогда больше не будет звучать.</td>
+	</tr>
+	<tr>
+		<td>It's a night for passion</td>
+		<td>Это ночь для страсти,</td>
+	</tr>
+	<tr>
+		<td>But the morning means goodbye</td>
+		<td>Но утром она скажет тебе: «Прощай».</td>
+	</tr>
+	<tr>
+		<td>Beware of what is flashing in her eyes</td>
+		<td>Остерегайся ее взгляда,</td>
+	</tr>
+	<tr>
+		<td>She's going to get you</td>
+		<td>Она хочет получить тебя.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>All that she wants...</td>
+		<td>Все, чего она хочет...</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+</div>
+<div id = "ref_014">ref_014</div>
+<div>
+<p>Ясный мой свет</p>
+<p>Где ж ты, мой свет, бродишь, голову склоня, дай же ответ, что не позабыл меня -</p>
+<p>Ведь писем нет вот уже четыре дня, милый, не греши, напиши.</p>
+<p>Живу я без тебя, словно во сне, горю я без тебя, словно в огне,</p>
+<p>Прошу я, напиши весточку мне, хоть строчечку ты напиши.</p>
+<p>Припев:</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p>
+<p>Мне не легко, только чья же тут вина - ты далеко, в целом мире я одна,</p>
+<p>Лишь высоко в небе грустная луна, слышишь, вздох души напиши.</p>
+<p>Живу я без тебя, словно во сне, горю я без тебя, словно в огне,</p>
+<p>Прошу я, напиши весточку мне, хоть строчечку ты напиши.</p>
+<p>Припев:</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p>
+<p>Ясный мой свет, ты напиши мне слезою дождя на мокром окне.</p>
+<p>Ясный мой свет, ты напиши мне весенним лучом на белой стене.</p></div>
+<div id = "ref_015">ref_015</div>
+<div>
+<table>
+<tr>
+		<td>Touch by Touch (оригинал Joy)</td>
+		<td>Прикосновение за прикосновением</td>
+	</tr>
+	<tr>
+		<td>When I feel the time is right</td>
+		<td>Когда я чувствую, что время настало,</td>
+	</tr>
+	<tr>
+		<td>And you're staying by my side</td>
+		<td>Ты остаешься рядом со мной,</td>
+	</tr>
+	<tr>
+		<td>And the love you give to me</td>
+		<td>И любовь, что ты мне даешь,</td>
+	</tr>
+	<tr>
+		<td>Makes my heart beat</td>
+		<td>Заставляет мое сердце учащённо биться.</td>
+	</tr>
+	<tr>
+		<td>When my fantasies fly away</td>
+		<td>Фантазии уносят меня прочь,</td>
+	</tr>
+	<tr>
+		<td>But my feelings make me stay</td>
+		<td>Но мои чувства заставляют меня остаться.</td>
+	</tr>
+	<tr>
+		<td>I see the fire in your eyes</td>
+		<td>Я вижу огонек в твоих глазах,</td>
+	</tr>
+	<tr>
+		<td>It makes my heart beat.</td>
+		<td>Он заставляет мое сердце учащенно биться.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it night and day</td>
+		<td>Делаем это, мы все еще делаем это ночью и днем,</td>
+	</tr>
+	<tr>
+		<td>You're my all time lover</td>
+		<td>Ты – моя постоянная девушка.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it in a way</td>
+		<td>Делаем это, мы все еще делаем это так,</td>
+	</tr>
+	<tr>
+		<td>Like there is no other</td>
+		<td>Будто других не существует.</td>
+	</tr>
+	<tr>
+		<td>Touch by touch</td>
+		<td>Прикосновение за прикосновением,</td>
+	</tr>
+	<tr>
+		<td>You're my all time lover</td>
+		<td>Ты – моя постоянная девушка.</td>
+	</tr>
+	<tr>
+		<td>Skin to skin</td>
+		<td>Тела слились,</td>
+	</tr>
+	<tr>
+		<td>Come under my cover.</td>
+		<td>Иди ко мне под одеяло.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>When my heart is full of love</td>
+		<td>Когда мое сердце наполнено любовью,</td>
+	</tr>
+	<tr>
+		<td>It makes me a turtle dove</td>
+		<td>Я порхаю. 1</td>
+	</tr>
+	<tr>
+		<td>Love's a game that we play</td>
+		<td>Любовь - это игра, в которую мы играем,</td>
+	</tr>
+	<tr>
+		<td>Night and day</td>
+		<td>Ночью и днем,</td>
+	</tr>
+	<tr>
+		<td>When our love is clear and bright</td>
+		<td>Наша любовь чистая и яркая,</td>
+	</tr>
+	<tr>
+		<td>It's our way to see the light</td>
+		<td>И это помогает нам увидеть свет.</td>
+	</tr>
+	<tr>
+		<td>There's a fire in our hearts</td>
+		<td>Наши сердца горят огнем</td>
+	</tr>
+	<tr>
+		<td>Night and day.</td>
+		<td>Ночью и днем.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>[2x:]</td>
+		<td>[2x:]</td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it night and day</td>
+		<td>Делаем это, мы все еще делаем это ночью и днем,</td>
+	</tr>
+	<tr>
+		<td>You're my all time lover</td>
+		<td>Ты – моя постоянная девушка,</td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it in a way</td>
+		<td>Делаем это, мы все еще делаем это так,</td>
+	</tr>
+	<tr>
+		<td>Like there is no other</td>
+		<td>Будто других не существует.</td>
+	</tr>
+	<tr>
+		<td>Touch by touch</td>
+		<td>Прикосновение за прикосновением,</td>
+	</tr>
+	<tr>
+		<td>You're my all time lover</td>
+		<td>Ты – моя постоянная девушка,</td>
+	</tr>
+	<tr>
+		<td>Skin to skin</td>
+		<td>Тела слились,</td>
+	</tr>
+	<tr>
+		<td>Come under my cover.</td>
+		<td>Иди ко мне под одеяло.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it night and day</td>
+		<td>Делаем это, мы все еще делаем это ночью и днем,</td>
+	</tr>
+	<tr>
+		<td>You're my all time lover</td>
+		<td>Ты – моя постоянная любовь,</td>
+	</tr>
+	<tr>
+		<td>Do it, we still do it in a way</td>
+		<td>Делаем это, мы все еще делаем это так,</td>
+	</tr>
+	<tr>
+		<td>Like there is no other</td>
+		<td>Будто других не существует.</td>
+	</tr>
+	<tr>
+		<td>Touch by touch.</td>
+		<td>Прикосновение за прикосновением.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>	
+</div>
+<div id = "ref_016">ref_016</div>
+<div>
+<p>Девочка моя синеглазая</p>
+<p>Брови - вразлет, ветренная челка,</p>
+<p>Пламень и лед - ты, моя девчонка!</p>
+<p>То не звонишь, то бросаешь трубку,</p>
+<p>То - мне назло - носишь мини-юбку.</p>
+<p>[Припев]</p>
+<p>Девочка моя синеглазая</p>
+<p>Без тебя мне не прожить и дня,</p>
+<p>Девочка моя синеглазая,</p>
+<p>Ну скажи, что любишь ты меня!</p>
+<p>Я без тебя, без твоих насмешек,</p>
+<p>Жить не могу, твердый мой орешек!</p>
+<p>Ты - вся моя, и никто не знает,</p>
+<p>Как хорошо мне с тобой бывает!</p>
+<p>[Припев]</p>
+<p>Кто я тебе - я не знаю четко,</p>
+<p>Знаю одно: ты - моя девчонка!</p>
+<p>Пусть ничего не решил пока я,</p>
+<p>Знаю одно: мне нужна такая!</p></div>
+<div id = "ref_017">ref_017</div>
+<div>
+<table>
+<tr>
+		<td>Russian Lullaby (оригинал E-Type)</td>
+		<td>Русская колыбельная</td>
+	</tr>
+	<tr>
+		<td>[Speak Russian]</td>
+		<td>[Говорит по-русски]</td>
+	</tr>
+	<tr>
+		<td>[Privet, menya zovut E-Type!</td>
+		<td>[Привет, меня зовут E-Type.</td>
+	</tr>
+	<tr>
+		<td>Na zdorovie!]</td>
+		<td>На здоровье!]</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>When the seas are rolling in,</td>
+		<td>Когда волнуются моря...</td>
+	</tr>
+	<tr>
+		<td>When the stars are shining clear,</td>
+		<td>Когда ярко сияют звезды...</td>
+	</tr>
+	<tr>
+		<td>When the ghosts are howling near,</td>
+		<td>Когда призраки завывают совсем близко...</td>
+	</tr>
+	<tr>
+		<td>When we sing the Russian lullaby.</td>
+		<td>Когда мы поем русскую колыбельную...</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>(in the night in the night)</td>
+		<td>(по ночам, по ночам)</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td>Let's you and me together leave for higher ground</td>
+		<td>Давай мы с тобой перенесемся в высший мир.</td>
+	</tr>
+	<tr>
+		<td>When you're all alone just listen to the sound</td>
+		<td>Когда тебе одиноко, просто прислушайся к этому звучанию.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельная,</td>
+	</tr>
+	<tr>
+		<td>We fall asleep when we hear...</td>
+		<td>Мы засыпаем, когда слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную,</td>
+	</tr>
+	<tr>
+		<td>We fly away when we hear...</td>
+		<td>Мы улетаем, когда слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную,</td>
+	</tr>
+	<tr>
+		<td>We travel far when we hear...</td>
+		<td>Нас уносит, когда мы слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную.</td>
+	</tr>
+	<tr>
+		<td>When we hear the Russian lullaby...</td>
+		<td>Когда мы слышим русскую колыбельную.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>(In the night), when the seas are rolling in,</td>
+		<td>По ночам, когда волнуются моря,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the stars are shining clear,</td>
+		<td>По ночам, когда ярко сияют звезды,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the ghosts are howling near,</td>
+		<td>По ночам, когда призраки завывают совсем близко,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when we sing the Russian lullaby.</td>
+		<td>По ночам, когда поется русская колыбельная.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>(in the night in the night)</td>
+		<td>(по ночам, по ночам)</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>When we are going through the night in search of light</td>
+		<td>Когда мы бродим в ночи в поисках света,</td>
+	</tr>
+	<tr>
+		<td>Let's you and me enjoy the mach 5 speed of life</td>
+		<td>Давай насладимся с тобой запредельной скоростью жизни*.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельная,</td>
+	</tr>
+	<tr>
+		<td>We fall asleep when we hear...</td>
+		<td>Мы засыпаем, когда слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную,</td>
+	</tr>
+	<tr>
+		<td>We fly away when we hear...</td>
+		<td>Мы улетаем, когда слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную,</td>
+	</tr>
+	<tr>
+		<td>We travel far when we hear...</td>
+		<td>Нас уносит, когда мы слышим</td>
+	</tr>
+	<tr>
+		<td>Lullaby,</td>
+		<td>Колыбельную.</td>
+	</tr>
+	<tr>
+		<td>When we hear the Russian lullaby...</td>
+		<td>Когда мы слышим русскую колыбельную.</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the seas are rolling in,</td>
+		<td>По ночам, когда волнуются моря,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the stars are shining clear,</td>
+		<td>По ночам, когда ярко сияют звезды,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the ghosts are howling near,</td>
+		<td>По ночам, когда призраки завывают совсем близко,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when we sing the Russian lullaby.</td>
+		<td>По ночам, когда поется русская колыбельная.</td>
+	</tr>
+	<tr>
+		<td>(In the night),</td>
+		<td>(По ночам)</td>
+	</tr>
+	<tr>
+		<td>We fall asleep when we hear...</td>
+		<td>Мы засыпаем, когда слышим...</td>
+	</tr>
+	<tr>
+		<td>(In the night),</td>
+		<td>(По ночам)</td>
+	</tr>
+	<tr>
+		<td>We fly away when we hear...</td>
+		<td>Мы улетаем, когда слышим...</td>
+	</tr>
+	<tr>
+		<td>(In the night),</td>
+		<td>(По ночам)</td>
+	</tr>
+	<tr>
+		<td>We travel far when we hear...</td>
+		<td>Нас уносит, когда мы слышим</td>
+	</tr>
+	<tr>
+		<td>(In the night),</td>
+		<td>(По ночам)</td>
+	</tr>
+	<tr>
+		<td>When we sing the Russian lullaby...</td>
+		<td>Когда мы поем русскую колыбельную!</td>
+	</tr>
+	<tr>
+		<td>When the seas are rolling in</td>
+		<td>Когда волнуются моря,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the stars are shining clear</td>
+		<td>По ночам, когда ярко сияют звезды,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when the ghosts are howling near</td>
+		<td>По ночам, когда призраки завывают совсем близко,</td>
+	</tr>
+	<tr>
+		<td>(In the night), when we sing the Russian lullaby</td>
+		<td>По ночам, когда поется русская колыбельная,</td>
+	</tr>
+	<tr>
+		<td>When we sing the Russian lullaby,</td>
+		<td>Когда поется русская колыбельная,</td>
+	</tr>
+	<tr>
+		<td>When we sing the Russian lullaby!</td>
+		<td>Когда поется русская колыбельная!</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+</table>	
+</div>
+<div id = "ref_018">ref_018</div>
+<div>
+<p>Поздравляю</p>
+<p>Я пришел без приглашенья</p>
+<p>В этот дом, в твой светлый праздник.</p>
+<p>Таял день, твой день рожденья,</p>
+<p>Красный цвет закат окрасил.</p>
+<p>Припев:</p>
+<p>И я сказал: «Поздравляю,</p>
+<p>И счастья тебе желаю, я счастья тебе желаю,</p>
+<p>Пусть не со мной, так с другим».</p>
+<p>И я сказал: «Поздравляю,</p>
+<p>Как буду я жить не знаю,</p>
+<p>Но всё же благословляю, и поздравляю</p>
+<p>С днём рождения твоим».</p>
+<p>Может быть, при лунном свете</p>
+<p>Развернёшь ты мой подарок.</p>
+<p>Среди роз найдёшь кассету,</p>
+<p>Для тебя я под гитару</p>
+<p>Припев:</p>
+<p>Тихонько спел: «Поздравляю,</p>
+<p>И счастья тебе желаю, я счастья тебе желаю,</p>
+<p>Пусть не со мной, так с другим».</p>
+<p>И я сказал: «Поздравляю,</p>
+<p>Как буду я жить не знаю,</p>
+<p>Но всё же благословляю, и поздравляю</p>
+<p>С днём рождения твоим».</p></div>
+<div id = "ref_019">ref_019</div><div></div>
+<div id = "ref_020">ref_020</div><div></div>
+<div id = "ref_021">ref_021</div><div></div>
+<div id = "ref_022">ref_022</div><div></div>
+<div id = "ref_023">ref_023</div><div></div>
+<div id = "ref_024">ref_024</div><div></div>
+<div id = "ref_025">ref_025</div><div></div>
+<div id = "ref_026">ref_026</div><div></div>
+<div id = "ref_027">ref_027</div><div></div>
+<div id = "ref_028">ref_028</div><div></div>
+<div id = "ref_029">ref_029</div><div></div>
+<div id = "ref_030">ref_030</div><div></div>
+<div id = "ref_031">ref_031</div><div></div>
+<div id = "ref_032">ref_032</div><div></div>
+<div id = "ref_033">ref_033</div><div></div>
+<div id = "ref_034">ref_034</div><div></div>
+<div id = "ref_035">ref_035</div><div></div>
+<div id = "ref_036">ref_036</div><div></div>
+<div id = "ref_037">ref_037</div><div></div>
+<div id = "ref_038">ref_038</div><div></div>
+<div id = "ref_039">ref_039</div><div></div>
+<div id = "ref_040">ref_040</div><div></div>
+<div id = "ref_041">ref_041</div><div></div>
+<div id = "ref_042">ref_042</div><div></div>
+<div id = "ref_043">ref_043</div><div></div>
+<div id = "ref_044">ref_044</div><div></div>
+<div id = "ref_045">ref_045</div><div></div>
+<div id = "ref_046">ref_046</div><div></div>
+<div id = "ref_047">ref_047</div><div></div>
+<div id = "ref_048">ref_048</div><div></div>
+<div id = "ref_049">ref_049</div><div></div>
+<div id = "ref_050">ref_050</div><div></div>
+<div id = "ref_051">ref_051</div><div></div>
+<div id = "ref_052">ref_052</div><div></div>
+<div id = "ref_053">ref_053</div><div></div>
+<div id = "ref_054">ref_054</div><div></div>
+<div id = "ref_055">ref_055</div><div></div>
+<div id = "ref_056">ref_056</div><div></div>
+<div id = "ref_057">ref_057</div><div></div>
+<div id = "ref_058">ref_058</div><div></div>
+<div id = "ref_059">ref_059</div><div></div>
+<div id = "ref_060">ref_060</div><div></div>
+<div id = "ref_061">ref_061</div><div></div>
+<div id = "ref_062">ref_062</div><div></div>
+<div id = "ref_063">ref_063</div><div></div>
+<div id = "ref_064">ref_064</div><div></div>
+<div id = "ref_065">ref_065</div><div></div>
+<div id = "ref_066">ref_066</div><div></div>
+<div id = "ref_067">ref_067</div><div></div>
+<div id = "ref_068">ref_068</div><div></div>
+<div id = "ref_069">ref_069</div><div></div>
+<div id = "ref_070">ref_070</div><div></div>
+<div id = "ref_071">ref_071</div><div></div>
+<div id = "ref_072">ref_072</div><div></div>
+<div id = "ref_073">ref_073</div><div></div>
+<div id = "ref_074">ref_074</div><div></div>
+<div id = "ref_075">ref_075</div><div></div>
+<div id = "ref_076">ref_076</div><div></div>
+<div id = "ref_077">ref_077</div><div></div>
+<div id = "ref_078">ref_078</div><div></div>
+<div id = "ref_079">ref_079</div><div></div>
+<div id = "ref_080">ref_080</div><div></div>
+<div id = "ref_081">ref_081</div><div></div>
+<div id = "ref_082">ref_082</div><div></div>
+<div id = "ref_083">ref_083</div><div></div>
+<div id = "ref_084">ref_084</div><div></div>
+<div id = "ref_085">ref_085</div><div></div>
+<div id = "ref_086">ref_086</div><div></div>
+<div id = "ref_087">ref_087</div><div></div>
+<div id = "ref_088">ref_088</div><div></div>
+<div id = "ref_089">ref_089</div><div></div>
+<div id = "ref_090">ref_090</div><div></div>
+<div id = "ref_091">ref_091</div><div></div>
+<div id = "ref_092">ref_092</div><div></div>
+<div id = "ref_093">ref_093</div><div></div>
+<div id = "ref_094">ref_094</div><div></div>
+<div id = "ref_095">ref_095</div><div></div>
+<div id = "ref_096">ref_096</div><div></div>
+<div id = "ref_097">ref_097</div><div></div>
+<div id = "ref_098">ref_098</div><div></div>
+<div id = "ref_099">ref_099</div><div></div>
+<div id = "ref_100">ref_100</div><div></div>
+<div id = "ref_101">ref_101</div><div></div>
+<div id = "ref_102">ref_102</div><div></div>
+<div id = "ref_103">ref_103</div><div></div>
+<div id = "ref_104">ref_104</div><div></div>
+<div id = "ref_105">ref_105</div><div></div>
+<div id = "ref_106">ref_106</div><div></div>
+<div id = "ref_107">ref_107</div><div></div>
+<div id = "ref_108">ref_108</div><div></div>
+<div id = "ref_109">ref_109</div><div></div>
+<div id = "ref_110">ref_110</div><div></div>
+<div id = "ref_111">ref_111</div><div></div>
+<div id = "ref_112">ref_112</div><div></div>
+<div id = "ref_113">ref_113</div><div></div>
+<div id = "ref_114">ref_114</div><div></div>
+<div id = "ref_115">ref_115</div><div></div>
+<div id = "ref_116">ref_116</div><div></div>
+<div id = "ref_117">ref_117</div><div></div>
+<div id = "ref_118">ref_118</div><div></div>
+<div id = "ref_119">ref_119</div><div></div>
+<div id = "ref_120">ref_120</div><div></div>
+<div id = "ref_121">ref_121</div><div></div>
+<div id = "ref_122">ref_122</div><div></div>
+<div id = "ref_123">ref_123</div><div></div>
+<div id = "ref_124">ref_124</div><div></div>
+<div id = "ref_125">ref_125</div><div></div>
+<div id = "ref_126">ref_126</div><div></div>
+<div id = "ref_127">ref_127</div><div></div>
+<div id = "ref_128">ref_128</div><div></div>
+<div id = "ref_129">ref_129</div><div></div>
+<div id = "ref_130">ref_130</div><div></div>
+<div id = "ref_131">ref_131</div><div></div>
+<div id = "ref_132">ref_132</div><div></div>
+<div id = "ref_133">ref_133</div><div></div>
+<div id = "ref_134">ref_134</div><div></div>
+<div id = "ref_135">ref_135</div><div></div>
+<div id = "ref_136">ref_136</div><div></div>
+<div id = "ref_137">ref_137</div><div></div>
+<div id = "ref_138">ref_138</div><div></div>
+<div id = "ref_139">ref_139</div><div></div>
+<div id = "ref_140">ref_140</div><div></div>
+<div id = "ref_141">ref_141</div><div></div>
+<div id = "ref_142">ref_142</div><div></div>
+<div id = "ref_143">ref_143</div><div></div>
+<div id = "ref_144">ref_144</div><div></div>
+<div id = "ref_145">ref_145</div><div></div>
+<div id = "ref_146">ref_146</div><div></div>
+<div id = "ref_147">ref_147</div><div></div>
+<div id = "ref_148">ref_148</div><div></div>
+<div id = "ref_149">ref_149</div><div></div>
+<div id = "ref_150">ref_150</div><div></div>
+<div id = "ref_151">ref_151</div><div></div>
+<div id = "ref_152">ref_152</div><div></div>
+<div id = "ref_153">ref_153</div><div></div>
+<div id = "ref_154">ref_154</div><div></div>
+<div id = "ref_155">ref_155</div><div></div>
+<div id = "ref_156">ref_156</div><div></div>
+<div id = "ref_157">ref_157</div><div></div>
+<div id = "ref_158">ref_158</div><div></div>
+<div id = "ref_159">ref_159</div><div></div>
+<div id = "ref_160">ref_160</div><div></div>
+<div id = "ref_161">ref_161</div><div></div>
+<div id = "ref_162">ref_162</div><div></div>
+<div id = "ref_163">ref_163</div><div></div>
+<div id = "ref_164">ref_164</div><div></div>
+<div id = "ref_165">ref_165</div><div></div>
+<div id = "ref_166">ref_166</div><div></div>
+<div id = "ref_167">ref_167</div><div></div>
+<div id = "ref_168">ref_168</div><div></div>
+<div id = "ref_169">ref_169</div><div></div>
+<div id = "ref_170">ref_170</div><div></div>
+<div id = "ref_171">ref_171</div><div></div>
+<div id = "ref_172">ref_172</div><div></div>
+<div id = "ref_173">ref_173</div><div></div>
+<div id = "ref_174">ref_174</div><div></div>
+<div id = "ref_175">ref_175</div><div></div>
+<div id = "ref_176">ref_176</div><div></div>
+<div id = "ref_177">ref_177</div><div></div>
+<div id = "ref_178">ref_178</div><div></div>
+<div id = "ref_179">ref_179</div><div></div>
+<div id = "ref_180">ref_180</div><div></div>
+<div id = "ref_181">ref_181</div><div></div>
+<div id = "ref_182">ref_182</div><div></div>
+<div id = "ref_183">ref_183</div><div></div>
+<div id = "ref_184">ref_184</div><div></div>
+<div id = "ref_185">ref_185</div><div></div>
+<div id = "ref_186">ref_186</div><div></div>
+<div id = "ref_187">ref_187</div><div></div>
+<div id = "ref_188">ref_188</div><div></div>
+<div id = "ref_189">ref_189</div><div></div>
+<div id = "ref_190">ref_190</div><div></div>
+<div id = "ref_191">ref_191</div><div></div>
+<div id = "ref_192">ref_192</div><div></div>
+<div id = "ref_193">ref_193</div><div></div>
+<div id = "ref_194">ref_194</div><div></div>
+<div id = "ref_195">ref_195</div><div></div>
+<div id = "ref_196">ref_196</div><div></div>
+<div id = "ref_197">ref_197</div><div></div>
+<div id = "ref_198">ref_198</div><div></div>
+<div id = "ref_199">ref_199</div><div></div>
+<div id = "ref_200">ref_200</div><div></div>
+<div id = "ref_201">ref_201</div><div></div>
+	
+</div>	
+</body>
+</html>
+<!--https://www.amalgama-lab.com/songs/b/bad_boys_blue/pretty_young_girl.html-->

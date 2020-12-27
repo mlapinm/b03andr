@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<base target="_blank">
+	<style>
+		div.pod-punkt {
+			display: none;
+		}
+
+		div.staticDiv {
+			width: 16px;
+			position: fixed;
+			border: 1px dotted;
+			background-color: chartreuse;
+			margin: 0px;
+			opacity: 0.6;
+			color: cadetblue;
+			cursor: pointer;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			//1
+			var a = $('div.staticDiv').html()
+			if (a == "&gt;") {
+				$('div.staticDiv').html("&gt;")
+				$(document).find('div.pod-punkt').show()
+			} else {
+				$('div.staticDiv').html("&lt;")
+				$(document).find('div.pod-punkt').hide()
+			}
+			//2
+			$('li.punkt1').mousedown(function() {
+				if ($(this).find('div.pod-punkt').is(":visible")) {
+					$(this).find('div.pod-punkt').hide('slow');
+				} else {
+					$(this).find('div.pod-punkt').show('slow');
+				}
+			});
+			$('div.staticDiv').mousedown(function() {
+				var a = $('div.staticDiv').html()
+				if (a == "&lt;") {
+					$('div.staticDiv').html("&gt;")
+					$(document).find('div.pod-punkt').show()
+				} else {
+					$('div.staticDiv').html("&lt;")
+					$(document).find('div.pod-punkt').hide()
+				}
+				//console.log("123",$('div.staticDiv').html())
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<div class="staticDiv">&gt;</div>
+	<p><strong>GeekBrains</strong></p>
+	<ol class="menu">
+		<li class="punkt">
+			Пункт меню 1
+			<div class="pod-punkt">
+				<ol>
+					<li><a href="webrtc.html">webrtc.html</a></li>
+					<li>Подпукт 1.2</li>
+					<li>Подпукт 1.3</li>
+				</ol>
+			</div>
+		</li>
+		<li class="punkt">
+			<a href="https://www.youtube.com/watch?v=Z-a7MNStFQs&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao">Основы сетей передачи данных. Модель OSI и стек протоколов TCP IP. Основы Ethernet. [GeekBrains]</a>
+			<div class="pod-punkt">
+            <object data="protocols1.svg" type="image/svg+xml"></object>
+			</div>
+		</li>
+		<li class="punkt">
+			SQL
+			<div class="pod-punkt">
+				<ol>
+					<li><a href="https://www.youtube.com/watch?v=lIOdu3gqxd0&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=38">38 Эффективная архитектура баз данных [GeekBrains]</a>
+						<p>Теория полезная</p>
+					</li>
+					<li class="punkt"><a href="https://www.youtube.com/watch?v=gvz-7VnmxVw&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=39">39 Администрирование СУБД PostgreSQL. Основы SQL </a>
+						<div class="pod-punkt">
+							<ol>
+								<li>
+									<p><a href="https://ospanel.io/">Open Server</a></p>
+									<p>OSPanel 5.3.0</p>
+									<p>Apache 2.2.34 / 2.4.38 - 2.4</p>
+									<p>PostgreSQL 9.2.24 / 9.3.25 - 9.3</p>
+									<p>PHP 5.5.38</p>
+									<p>PHPPgAdmin 7</p>
+									<p></p>
+									<p></p>
+								</li>
+							</ol>
+						</div>
+						<p>смотрю openServer есть</p>
+						<p>денвер 3 postgreSQL 8.2</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=0lWYRyy2GNM&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=40">40 Основы работы с базами данных SQL [GeekBrains]</a>
+						<p>только sql</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=E-OLLLZmVNk&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=99">99 Установка локального веб-сервера. Разработка на PHP+MySQL [GeekBrains]</a>
+						<p><a href="http://ampps.com/">ampps</a></p>
+						<p>нету postgre, есть python, только установка</p>
+						<p>root mysql</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=L1pzykl1D54&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=107">107 Разработка веб-приложений на PHP + PostgreSQL [GeekBrains]</a></li>
+					<p>много теории и ничего</p>
+					<li><a href="https://www.youtube.com/watch?v=iY3_rbqYyns&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=160">160 Сбросить MySQL с корабля современности [GeekBrains]</a></li>
+					<p>треп о базах</p>
+					<li><a href="https://www.youtube.com/watch?v=ugGlXEV2zIU&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=176">176 Введение в программирование на языке SQL [GeekBrains]</a>
+						<p>только SQL</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=ee5mbBbkW4U&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=179">179 О MySQL и к чему может привести её доброта [GeekBrains]</a>
+						<p>треп, транзакции</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=0E_Qfznlpd8&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=192">192 Репликация PostgreSQL [GeekBrains]</a>
+						<p>практика дело</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=aqSedQLDwUI&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=272">272 Создание рекомендательных систем с помощью PHP и MySQL [GeekBrains]</a>
+						<p>и сразу в бой</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=2_HkiJLWovo&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=298">298 Выборка данных из MySQL с группировкой средствами PHP [GeekBrains]
+						</a>
+					<p>20 строк текста PHP</p>	
+						</li>
+					<li><a href=""></a></li>
+				</ol>
+			</div>
+		</li>
+		<li class="punkt">
+			Пункт меню 2
+			<div class="pod-punkt">
+				<ol>
+					<li>Подпукт 2.1</li>
+					<li>Подпукт 2.2</li>
+					<li>Подпукт 2.3</li>
+				</ol>
+			</div>
+		</li>
+		<li class="punkt">
+			Android
+			<div class="pod-punkt">
+				<ol>
+					<li><p><a href="https://www.youtube.com/watch?v=LhrxQnY8LbU&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=54">54/300 Клиент-серверное приложение под Android с помощью сторонних библиотек [GeekBrains]</a></p></li>
+					<li>Подпукт 2.2</li>
+					<li>Подпукт 2.3</li>
+				</ol>
+			</div>
+		</li>
+		<li class="punkt">
+			etc
+			<div class="pod-punkt">
+				<ol>
+					<li><a href="https://www.youtube.com/watch?v=OIaETOyuKAY&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=243">243 Как защитить сайт от копирования [GeekBrains]</a>
+						<p>Языков, gulp</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=c5SB8y2VyHY&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=244">244 Облака для разработчиков [GeekBrains]</a>
+						<p><a href="http://pyatilistnik.org/chto-zhe-takoe-vcloud-director/">Описание vCloud</a></p>
+						<p>horoku - как результат</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=59kHxDZeYn0&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=250">250 Первые шаги, впечатления от PHPStorm</a>
+						<p>без практики, послушать</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=rrVLnBuJs0k&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=259">259 Google-календарь теперь и с веб-интерфейсом [GeekBrains]</a>
+						<p>Чистая практика. Языков(автоматизация youtube - есть вебинар) google api</p>
+					</li>
+					<li><a href="https://www.youtube.com/watch?v=cdA-rsb1vkk&list=PLmRNNqEA7JoPwc92mQ-TxOj_HtwGu64ao&index=197">197 Алгоритмы: от последовательности действий до решения сложной задачи </a>
+						<p>пузырьком, без рекурсии, stdio.h</p>
+					</li>
+					<li><a href=""></a>
+						<p></p>
+					</li>
+					<li><a href=""></a>
+						<p></p>
+					</li>
+				</ol>
+			</div>
+		</li>
+	</ol>
+</body></html>

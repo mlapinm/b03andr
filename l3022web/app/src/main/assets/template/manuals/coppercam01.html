@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>CAM (англ. Computer-aided manufacturing) — автоматизированная система, либо модуль автоматизированной системы, предназначенный для подготовки управляющих программ для станков с ЧПУ.</p>
+	<table>
+		<tr>
+			<td></td>
+			<td>CopperCAM is a program for Microsoft Windows environment.</td>
+			<td>CopperCAM-это программа для среды Microsoft Windows.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>It allows owners of a CNC
+machine to transform Gerber or Excellon files, produced by electronic CAD software, to drilling
+and engraving paths that isolate copper tracks.</td>
+			<td>Это позволяет владельцам ЧПУ
+машина для преобразования файлов Gerber или Excellon, произведенных электронным программным обеспечением CAD, в сверление
+и гравировальные дорожки, которые изолируют медные след</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>It can produce a CNC file and directly call up the
+milling module without requiring manipulations of intermediate CAM files.</td>
+			<td>При этом можно создать файл для ЧПУ и непосредственно вызвать дюймовый модуль не требующий манипуляций с промежуточными CAM файлами.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CopperCAM is not an electronic router, not even a printed-circuit CAD system.</td>
+			<td>CopperCAM-это не электронный маршрутизатор, даже не печатная CAD-система.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Its capabilities are few compared to Galaad; it provides no design function, and consequently focuses on the simple preparatory milling works on isolation engraving and the drilling of a circuit that has already been designed.</td>
+			<td>Свои возможности немногие сравненные к Galaad; оно не обеспечивает конструирование, и следовательно фокусирует на просто подготовке Фрезерных работ по гравировке изоляции и сверлению, цепей которые уже были сконструированы.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>INSTALLATION</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CopperCAM is available only as download from www.galaad.net website and is not provided on a physical support.</td>
+			<td>CopperCAM доступен только для загрузки с www.galaad.net сайт и не предоставляется на физическую поддержку.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The downloaded module is an auto-extractible installation program which allows you to choose the disk directory where the software will be installed.</td>
+			<td>Загруженный модуль представляет собой автоматически извлекаемую программу установки, которая позволяет выбрать каталог диска, где будет установлено программное обеспечение.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Installing makes no changes in the registry, except for creating shortcuts on the desktop and Windows "Start" menu.</td>
+			<td>Установка не вносит изменений в реестр, кроме создания ярлыков на рабочем столе и меню "Пуск".</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>LICENCE</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The licence is defined by a 20 digit code that corresponds to the user's personal data (name and
+address).</td>
+			<td>Лицензия определяется 20-значным кодом, который соответствует персональным данным пользователя (имя и
+адрес.)</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>This licence is given by a file COPPERCAM.LIC that is to be copied directly into the installation directory, default being "C:\COPPERCAM".</td>
+			<td>Эта лицензия предоставляется файлом COPPERCAM.LIC, который должен быть скопирован непосредственно в каталог установки, по умолчанию "C:\COPPERCAM".</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>A start-up, the program detects the licence file and directly transfers the information to the licence manager. Calling "Help / Licence'allows you to check the validity of the licence.</td>
+			<td>При запуске программа обнаруживает файл лицензии и напрямую передает информацию менеджеру лицензий. Вызов "справка / лицензия" позволяет проверить действительность лицензии.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CUTTER TOOLS</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The very first thing to think about once CopperCAM is installed is define the characteristics of the tools that will be used for drilling and milling printed-circuit boards.</td>
+			<td>Самое первое, о чем нужно подумать после установки CopperCAM,-это определить характеристики инструментов, которые будут использоваться для сверления и фрезерования печатных плат.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Function <u>"Parameters / Tool library"</u> allows you to indicate each tool data.</td>
+			<td>Функция "параметры / библиотека инструментов" позволяет указать данные каждого инструмента.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>If you have a tool rack, number them and use the same numbers in the parameters, though each tool can be assigned a name.</td>
+			<td>Если у вас есть инструментальная стойка, пронумеруйте их и используйте те же номера в параметрах, хотя каждому инструменту можно присвоить имя.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Once tools are defined, it is necessary to indicate which ones will be assigned different tasks the program can offer: isolation engraving, drilling, hatching zones, card contouring, and centring on plots.</td>
+			<td>После определения инструментов необходимо указать, какие из них будут назначены различные задачи, которые может предложить программа: гравировка изоляции, сверление, зоны штриховки, контур карты и центрирование на участках.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The function <u>"Parameters / Selected tools"</u> gives access to a setup windows where, for each task, you may indicate which tool must be called, and its motion depth and speed.</td>
+			<td>Функция "параметры / выбранные инструменты" предоставляет доступ к окнам настройки, где для каждой задачи вы можете указать, какой инструмент должен быть вызван, а также его глубину и скорость движения.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>For isolation engravings, it is possible to add a small distance margin.</td>
+			<td>Для гравюр изоляции, возможно добавить небольшой запас расстояния.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>For hatchings, the margin gives the mesh density, i.e. the recovery between two hatch lines.</td>
+			<td>Для просмотра поле дает плотность сетки, т. е. восстановление между двумя линиями штриховки.
+</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>It is possible to limit the number of drilling tools by driving boring cycles when the hole diameter is greater than the tool.</td>
+			<td>Возможно ограничить число сверля инструментов путем управлять сверля циклами когда диаметр отверстия больше чем инструмент.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>However, this function must be used carefully: most drilling tools for epoxy are indeed not qualified for horizontal milling operations and therefore there is an important risk of break.</td>
+			<td>Однако, эту функцию необходимо использовать осторожно: большинств сверля инструменты для эпоксидной смолы действительно не квалифицированы для горизонтальных филируя деятельностей и поэтому важный риск перерыва.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Three strategies can be followed for drilling: either use one single tool for all drills, with boring cycles if the hole is greater than the tool; or use a limited number of selected tools with, for each hole, a call to the tool which has the closest diameter, smaller (with circular boring to reach the diameter) or greater (without boring).</td>
+			<td>Для сверления можно использовать три стратегии: либо использовать один инструмент для всех сверл, с циклами сверления, если отверстие больше, чем инструмент; или использовать ограниченное количество выбранных инструментов, для каждого отверстия, вызов инструмента, который имеет ближайший диаметр, меньше (с круговой расточкой для достижения диаметра) или больше (без расточки).</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>OUTPUT</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Function <u>"Parameters / Output data format"</u> allows you to choose the type of the data which will be produced at last for chaining to the milling driver. Different usual formats are offered, including a fully definable post-processor format.</td>
+			<td>Функция "параметры / формат выходных данных" позволяет выбрать тип данных, которые будут получены, наконец, для сцепления с фрезерным драйвером. Предлагаются различные обычные форматы, включая полностью определенный формат постпроцессора.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CopperCAM can create the output file and then immediately call the driver software. This file is not of great interest since it is only an intermediate between CopperCAM and the machine driver. It will be overwritten at every new output, except if no name has been indicated. In such case, you will be prompted to give a name every time. Note that the file name is added automatically as argument to the program called. So it is useless to add it in the command line.</td>
+			<td>CopperCAM может создать выходной файл, а затем немедленно вызвать программное обеспечение драйвера. Этот файл не представляет большого интереса, так как он является только промежуточным между CopperCAM и драйвером машины. Он будет перезаписываться при каждом новом выходе, за исключением случаев, когда имя не указано. В таком случае вам будет предложено указать имя каждый раз. Обратите внимание, что имя файла будет добавлено автоматически в качестве аргумента программы. Поэтому добавлять его в командную строку бесполезно.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Some engraving machines are provided with a driver which displays them as virtual printers. In such cases, CopperCAM can call this printer driver and send produced data. It is also possible to output these data on a COM or LPT port for a direct link to the machine.</td>
+			<td>Некоторые гравировальные станки снабжены драйвером, который отображает их как виртуальные принтеры. В таких случаях CopperCAM может вызвать этот драйвер принтера и отправить полученные данные. Также возможно вывести наружу эти данные на COM или порт LPT для сразу соединения к машине.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>GENERAL WORK SEQUENCE</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The process consists in opening a Gerber file that has been produced by an electronic CAD software, then eventually one or more additional layers and an Excellon file that defines the drills. CopperCAM can automatically detect a track net that corresponds to the card final cut, and neutralise tracks that are not connected to any pads (texts, origins, etc.). These neutral tracks can also be engraved at the centre using a simple line. The program will then calculate the isolation contours around pads and tracks. The operator may rectify the result whenever necessary, by deleting or inserting isolation segments and by adding hatched zones where the whole copper must be removed. Once the calculation and rectification jobs are achieved, the software produces an output file under the predefined format and calls the module that dialogs with the machine.</td>
+			<td>Процесс состоит в открытии файла Gerber, который был создан электронным программным обеспечением CAD, затем в конечном итоге один или несколько дополнительных слоев и файл Excellon, который определяет сверла. CopperCAM может автоматически обнаружить сеть следа которая соответствует отрезку карты окончательному, и нейтрализовать следы которые не соединены к любым пусковым площадкам (текстам, началам, etc.). Эти нейтральные следы можно также выгравировать на центре используя просто линию. Затем программа вычислит контуры изоляции вокруг площадок и дорожек. Оператор может при необходимости исправить результат, удалив или вставив сегменты изоляции и добавив штрихованные зоны, в которых должна быть удалена вся медь. После выполнения заданий вычисления и исправления программа создает выходной файл в предопределенном формате и вызывает модуль, который ведет диалог с машиной.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>GERBER FILES</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The most widely known file format concerning electronic CAD is undoubtedly the Gerber format. This format is destined for Gerber Scientific Instruments photo-plotters and has become a real standard in that domain. The photoengraving of circuits using light-printing techniques induces specific considerations that appear in the format. Light-printing is performed by an optical head that focuses the light beam on the circuit after travelling through a diaphragm, at the locations where the copper should be preserved. The diaphragms generally have a predefined size and shape, the simplest being a basic circular disc. The pads may have more exotic shapes, but the tracks are printed using simple circular diaphragms of given diameters along the connecting path.
+</td>
+			<td>Наиболее широко известным форматом файлов, касающихся электронных САПР, несомненно, является формат Gerber. Этот формат предназначен для фотоплоттеров Gerber Scientific Instruments и стал настоящим стандартом в этой области. В фотогравировке схем с использованием световых методов печати вызывает определенные соображения, которые появляются в формате. Светопечатание осуществляется оптической головкой, которая фокусирует луч света на цепи после прохождения через диафрагму, в местах, где медь должна быть сохранена. Диафрагмы вообще имеют предопределенные размер и форму, самое простое быть основным круговым диском. Пусковые площадки могут иметь более экзотические формы, но следы напечатаны используя простые круговые диафрагмы, который дали диаметров вдоль соединяясь пути.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>A Gerber RS274-D file (classical format) therefore contains diaphragm numbers that are either predefined in the optical library of the photoplotter, or referenced in the file itself or in an attached library file. Light-printing instructions are very simple: the flash head can be moved, with the diaph-ragm shut, to a given XY position (movement without light-printing), or with the diaphragm open (light-printed track), or even be sent to a position and the diaphragm being opened then shut to light-print a fixed point (pad). This makes a total of three positioning instructions, plus the number of the diaphragm that is currently used.</td>
+			<td>Таким образом, файл Gerber RS274-D (классический формат) содержит номера диафрагм, которые либо предопределены в оптической библиотеке фотоплоттера, либо указаны в самом файле или в прикрепленном файле библиотеки. Света-печать инструкций очень проста: головка вспышки может быть перемещен, с мембраной закрыты, к данному ху установки (движение без света-печатью), или с открытой диафрагмы (светло-печатные дорожки), или даже быть отправлены на должность и диафрагма открыта, то выключить свет-принт фиксированной точки (площадки). Это делает итог 3 располагая инструкций, плюс номер диафрагмы которая в настоящее время использована.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Should you open a classical Gerber RS274-D file, no information related to diaphragms is available, and consequently you must redefine the geo-metrical properties of these diaphragms once the file is loaded, i.e. for each set of pads indicate the shape and the size of the diaphragm, and even the drill diameter if necessary, and indicate for each set of tracks, the size of the diaphragm, which corresponds to the track width. This must be done for each diaphragm referenced in the open file.</td>
+			<td>Если вы открываете классический файл Gerber RS274-D, никакой информации, связанной с диафрагмами, нет, и, следовательно, вы должны переопределить геометрические свойства этих диафрагм после загрузки файла, т. е. для каждого набора прокладок указать форму и размер диафрагмы, и даже диаметр сверла, если это необходимо, и указать для каждого набора дорожек размер диафрагмы, который соответствует ширине дорожки. Это необходимо сделать для каждой диафрагмы, указанной в открытом файле.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CopperCAM memorises your indications for the next file, so it is not necessary to redefine pad and track diaphragms at anytime if your electronic CAD application always reuses the same references. Obviously, this task has no object if you are using the Gerber RS274-X format, whose heading indications are picked up and immediately applied. However, as soon as the file is loaded, if a diaphragm that is used in the file is not referenced, then CopperCAM displays a dialogue box which allows you to complete the missing references.
+</td>
+			<td>CopperCAM запоминает ваши показания для следующего файла, поэтому нет необходимости переопределять pad и отслеживать диафрагмы в любое время, если ваше электронное приложение CAD всегда использует одни и те же ссылки. Очевидно, что эта задача не имеет объекта, если вы используете формат Gerber RS274X, показания заголовка которого подобраны и немедленно применены. Однако, как только файл загружен, если диафрагма, используемая в файле, не упоминается, то CopperCAM отображает диалоговое окно, которое позволяет заполнить отсутствующие ссылки.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>So, in an extended Gerber file, it is possible to get not only the geometrical design information about pads and tracks, but also the drilling diameters of pads for soldering traditional components (component side and colder side). The only information that is still missing – and this is bad news for owners of a CNC milling machine – is the contour of the whole printed circuit board, with its origin points.</td>
+			<td>Таким образом, в расширенном файле Gerber можно получить не только геометрическую информацию о конструкции колодок и дорожек, но и диаметры сверления колодок для пайки традиционных компонентов (сторона компонента и холодная сторона). Единственная информация, которая все еще отсутствует – и это плохая новость для владельцев фрезерного станка с ЧПУ – это контур всей печатной платы с ее точками происхождения.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>EXCELLON FILES</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Another file format concerns the drilling process of pads in a printed circuit, this format has been elaborated for Excellon Automation multi-drills. It is used less today with the surface-mounted components, but nevertheless it concerns the creation of electronic circuitry, so CopperCAM cannot ignore it.</td>
+			<td>Другой формат файла касается процесса сверления колодок в печатной схеме, этот формат был разработан для Excellon Automation multi-drills. Сегодня он используется меньше с поверхностными компонентами, но тем не менее это касается создания электронных схем, поэтому CopperCAM не может игнорировать его.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Like Gerber files, Excellon files contain XY drilling co-ordinates and tool numbers whose diameters correspond to the holes. And like classical GRB files, EXL (or sometimes DRL or TXT) files unfortunately do not contain this drilling diameter information, so it is necessary to fetch it in attached files that are not standard, or indicate it manually once the file as been loaded, which is the basic solution that CopperCAM offers.</td>
+			<td>Как и файлы Gerber, файлы Excellon содержат координаты сверления XY и номера инструментов, диаметры которых соответствуют отверстиям. И, как и классические файлы GRB, EXL (или иногда DRL или TXT) файлы, к сожалению, не содержат эту информацию о диаметре сверления, поэтому необходимо извлечь ее в прикрепленных файлах, которые не являются стандартными, или указать ее вручную после загрузки файла, что является основным решением, которое предлагает CopperCAM.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Furthermore, there are actually two different Excellon formats, one using real co-ordinates (XY numerical values are formatted and indicated in immediately usable units), the other being a bit older in co-ordinates with no trailing zeros on the right-hand side, which may induce position errors if the file does not contain header information about the numeric framing format. To avoid this problem, CopperCAM lets you select both formats under two distinct entries, which allows you to directly choose the correct numerical model. If your file looks wrong, load it again using the other available Excellon format, and all being well things should look better.</td>
+			<td>Кроме того, на самом деле существует два разных формата Excellon, один из которых использует реальные координаты (числовые значения XY форматируются и указываются в немедленно используемых единицах), а другой немного старше в координатах без конечных нулей с правой стороны, что может вызвать ошибки позиции, если файл не содержит информации заголовка о числовом формате кадрирования. Чтобы избежать этой проблемы, CopperCAM позволяет выбрать оба формата под двумя различными записями, что позволяет непосредственно выбрать правильную числовую модель. Если ваш файл выглядит не так, загрузите его снова, используя другой доступный формат Excellon, и все будет хорошо, все должно выглядеть лучше.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>An Excellon file cannot represent a printed circuit, not even its pads, but only the drills. If your electronic CAD application provides an export function under Gerber or Excellon, please select Gerber which contains much more geometrical information.</td>
+			<td>Файл Excellon не может представлять собой печатную схему, даже ее колодки, а только сверла. Если ваше электронное приложение CAD предоставляет функцию экспорта под Gerber или Excellon, выберите Gerber, который содержит гораздо больше геометрической информации.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Note that the Gerber RS274-X format may encode drilling diameters for pads, but this is optional and unfortunately not often used by CAD software. It is better to include drilling data to the Gerber file if your software can. This avoids handling a supplementary Excellon file and eventually realign drills with pads.</td>
+			<td>Обратите внимание, что в формате Gerber RS274X могут кодировать диаметров бурения для прокладки, но это необязательно и, к сожалению, не часто используемого программного обеспечения САПР. Лучше включить данные бурения в файл Gerber, если ваше программное обеспечение может. Это позволяет избежать обработки дополнительного файла Excellon и в конечном итоге перестроить сверла с колодками.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>ALIGNING LAYERS</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>CopperCAM is able to manage four copper layers simultaneously (pads and tracks), plus a drilling plane (layer #5) and a card contour plane (layer #6). Gerber or Excellon, open files do not always use the same origin point. Consequently, it may become necessary to realign items so they match one another. The first thing to do is rotate the current layer so it has the same orientation as the layer #1, by using the inverting and rotating commands.</td>
+			<td>CopperCAM может управлять 4 медными слоями одновременно (пусковыми площадками и следами), плюс сверля плоскость (слой #5) и плоскость контура карточки (слой #6). Gerber или Excellon, открытые файлы не всегда используют одну и ту же точку происхождения. Следовательно, может возникнуть необходимость в перестройке элементов, чтобы они соответствовали друг другу. Первое, что нужно сделать, это повернуть текущий слой так, чтобы он имел ту же ориентацию, что и слой №1, используя команды инвертирования и поворота.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>On layer #1, select a reference pad. Then skip to the other layers and select a pad or a drill to be aligned to the reference. That can be done directly with the right mouse button on a pad.</td>
+			<td>На слое #1 Выберите опорную панель. Затем перейдите к другим слоям и выберите площадку или сверло для выравнивания по ссылке. Это можно сделать непосредственно правой кнопкой мыши на панели.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Do not confuse origin and reference pad. The origin is the point of co-ordinates (0,0) of the circuit and therefore of the output milling file. The reference pad is used only for realigning different layers.</td>
+			<td>Не путайте происхождение и справочные площадки. Начало координат является точкой координат (0,0) схемы и, следовательно, выходного фрезерного файла. Опорная панель используется только для перестройки различных слоев.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Isolating tracks and pads requires a preliminary calculation that defines path contours according to the end diameter of the cutter tool that will be used for the engraving task. This calculation manages collisions should trajectories overlap. This is the main purpose of CopperCAM which, from the geometrical information the Gerber file contains, will be able to create isolation paths and even allow you to remove the copper from all empty zones using hatchwork. These functions can be applied from <u>"Machine / Calculate contours (or hatches)"</u>.</td>
+			<td>Изолируя следы и пусковые площадки требуют предварительного вычисления которое определяет контуры пути согласно диаметру конца инструмента резца который будет использован для задачи гравировки. Этот расчет управляет столкновениями, если траектории перекрываются. Это основная цель CopperCAM, которая из геометрической информации, содержащейся в файле Gerber, сможет создавать пути изоляции и даже позволит вам удалить медь из всех пустых зон с помощью люка. Эти функции могут быть применены из "Машина / вычислить контуры (или люки)"</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The distance between the tool axis path and the track or pad border is generally the engraving tool end radius. CopperCAM then calculates all isolation contours for engraving the circuit. This calculation is performed in several phases that may sometimes take some time depending on the complexity of the circuit and the computer speed.</td>
+			<td>Расстояние между траекторией оси инструмента и границей дорожки или площадки обычно является радиусом конца инструмента гравировки. Затем CopperCAM вычисляет все контуры изоляции для гравировки схемы. Этот расчет выполняется в несколько этапов, которые иногда могут занять некоторое время в зависимости от сложности схемы и скорости компьютера.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>HATCHING EMPTY ZONES</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Engraving contours is sufficient to isolate tracks and pads, but you may want to remove the remaining copper from the card surface or part of it, to ease soldering components, for example on very neighbour pads.</td>
+			<td>Контуры гравировки достаточны для изоляции дорожек и колодок, но вы можете удалить оставшуюся медь с поверхности карты или ее части, чтобы облегчить пайку компонентов, например, на очень соседних колодках.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>The hatching function can be called up only if the track and pad contours have already been calculated. The hatch margin is defined in selected tool parameters. It corresponds to the distance between two consecutive lines. The default value is the tool radius at the engraving depth (for a conical tool), which gives a recovery ratio of 50%. But you may of course choose a different margin. CopperCAM can also link hatch lines to build a zig-zag path whenever possible without milling a shortcut through a contour. Hatch ends approach the contours at about 10% of the hatching distance.</td>
+			<td>Функция штриховки может быть вызвана только в том случае, если контуры дорожки и площадки уже вычислены. Поле штриховки определяется в параметрах выбранного инструмента. Это соответствует расстоянию между двумя соседними. Значение по умолчанию-радиус инструмента на глубине гравировки (для конического инструмента), что дает коэффициент восстановления 50%. Но вы, конечно, можете выбрать другую маржу. CopperCAM также может связывать линии штриховки для построения зигзагообразного пути, когда это возможно, без фрезерования ярлыка по контуру. Концы штриховки приближаются к контурам примерно на 10% расстояния штриховки.</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>MILLING</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Calling function "Machine / Mill" produces the output file and automatically chains to the machining driver. The job sequence is definable through different sections, each of them corresponding to a task (drilling, engraving different layers, drilling centring plots, final cut).</td>
+			<td>Вызывая функция "машина / Мельница" производит выходной файл и автоматически приковывает к подвергая механической обработке водителю. Последовательность работы определяется с помощью различных разделов, каждый из которых соответствует задаче (сверление, гравировка различных слоев, сверление центрирующих участков, окончательный разрез).</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		
+	</table>
+	<p>========================================</p>
+	<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td>ALIGNING</td>
+			<td>ВЫРАВНИВАНИЕ</td>
+		</tr>
+		<tr>
+			<td>offers</td>
+			<td>предложения</td>
+			<td>solution</td>
+			<td>решение</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>printed-circuit</td>
+			<td>печатный</td>
+			<td>rack</td>
+			<td>стеллаж</td>
+			<td>though</td>
+			<td>хотя
+</td>
+		</tr>
+		<tr>
+			<td>CUTTER</td>
+			<td>РЕЗЕЦ</td>
+			<td>milling works</td>
+			<td>Фрезерные работы</td>
+			<td>Copper</td>
+			<td>Медь</td>
+		</tr>
+		<tr>
+			<td>engrave</td>
+			<td>выгравированный</td>
+			<td>environment</td>
+			<td>среда</td>
+			<td>intermediate</td>
+			<td>промежуточный</td>
+		</tr>
+		
+	</table>
+</body>
+</html>

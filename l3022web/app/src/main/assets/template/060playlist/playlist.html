@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Video</title>
+	<style>
+		.MyHomeVideo{
+			position: relative;
+			box-shadow: 0px 0px 10px #7878ff;
+			z-index: 0;
+		}
+	</style>
+</head>
+<script>
+	var videoPlayer;
+	var video_count = 1;
+	var count = 23;
+	var string_01;
+	var list;
+	var files = [
+		"",
+		"1_6_1zmeyka_vpered.mp4",
+		"1_6_2zmeyka_nazad.mp4",
+		"1_7_1peretiagka1c.mp4",
+		"1_8_1shasse1c.mp4",
+		"1_8_2shasseskr1c.mp4",
+		"2_2choktau.mp4",
+		"2_4_1troyka.mp4",
+		"2_5skobka.mp4",
+		"2_6kruk1c.mp4",
+		"2_71vikruk_vnutr.mp4",
+		"2_72vikruk_narugu.mp4",
+		"5_35tulup.mp4",
+		"5_41salhov.mp4",
+		"5_42ofp27.mp4",
+		"5_52ofp25.mp4",
+		"5_53ofp07.mp4",
+		"5_54ofp24.mp4",
+		"5_55ofp08.mp4",
+		"5_56ofp09.mp4",
+		"5_57ofp10.mp4",
+		"5_58ofp11.mp4",
+		"5_59rittberger.mp4",
+		"month.mp4",
+	];
+	console.log(files.length);
+	window.onload = function(){
+		var k=0;
+		for(var i in files){
+			var li = document.getElementById(''+k);
+			li.innerText = files[i];
+			k++;
+		}
+		videoPlayer = document.getElementById("homevideo");
+		string_01 = document.getElementById("p_01");
+		string_01.innerText = video_count+" : " +  "1_6_1zmeyka_vpered.mp4";
+		//
+		var paragraphs = [];
+		for(var i=1;i<=count;i++){
+			var paragraph = document.getElementById(i);
+			paragraphs.push(paragraph);
+		}	
+		paragraphs.forEach(function(pp){
+			pp.onclick = function(){
+				console.log(pp.innerText);
+				string_01.innerText= '' + pp.id + " : " + pp.innerText;
+				videoPlayer.src="01baza/"+pp.innerText;
+				for(var i=1;i<=count;i++){
+					document.getElementById(i).style.color="black";
+				}
+				pp.style.color="blue";
+			}
+		});
+		videoPlayer.addEventListener("play", function(){
+			console.log("Hello start");
+		}, false);
+		videoPlayer.addEventListener("ended", function(){
+			console.log("Hello ended");
+			video_count++;
+			if(video_count==count+1)video_count=1;
+			var nextVideo = "01baza/"+files[video_count];
+			videoPlayer.src = nextVideo;
+			for(var i=1;i<=count;i++){
+				document.getElementById(i).style.color="black";
+			}
+			document.getElementById(video_count).style.color="blue";
+			string_01.innerText = video_count+" : "+ nextVideo;
+		}, false);
+	}
+</script>
+<body  style="font-family: Arial;">
+<p id = "p_01" style="font: 20px; font-family: Arial">
+	1_6_1zmeyka_vpered.mp4
+</p>
+<div style="float: left;">
+<video id="homevideo" class="MyHomeVideo" autoplay autobuffer loop controls width="500" src="01baza/1_6_1zmeyka_vpered.mp4"></video>
+</div>
+<ul style="display: none">
+	<li id="01">HTML5 Canvas - Magic Mouse Move</li>
+	<li id="02">Coding4NoScrolling</li>
+	<li id="03">Создание Web приложения для IOS/Android</li>
+	<li id="04"></li>
+	<li id="05"></li>
+</ul>
+<div style="float: left; width: 300px;background: #eee; margin: 0px;">
+<ul style="list-style-type: decimal;margin: 0px;">
+	<li id="0" style="display: none;"></li>
+	<li id="1" style="color: blue;"></li>
+	<li id="2"></li>
+	<li id="3"></li>
+	<li id="4"></li>
+	<li id="5"></li>
+	<li id="6"></li>
+	<li id="7"></li>
+	<li id="8"></li>
+	<li id="9"></li>
+	<li id="10"></li>
+	<li id="11"></li>
+	<li id="12"></li>
+	<li id="13"></li>
+	<li id="14"></li>
+	<li id="15"></li>
+	<li id="16"></li>
+	<li id="17"></li>
+	<li id="18"></li>
+	<li id="19"></li>
+	<li id="20"></li>
+	<li id="21"></li>
+	<li id="22"></li>
+	<li id="23"></li>
+</ul>
+</div>	
+</body>
+</html>

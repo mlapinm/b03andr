@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.past {
+			background-color: gainsboro;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+
+	</style>
+
+</head>
+
+<body>
+	<p>3. На этом уроке мы рассмотрим: редактирование таблиц (изменение названия таблиц, полей, их типов и ограничений), работу с операторами LIKE, AND, OR, DISTINCT, GROUP BY и часто используемые встроенные функции. </p>
+	<ol>Редактирование таблиц
+		<li>Добавление в таблицу:
+			<p>ALTER TABLE tn ADD COLUMN nf</p>
+			<p>BOOLEAN NOT NULL DEFAULT TRUE;</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Удаление поля из таблицы(MySQL, PostgreSQL)
+			<p>ALTER TABLE tn DROP COLUMN nf;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Переменовать поле и сменить тип (MySQL)
+			<p>ALTER TABLE tn CHANGE COLUMN on</p>
+			<p>nf BOOLEAN NOT NULL DEFAULT NHUE;</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Переименовать поле (PostgreSQL)
+			<p>ALNER NABLE tn RENAME of TO nf;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Сменить тип поля(MySQL)
+			<p>ALTER TABLE tn MODIFY nf VARCHAR</p>
+			<p>(255) NOT NULL DEFAULT 'value';</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Сменить тип поля(PostgreSQL)
+			<p>ALTER TABLE tn ALTER COLUMN nf SET</p>
+			<p>DATA TYPE VARCHAR(255);</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Изменить значение по-умолчанию (PostgreSQL)
+			<p>ALTER TABLE tn ALTTER COLUMN nw SET</p>
+			<p>DEFAULT 'value';</p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Добавит/удалить constraint NOT NULL (PostgreSQL)
+			<p>ALTER TABLE tn ALTER COLUMN nf SET|DROP NOT NULL;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>Переименовать таблицу:
+			<p>ALTER TABLE tn RENAME TO nt;</p>
+			<p></p>
+		</li>
+	</ol>
+	<ul>Сравнение строк
+		<li>SELECT * FROM tn WHERE fild LIKE 'value';</li>
+		<li>SELECT * FROM tn WHERE fild LIKE 'val%';</li>
+		<li>SELECT * FROM tn WHERE fild LIKE '%lue';</li>
+	</ul>
+	<ul>Операторы AND и OR
+		<li>SELECT * FROM tn WHERE f1=1 AND f2>3;</li>
+		<li>SELECT * FROM tn WHERE f1=1 OR f2>3;</li>
+	</ul>
+	<ul>Исключения повторяющихся записей
+		<li>SELECT DISTINCT f1 FROM tn;</li>
+	</ul>
+	<ul>Группирование записей
+		<li>SELECT f1, COUNT(f1) FROM tn GROUP BY f1;</li>
+		<p>- сгруппирует записи таблицы tn по полю f1, и выведет уникальные значения f1 и кол-во их дубликатов.</p>
+		<li>SELECT f1, COUNT(f1) FROM tn GROUP BY f1 HAVING COUNT(f1)>3;</li>
+		<p>- выведет сгруппированные записи, кол-во дубликатов которых больше трех.</p>
+		<li></li>
+	</ul>
+	<p>Функции</p>
+	<p>
+		<snap>COUNT(X)</snap>
+		<snap>SUM(X)</snap>
+		<snap>MIN(X)</snap>
+		<snap>MAX(X)</snap>
+		<snap>ROUND(X)</snap>
+		<snap>RAND()MySQL, RANDOM()</snap>
+		<snap>LENGTH(X)</snap>
+		<snap>TRIM(X)</snap>
+		<snap>LOWER(X)</snap>
+		<snap>UPPER(X)</snap>
+		<snap>SUBSTR(X,N)</snap>
+		<snap>REPLACE(X,Y,Z)</snap>
+		<snap>REVERSE(X)MySQL, PostgreSQL</snap>
+	</p>
+	<table>
+		<tr>
+			<td>MD5(X)MySQL, PostgreSQL</td>
+			<td>Возвращает MD5 хэш строки X</td>
+		</tr>
+		<tr>
+			<td>SHA2(X,N)MySQL</td>
+			<td>Возвращает SHA2 хэш строки X, разрядностью N</td>
+		</tr>
+		<tr>
+			<td>NOW()MySQL, PostgreSQL</td>
+			<td>YYYY-MM-DD HH:MM:SS</td>
+		</tr>
+		<tr>
+			<td>UNIX_TIMESTAMP()MySQL</td>
+			<td></td>
+		</tr>
+	</table>
+
+	<p>MySQL</p>
+	<ol>
+		<li>
+			<p>alter table cities add column strength integer not null default 0;</p>
+			<p>select * from cities;</p>
+			<p>alter table cities drop strength;</p>
+			<p>alter table cities add column strength integer not null default 0;</p>
+			<p>alter table cities change strength count integer not null default 0;</p>
+			<p>alter table cities modify count varchar(255) not null default 'neft';</p>
+			<p>mysql> describe cities;</p>
+			<p>alter table cities modify count integer not null default 0;</p>
+			<pre>
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | NO   | UNI | NULL    |                |
+| regions_id | int(11)      | NO   | MUL | NULL    |                |
+| active     | tinyint(1)   | NO   |     | 1       |                |
+| count      | varchar(255) | NO   |     | neft    |                |
++------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.01 sec)			
+</pre>
+			<p>alter table cities rename to towns;</p>
+			<p>alter table towns rename to cities;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>update cities set count=140000 where id=1;</p>
+			<p>update cities set count=40000 where id=2;</p>
+			<p>update cities set count=60000 where id=3;</p>
+			<p>update cities set count=800000 where id=4;</p>
+			<p>update cities set count=300000 where id=5;</p>
+		</li>
+		<li>
+			<p>select * from cities where name like 'Maykop';</p>
+			<p>select * from cities where name like '%k';</p>
+			<p>select * from cities where name like 'A%';</p>
+			<p>select * from cities where name like '%k%';</p>
+			<p>select * from cities where regions_id=2 AND name like '%k%';</p>
+			<p>select * from cities where regions_id=1 AND name like '%k%';</p>
+			<p>select * from cities where regions_id=1 OR name like '%k%';</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>select regions_id from cities;</p>
+			<p>select distinct regions_id from cities;</p>
+			<p>| regions_id |</p>
+			<p>| 1 |</p>
+			<p>| 2 |</p>
+			<p>select * from cities group by regions_id;</p>
+			<p>| id | name | regions_id | active | count |</p>
+			<p>| 1 | Maykop | 1 | 1 | 0 |</p>
+			<p>| 2 | Apsheronsk | 2 | 1 | 0 |</p>
+			<p>select * from cities group by regions_id having count>40000;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>SELECT COUNT(id) from cities;</p>
+			<p>select min(id) from cities;</p>
+			<p>select max(count) from cities;</p>
+			<p>select round(1.2);</p>
+			<p>select round(1.6);</p>
+			<p>select rand();</p>
+			<p>select length(' sfsaf ');</p>
+			<p>select trim(' sfsaf ');</p>
+			<p>select upper(' sfsaf ');</p>
+			<p>select lower(' sFsAF ');</p>
+			<p>substr('sfsaf ', 2);</p>
+			<p>
+				<i>fsaf</i>
+			</p>
+			<table>
+				<tr>
+					<td>select replace('a1a1','1','2');</td>
+					<td>a2a2</td>
+				</tr>
+				<tr>
+					<td>select reverse('12345');</td>
+					<td>54321</td>
+				</tr>
+				<tr>
+					<td>select md5('12345');</td>
+					<td>827ccb0eea8a706c4c34a16891f84e7b</td>
+				</tr>
+				<tr>
+					<td>select sha2('12345', 224);</td>
+					<td><p>a7470858e79c282bc2f6adfd831b1326</p>
+					<p>72dfd1224c1e78cbf5bcd057</p></td>
+				</tr>
+				<tr>
+					<td>select now();</td>
+					<td>2019-05-11 16:32:31</td>
+				</tr>
+				<tr>
+					<td>select unix_timestamp();</td>
+					<td>1557581604</td>
+				</tr>
+			</table>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p>create table table1 (id integer, name varchar(255));</p>
+			<p>insert into table1 values(1, '123');</p>
+			<p>insert into table1 values(2, '123');</p>
+			<p>insert into table1 values(3, '456');</p>
+			<p>insert into table1 values(4, '789');</p>
+			<p>insert into table1 values(5, '435');</p>
+			<p>create table table2(field_1 integer, field_2 varchar(255));</p>
+			<p>insert into table2 select id, name from table1;</p>
+			<p>delete from table2;</p>
+			<p>insert into table2 select id, name from table1 order by desc;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+	<hr>
+	<p>PostgreSQL</p>
+	<ol>
+		<li>
+			<p>alter table cities add column strength integer not null default 0;</p>
+			<p>select * from cities;</p>
+			<p>alter table cities drop strength;</p>
+			<p>alter table cities add column strength integer not null default 0;</p>
+			<p>alter table cities rename strength to count;</p>
+			<p>alter table cities rename to towns;</p>
+			<p>alter table towns rename to cities;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+
+	<hr>
+	<p>SQLite3</p>
+	<ol>
+		<li>
+			<p>alter table cities add column strength integer not null;</p>
+			<p><i>Error: Cannot add a NOT NULL column with default value NULL</i></p>
+			<p>alter table cities add column strength integer not null default 0;</p>
+			<p>select * from cities;</p>
+			<i>
+				<p>1|Maykop|1|1|0</p>
+				<p>2|Apsheronsk|2|1|0</p>
+				<p>3|Belorechensk|2|1|0</p>
+				<p>4|Krasnodar|2|1|0</p>
+				<p>5|Sochi|2|1|0</p>
+			</i>
+			<p>alter table cities rename to towns;</p>
+			<p>alter table towns rename to cities;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+	</ol>
+
+	<p><a href="./rm12.html">Home</a>
+		<a href="./rm13.html">Prev</a></p>
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, eaque, deserunt dolorem ducimus dolore assumenda, porro repellendus debitis ratione voluptate exercitationem cum eveniet ab asperiores esse perferendis reprehenderit ad labore.</div>
+	<div>Laboriosam aperiam minus odio dolor, inventore laudantium sint! Totam beatae, quae ratione, sint adipisci at. Vitae officia, aperiam porro obcaecati magni neque labore omnis, quod voluptates fuga non, vero quos.</div>
+	<div>Eum quia aliquid unde doloremque, nobis sunt obcaecati voluptates! Voluptates reprehenderit nihil ipsam unde. Corrupti eum vel laudantium rem dolorem, rerum amet. Magnam voluptas minus explicabo, qui aut veritatis distinctio!</div>
+	<div>Veniam repellendus facilis sed, eaque odio, deserunt fuga debitis commodi in hic maiores quidem? Veniam voluptas officiis tenetur unde, tempore vero ducimus quis numquam inventore pariatur, modi eum magni eveniet!</div>
+	<div>Autem quibusdam a deleniti suscipit maxime quidem dicta cum nulla amet nobis pariatur dolores minus nisi et magnam repellat ad perferendis soluta laudantium eum, eos. Itaque pariatur, rem suscipit et!</div>
+	<div>Iste odio deserunt, fugiat numquam nisi quaerat ipsa non magnam perferendis maiores ipsam voluptas vero nostrum, consequatur obcaecati minima. Totam ad culpa, optio officia asperiores, aliquid obcaecati? Dicta, voluptatem, ad.</div>
+	<div>Iure magnam ratione, eum, quo optio dolor, amet iste temporibus voluptate molestiae corporis reprehenderit? Deserunt nemo aliquam obcaecati labore, quidem hic, provident non esse, consequuntur sapiente, assumenda ipsam doloremque molestias!</div>
+	<div>Nobis adipisci amet ea eum qui explicabo corporis. Tempora eius non pariatur repellat vitae! Nobis quas facilis aspernatur quos id, ullam veniam, dolorem doloremque incidunt, aliquam vel? Nulla, magni nostrum!</div>
+</body>

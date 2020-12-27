@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		td{border: dotted 1px;}
+		p{margin: 0;}
+	</style>
+</head>
+<body>
+<a href="https://desktop.github.com/">desktop.github.com/</a>
+<p>Работа внутри репозитория</p>
+<table>
+	<tr>
+		<td>1</td>
+		<td>git add .</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>git commit -m "New Commit"</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>git status</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>git log</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+</table>
+<p>Работа с удаленным</p>
+<table>
+	<tr>
+		<td></td>
+		<td>git push -u git-sample master</td>
+		<td>загрузить в удаленный</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+<p><a href="https://www.youtube.com/watch?v=v7GbxUnwRY8">GitHub Desktop — обзор графического Git клиента</a></p>
+<p><a href="https://desktop.github.com/">desktop.github.com</a></p>
+<p><a href="https://git-scm.com/book/ru/v2/Git-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5-%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80">4.4 Git на сервере - Настраиваем сервер</a></p>
+<p>Теперь вы можете создать пустой репозиторий для них, запустив git init с параметром --bare, что инициализирует репозиторий без рабочего каталога:</p>
+<p>$ cd /opt/git</p>
+<p>$ mkdir project.git</p>
+<p>$ cd project.git</p>
+<p>$ git init --bare</p>
+<p>Initialized empty Git repository in /opt/git/project.git/</p>
+<hr>
+<p>GitHubDesktopSetup.exe</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<table>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<p>Heroku</p>
+<table>
+	<tr>
+		<td></td>
+		<td>heroku login</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>heroku git:clone -a bmrks</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>cd bmrks</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>git add .</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>git commit -am "make it better"</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>git push heroku master</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>heroku run python manage.py migrate</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>heroku ps:scale web=1</td>
+		<td></td>
+	</tr>
+</table>
+<p>Первый раз, настройки</p>
+<table>
+	<tr>
+		<td></td>
+		<td>git init</td>
+		<td>в папке</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>git remote add origin https://github.com/mlapinm/git-sample.git</td>
+		<td>добавляет ссылку на удаленный репозиторий, после этого можно push в origin</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td>Git clone https://github.com/mlapinm/git-sample.git</td>
+		<td>копирует удаленный репозиторий в локальный</td>
+	</tr>
+</table>
+<hr>
+<div>
+	<h3>lfs</h3>
+<p>git lfs install</p>
+<p>git init</p>
+<p>git lfs track "*.mp3"</p>
+<p>git add .gitattributes</p>
+<p>git add .</p>
+<p>git commit -m "new"</p>
+<p>git remote add origin https://github.com/mlapinm/GumilevKonets.git</p>
+<p>git push origin master</p>
+
+<a href="https://edt.1c.ru/upload/docs_git/t000132.html">Большинство серверов Git (например, GitLab, GitHub, BitBucket) поддерживают Git LFS. </a>	
+<p>Выполнив команду git push -u origin master вы устанавливаете связь между той веткой, в которой вы находитесь и веткой master на удалённом сервере. Команду требуется выполнить единожды, чтобы потом можно было отправлять/принимать изменения лишь выполняя git push из ветки без указания всяких алиасов для сервера и удалённых веток. Это сделано для удобства.</p>	
+	
+</div>
+<hr>
+<p>Dictonary 1</p>
+<table>
+	<tr>
+		<td>if you’ve done this kind of thing before</td>
+		<td>если ты делал это раньше</td>
+	</tr>
+	<tr>
+		<td>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</td>
+		<td>Git-бесплатная распределенная система управления версиями с открытым исходным кодом, предназначенная для быстрого и эффективного управления всем, от небольших до очень больших проектов.</td>
+	</tr>
+	<tr>
+		<td>Git is easy to learn and has a tiny footprint with lightning fast performance. It outclasses SCM tools like Subversion, CVS, Perforce, and ClearCase with features like cheap local branching, convenient staging areas, and multiple workflows.</td>
+		<td>Легко выучить и имеет крошечный размер с молниеносно быстрым представлением. Он превосходит инструменты SCM, такие как Subversion, CVS, Perforce и ClearCase, с такими функциями, как дешевое локальное ветвление, удобные промежуточные области и несколько рабочих процессов.</td>
+	</tr>
+	<tr>
+		<td>Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. The command saves your local modifications away and reverts the working directory to match the HEAD commit.</td>
+		<td>Используйте git stash, если вы хотите записать текущее состояние рабочего каталога и индекса, но хотите вернуться в чистый рабочий каталог. Команда сохраняет локальные изменения и возвращает рабочий каталог в соответствии с фиксацией HEAD.</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+	<table>	
+	<tr>
+		<td>Issues</td>
+		<td>проблема</td>
+		<td>requests</td>
+		<td>запросы</td>
+		<td>Insights</td>
+		<td>интуитивный</td>
+	</tr>
+	<tr>
+		<td>Pull Requests</td>
+		<td>Запросы</td>
+		<td>Issues</td>
+		<td>Вопросы</td>
+		<td>Contributors</td>
+		<td>сотрудник</td>
+	</tr>
+	<tr>
+		<td>Community</td>
+		<td>Сообщество</td>
+		<td>Commits</td>
+		<td>фиксировать</td>
+		<td>Dependency</td>
+		<td>Зависимость</td>
+	</tr>
+	<tr>
+		<td>Alerts</td>
+		<td>уведомлениеср</td>
+		<td>Forks</td>
+		<td>Вилки</td>
+		<td>Merge</td>
+		<td>соединять</td>
+	</tr>
+	<tr>
+		<td>split</td>
+		<td>разделять</td>
+		<td>pcb footprint</td>
+		<td>печатная плата</td>
+		<td>footprint</td>
+		<td>место</td>
+	</tr>
+	<tr>
+		<td>checkout</td>
+		<td>проверка</td>
+		<td>stash</td>
+		<td>припрятывать</td>
+		<td>Plumbing Commands</td>
+		<td>Сантехнические Команды</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+	
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+function f() {
+	/* Находим iframe как обычный элемент на странице */
+
+	/* Для доступа к объекту document есть специальные свойства contentDocument и contentWindow */
+
+	/*	А вот так находят глобальный объект, связанный с iframe */
+
+	/* Теперь можно создать новый элемент и добавить его в iframe */
+	//var h1 = d.createElement('h1');
+	//h1.innerHTML = 'Палучилась!!!';
+	//d.body.appendChild(h1);
+	//console.log(d.body);
+}	
+	</script>	
+</head>
+<body>
+<div id="div_out">
+	
+</div>
+	<iframe seamless id="iframe" src="lorem.html" frameborder="0" style="display:yes"></iframe>
+<script type="text/javascript">
+	var ff = document.getElementById("iframe");
+	  if (ff.readyState == 'complete') {
+    ff.body.style.backgroundColor = 'green';
+  }
+  ff.onload = function() {
+    var iframeDoc2 = ff.contentWindow.document;
+    iframeDoc2.body.style.backgroundColor = 'orange';
+	  }
+
+	console.log(ff);
+	console.log(ff.contentDocument.body);
+	console.log(ff.contentWindow.document.childNodes[0].childNodes[1].childNodes);
+</script>
+	
+</body>
+</html>

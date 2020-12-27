@@ -1,0 +1,18 @@
+.day{
+	width: 1em;
+	text-align: right;
+	height: 16px;
+	background-color: yellow;
+}
+.week{
+	float: left;
+}
+.month{
+	text-align: center;
+	width: 12ch; height: 17ch;
+	border: dotted 1px;
+}
+table{
+	float: left;
+	border: dotted 1px;
+}

@@ -1,0 +1,27 @@
+01baza
+1_6_1zmeyka_vpered.mp4
+1_6_2zmeyka_nazad.mp4
+1_7_1peretiagka1c.mp4
+1_8_1shasse1c.mp4
+1_8_2shasseskr1c.mp4
+2_2choktau.mp4
+2_4_1тройка.mp4
+2_5skobka.mp4
+2_6kruk1c.mp4
+2_71vikruk_vnutr.mp4
+2_72vikruk_narugu.mp4
+5_35tulup.mp4
+5_41salhov.mp4
+5_42ofp27.mp4
+5_52ofp25.mp4
+5_53ofp07.mp4
+5_54ofp24.mp4
+5_55ofp08.mp4
+5_56ofp09.mp4
+5_57ofp10.mp4
+5_58ofp11.mp4
+5_59rittberger.mp4
+dir.txt
+dir.vbs
+
+PROFIT in D:\mailCloud\prjother\017python\pyweb_1\cssgeek\060playlist\01baza

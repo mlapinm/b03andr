@@ -1,0 +1,11 @@
+1.
+1.1. video autoplay loop
+2. События:
+2.1. onclick
+<video id="homevideo" class="MyHomeVideo" autoplay autobuffer loop controls width="500" src="month3.mp4" onclick></video>
+2.2. 
+		videoPlayer.addEventListener("play");
+2.3.
+		videoPlayer.onclick
+3.https://online-converting.ru/video/avi-to-mp4/
+

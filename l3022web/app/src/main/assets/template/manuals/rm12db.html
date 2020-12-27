@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.past {
+			background-color: gainsboro;
+		}
+
+		body {
+			font-family: Arial
+		}
+
+		p {
+			margin: 0px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<p>На курсе по основам SQL вы научитесь работать с такими популярными СУБД как SQLite, MySQL и PostgreSQL. </p>
+	<p>На этом уроке мы рассмотрим: создание базы данных, создание и удаление таблицы, вставка, вывод, удаление и изменение записей.</p>
+	<ol>Инструменты
+		<li>Терминал(cmd, git-bush, conemu)</li>
+		<li>СУБД(SQLite, MySQL, PostgreSQL)</li>
+		<li>Текстовый редактор (notepad, gedit, sublime)</li>
+	</ol>
+	<ul>Установка Debian/Ubuntu
+		<li>$sudo apt-get update</li>
+		<li>$sudo apt-get install sqlite3 mysql-server postgresql</li>
+	</ul>
+	<p>sql</p>
+	<ol>
+		<li>
+			<p>mysql -u root</p>
+			<p>create database new_database;</p>
+			<p>D:\programs\OSPanel\userdata\MySQL-5.6\new_database </p>
+			<p>mysql> use new_database</p>
+			<p>create table citys(id INT, name VARCHAR(255));</p>
+			<p>show tables;</p>
+			<p>drop tables citys;</p>
+			<p>show tables;</p>
+			<p>create table citys(id INT NOT NULL, name VARCHAR(255));</p>
+			<p>show tables;</p>
+			<p>insert into citys(id, name) values(1, 'Maykop');</p>
+			<p>insert into citys(id, name) values(2, 'Krasnodar');</p>
+			<p>insert into citys(id, name) values(3, 'Belorechensk');</p>
+			<p>insert into citys(id, name) values(4, 'Apsheronsk');</p>
+			<p>insert into citys(id, name) values(5, 'Sochi');</p>
+			<p>select * from citys;</p>
+			<p>select * from citys limit 2;</p>
+			<p>select * from citys order by id limit 2;</p>
+			<p>select * from citys where id=2;</p>
+			<p>select * from citys where id!=2;</p>
+			<p>select * from citys where id>2 and id&lt;=4 ;</p>
+			<p>select * from citys where id&lt;=2 or id&gt;=4 ;</p>
+			<p>select * from citys order by id asc;</p>
+			<p>select * from citys order by id desc;</p>
+			<p>update citys set name='Moscow' where id=2;</p>
+			<p>delete from citys where name='Belorechensk';</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p>select count(*) from citys;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p>quit</p>
+			<hr>
+			<p>psql -U posgres</p>
+			<p>\! chcp 1251</p>
+			<p>create database new_database;</p>
+			<p>CREATE DATABASE</p>
+			<p>postgres=# \connect new_database</p>
+			<p>create table citys(id INT, name VARCHAR(255));</p>
+			<p>\d</p>
+			<p>drop tables citys;</p>
+			<p>\d</p>
+			<p>create table citys(id INT NOT NULL, name VARCHAR(255));</p>
+			<p>insert into citys(id, name) values(1, 'Maykop');</p>
+			<p>insert into citys(id, name) values(2, 'Krasnodar');</p>
+			<p>insert into citys(id, name) values(3, 'Belorechensk');</p>
+			<p>insert into citys(id, name) values(4, 'Apsheronsk');</p>
+			<p>insert into citys(id, name) values(5, 'Sochi');</p>
+			<p>select * from citys;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p>\q</p>
+			<p>chcp, chcp 866, chcp 1251, chcp UTF-8, chcp 65001, psql \! chcp 1251, font Lucida console</p>
+			<hr>
+			<p>sqlite3 new_database.db</p>
+			<p>create table citys(id INT, name VARCHAR(255));</p>
+			<p>.tables</p>
+			<p>drop table citys;</p>
+			<p>.tables</p>
+			<p>create table citys(id INT NOT NULL, name VARCHAR(255));</p>
+			<p>insert into citys(id, name) values(1, 'Maykop');</p>
+			<p>insert into citys(id, name) values(2, 'Krasnodar');</p>
+			<p>insert into citys(id, name) values(3, 'Belorechensk');</p>
+			<p>insert into citys(id, name) values(4, 'Apsheronsk');</p>
+			<p>insert into citys(id, name) values(5, 'Sochi');</p>
+			<p>select * from citys;</p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ol>
+<p><a href="./rm13.html">Next</a></p>
+	<p>Часто встречаемые типы данных</p>
+	<p><span>INTEGER</span>
+		<span>BIGINT</span>
+		<span>FLOAT</span>
+		<span>DOUBLE</span>
+		<span>BOOLEAN</span>
+		<span>VARCHAR</span>
+		<span>TEXT</span>
+		<span>LONGTEXT</span>
+		<span>DATE</span>
+		<span>DATETIME</span>
+		<span>TIME</span>
+		<span>TIMESTAMP</span></p>
+	<table>Словарь
+		<tr>
+			<td>строки</td>
+			<td>записи</td>
+		</tr>
+		<tr>
+			<td>ячейки</td>
+			<td>поля</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<ol>Полезные ссылки:
+		<li><a href="https://www.sqlite.org/">https://www.sqlite.org/</a></li>
+		<li><a href="https://www.mysql.com/">https://www.mysql.com/</a></li>
+		<li><a href="http://www.postgresql.org/">http://www.postgresql.org/</a></li>
+		<li><a href="https://dev.mysql.com/doc/refman/5.6/en/windows-installation.html">2.3 Installing MySQL on Microsoft Windows</a></li>
+		<li><a href="http://www.postgresqltutorial.com/install-postgresql/">установка PostgreSQL под Windows</a></li>
+		<li>
+			<p>Смотрите видеокурс "Основы PHP":</p><a href="https://www.youtube.com/playlist?list=PLY4rE9dstrJzujrObAWJGH2kCOLfRExLq">youtube.com/playlist</a>
+		</li>
+		<li><a href="https://www.php.net/manual/ru/book.sqlite.php">sqlite.php</a></li>
+		<li><a href=""></a></li>
+
+	</ol>
+	<a href="https://www.youtube.com/watch?v=P2Eaf9M4gOU&list=PLgVq1enHOzYiDkcvYvF5ovIzx_BWGRna2&index=2&t=551s">Основы SQL - #1 – Введение [loftblog]</a>
+</body></html>
