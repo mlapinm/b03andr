@@ -42,6 +42,13 @@
         android:onClick="loadNote"
         android:text="Load" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="updateDescription"
+        android:text="Update description" />
+
     <TextView
         android:id="@+id/text_view_data"
         android:layout_width="match_parent"

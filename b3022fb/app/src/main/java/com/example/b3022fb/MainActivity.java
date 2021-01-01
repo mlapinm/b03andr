@@ -19,6 +19,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -100,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    public void updateDescription(View view) {
+        String description = editTextDescription.getText().toString();
+
+        noteRef.update(KEY_DESCRIPTION, description);
+    }
+
     public void loadNote(View view) {
         noteRef.get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -108,9 +115,6 @@ public class MainActivity extends AppCompatActivity {
                         if(documentSnapshot.exists()){
                             String title = documentSnapshot.getString(KEY_TITLE);
                             String description = documentSnapshot.getString(KEY_DESCRIPTION);
-
-//                            Map<String, Object> note = documentSnapshot.getData();
-
                             textViewData.setText("Title : "
                             + title + "\n"
                             + "Description : " + description
@@ -127,6 +131,5 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, e.toString());
                     }
                 });
-
     }
 }
