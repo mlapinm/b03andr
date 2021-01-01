@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
                             + title + "\n"
                             + "Description : " + description
                     );
+                }else {
+                    textViewData.setText("");
                 }
             }
         });
@@ -105,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
         String description = editTextDescription.getText().toString();
 
         noteRef.update(KEY_DESCRIPTION, description);
+    }
+
+    public void deleteDescription(View view) {
+        noteRef.update(KEY_DESCRIPTION, FieldValue.delete());
+    }
+
+    public void deleteNote(View view) {
+        noteRef.delete();
     }
 
     public void loadNote(View view) {
