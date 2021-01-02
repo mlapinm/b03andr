@@ -28,6 +28,15 @@
         android:inputType="text"
         android:text="Description01" />
 
+    <EditText
+        android:id="@+id/edit_text_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Priority"
+        android:inputType="number"
+        android:text="3"
+        android:textSize="24sp" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
