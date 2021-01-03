@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         editTextTags = findViewById(R.id.edit_text_tags);
         textViewData = findViewById(R.id.text_view_data);
 
-        updateNestedValue();
         this.loadNotes(view);
     }
 
@@ -67,12 +66,17 @@ public class MainActivity extends AppCompatActivity {
             tags.put(tag, true);
         }
         Note note = new Note(title, description, priority, tags);
-        notebookRef.add(note);
+
+        notebookRef.document("Y7UWcwEvKA1Mmu94HaQJ")
+                .collection("Child Notes")
+                .add(note);
+
     }
 
     public void loadNotes(View view) {
         notebookRef
-                .whereEqualTo("tags.tag1", true)
+                .document("Y7UWcwEvKA1Mmu94HaQJ")
+                .collection("Child Notes")
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -96,10 +100,4 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void updateNestedValue() {
-        notebookRef.document("XjDFeFxDrHhSKbyaigdP")
-//                .update("tags.tag1", false);
-//                .update("tags.tag1", FieldValue.delete());
-                .update("tags.tag1.nested1.nested2", true);
-    }
 }
