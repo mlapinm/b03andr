@@ -1,4 +1,4 @@
-package com.example.b3042fb;
+package com.example.b3052fb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,13 +9,12 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPriority;
     private EditText editTextTags;
     private TextView textViewData;
+    private View view;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference notebookRef = db.collection("Notebook");
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View view = (View) findViewById(R.layout.activity_main);
+        view = findViewById(R.layout.activity_main);
 
         editTextTitle = findViewById(R.id.edit_text_title);
         editTextDescription = findViewById(R.id.edit_text_description);
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         editTextTags = findViewById(R.id.edit_text_tags);
         textViewData = findViewById(R.id.text_view_data);
 
-        updateArray();
-        loadNotes(view);
+        updateNestedValue();
+        this.loadNotes(view);
     }
 
     @Override
@@ -61,15 +61,18 @@ public class MainActivity extends AppCompatActivity {
 
         String tagInput = editTextTags.getText().toString();
         String[] tagArray = tagInput.split("\\s*,\\s*");
-        List<String> tags = Arrays.asList(tagArray);
+        Map<String, Boolean> tags = new HashMap<>();
 
+        for(String tag: tagArray){
+            tags.put(tag, true);
+        }
         Note note = new Note(title, description, priority, tags);
         notebookRef.add(note);
     }
 
     public void loadNotes(View view) {
         notebookRef
-//                .whereArrayContains("tags", "tag3")
+                .whereEqualTo("tags.tag1", true)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                             String documentId = note.getDocumentId();
                             data += "Document ID: " + documentId;
 
-                            for(String tag: note.getTags()){
+                            for(String tag: note.getTags().keySet()){
                                 data += "\n - " + tag;
                             }
                             data += "\n";
@@ -93,9 +96,10 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void updateArray() {
-        notebookRef.document("TarEbvZyzhMn1rtE3Zgu")
-                .update("tags", FieldValue.arrayUnion("tag5"));
-//                .update("tags", FieldValue.arrayRemove("tag5"));
+    private void updateNestedValue() {
+        notebookRef.document("XjDFeFxDrHhSKbyaigdP")
+//                .update("tags.tag1", false);
+//                .update("tags.tag1", FieldValue.delete());
+                 .update("tags.tag1.nested1.nested2", true);
     }
 }
