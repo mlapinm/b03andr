@@ -1,29 +1,43 @@
 package com.example.b3323rec;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LittleAdapter extends RecyclerView.Adapter<LittleAdapter.LittleViewHolder> {
     ArrayList<LittleItem> littleItemList;
+    OnClickListenerLittle onClickListenerLittle;
+
+    public interface OnClickListenerLittle {
+        void onClick(int position);
+    }
+
+    public void setOnClickListener(OnClickListenerLittle listener){
+        onClickListenerLittle = listener;
+    }
 
     public class LittleViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
-        RelativeLayout littleItem;
 
-        public LittleViewHolder(@NonNull View itemView) {
+        public LittleViewHolder(@NonNull View itemView, OnClickListenerLittle onClickListenerLittle) {
             super(itemView);
-            littleItem = itemView.findViewById(R.id.itemLittleView);
-//            textView = itemView.findViewById(R.id.textView);
+            textView = itemView.findViewById(R.id.textView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onClickListenerLittle != null){
+                        int position = getAdapterPosition();
+                        onClickListenerLittle.onClick(position);
+                    }
+                }
+            });
         }
     }
 
@@ -38,14 +52,13 @@ public class LittleAdapter extends RecyclerView.Adapter<LittleAdapter.LittleView
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_little_view, parent, false);
 
-        LittleViewHolder lvh = new LittleViewHolder(itemView);
+        LittleViewHolder lvh = new LittleViewHolder(itemView, onClickListenerLittle);
         return lvh;
     }
 
     @Override
     public void onBindViewHolder(@NonNull LittleViewHolder holder, int position) {
-//        holder.textView.setText(littleItemList.get(position).littleItem1);
-        TextView tv = holder.littleItem.findViewById(R.id.textView);
+        TextView tv = holder.textView;
 
         tv.setText(littleItemList.get(position).getLittleItem1());
     }

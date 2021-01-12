@@ -1,10 +1,11 @@
 package com.example.b3323rec;
-
+//OnClickListenerLittle
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +34,11 @@ public class MainActivity extends AppCompatActivity {
         littleAdapter = new LittleAdapter(listLittleItems);
         recyclerView.setAdapter(littleAdapter);
 
-
-        littleAdapter = new LittleAdapter(listLittleItems);
+        littleAdapter.setOnClickListener(new LittleAdapter.OnClickListenerLittle() {
+            @Override
+            public void onClick(int position) {
+                Toast.makeText(MainActivity.this, "Position: " + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
